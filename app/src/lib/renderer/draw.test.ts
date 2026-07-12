@@ -41,6 +41,29 @@ describe("drawSlide", () => {
   it("STORY_DIMS = 1080x1920, marge 50", () => {
     expect(STORY_DIMS).toEqual({ width: 1080, height: 1920, margin: 50 });
   });
+
+  it("une marge de contenu gauche plus grande décale le texte vers la droite", () => {
+    const slide = { id: "s", lines: [{ id: "1", style: "text" as const, text: "Hi" }] };
+    const xOf = (left: number) => {
+      const ctx = fakeCtx();
+      drawSlide(ctx as any, slide, DEFAULT_STYLES, { ...opts, contentMargin: { linked: false, top: 50, right: 50, bottom: 50, left } });
+      const t = ctx.calls.find((c) => c[0] === "fillText" && c[1] === "Hi");
+      return t ? t[2] : 0; // x de la ligne
+    };
+    expect(xOf(50)).toBe(50);
+    expect(xOf(200)).toBe(200);
+  });
+
+  it("centre le texte quand le style est aligné au centre", () => {
+    const styles = { ...DEFAULT_STYLES, text: { ...DEFAULT_STYLES.text, align: "center" as const } };
+    const slide = { id: "s", lines: [{ id: "1", style: "text" as const, text: "Hi" }] };
+    const ctx = fakeCtx();
+    // measureText factice : "Hi" = 2 * 20 = 40 px de large.
+    drawSlide(ctx as any, slide, styles, opts);
+    const t = ctx.calls.find((c) => c[0] === "fillText" && c[1] === "Hi");
+    // areaLeft = 50, areaRight = 1080 - 50 = 1030 ; centre = (50+1030)/2 - 40/2 = 520.
+    expect(t?.[2]).toBe(520);
+  });
 });
 
 describe("dimsFor", () => {
