@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import type { Slide } from "@/lib/model";
 import { DEFAULT_STYLES } from "@/lib/model";
-import { drawSlide, STORY_DIMS } from "@/lib/renderer/draw";
+import { drawSlide, dimsFor } from "@/lib/renderer/draw";
 
 const DEFAULT_BG = "#4e7a63"; // fond sauge par défaut (fonds/images en Phase 4)
 
-export function CanvasPreview({ slide }: { slide: Slide | null }) {
+export function CanvasPreview({ slide, format }: { slide: Slide | null; format: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const dims = dimsFor(format);
 
   useEffect(() => {
     const canvas = ref.current;
@@ -17,19 +18,19 @@ export function CanvasPreview({ slide }: { slide: Slide | null }) {
     document.fonts.ready.then(() => {
       if (cancelled) return;
       if (slide) {
-        drawSlide(ctx, slide, DEFAULT_STYLES, { dims: STORY_DIMS, background: DEFAULT_BG });
+        drawSlide(ctx, slide, DEFAULT_STYLES, { dims, background: DEFAULT_BG });
       } else {
-        ctx.clearRect(0, 0, STORY_DIMS.width, STORY_DIMS.height);
+        ctx.clearRect(0, 0, dims.width, dims.height);
       }
     });
     return () => { cancelled = true; };
-  }, [slide]);
+  }, [slide, dims.width, dims.height, dims.margin]);
 
   return (
     <canvas
       ref={ref}
-      width={STORY_DIMS.width}
-      height={STORY_DIMS.height}
+      width={dims.width}
+      height={dims.height}
       style={{ height: "min(72vh, 720px)", width: "auto", borderRadius: 16, boxShadow: "var(--shadow)", display: "block" }}
     />
   );

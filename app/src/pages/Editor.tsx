@@ -5,6 +5,11 @@ import { CanvasPreview } from "@/components/CanvasPreview";
 import { SlidesRail } from "@/components/SlidesRail";
 import { ContentInspector } from "@/components/ContentInspector";
 
+function formatLabel(type: string, format: string): string {
+  if (type === "post") return format === "4:5" ? "🖼️ Post 1080×1350" : "🖼️ Post 1080×1080";
+  return "📱 Story 1080×1920";
+}
+
 export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [doc, setDoc] = useState<StoryDoc | null>(null);
   const [active, setActive] = useState(0);
@@ -65,7 +70,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
             onChange={(e) => setDoc({ ...doc, title: e.target.value })}
             aria-label="Titre de la story"
           />
-          <span className="badge draft">📱 Story 1080×1920</span>
+          <span className="badge draft">{formatLabel(doc.type, doc.format)}</span>
           <div className="top-actions">
             <span style={{ color: "var(--sage-deep)", fontSize: 13, fontWeight: 700, opacity: saved ? 1 : 0, transition: "opacity .3s" }}>✓ Enregistré</span>
           </div>
@@ -99,7 +104,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
           />
 
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", background: "#eaf1ef", padding: 16 }}>
-            <CanvasPreview slide={slide} />
+            <CanvasPreview slide={slide} format={doc.format} />
           </div>
 
           {slide && (
