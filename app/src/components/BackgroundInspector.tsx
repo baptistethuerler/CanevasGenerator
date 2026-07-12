@@ -25,6 +25,10 @@ export function BackgroundInspector({
   const ov = value.overlay;
   const fileRef = useRef<HTMLInputElement>(null);
   const selectImage = (ref: string) => onChange({ ...value, kind: "image", imageRef: ref, crop: value.crop ?? defaultCrop(), filters: value.filters ?? defaultFilters() });
+  const crop = value.crop ?? defaultCrop();
+  const filters = value.filters ?? defaultFilters();
+  const setCrop = (patch: Partial<typeof crop>) => onChange({ ...value, crop: { ...crop, ...patch } });
+  const setFilters = (patch: Partial<typeof filters>) => onChange({ ...value, filters: { ...filters, ...patch } });
 
   return (
     <div style={{ width: 260, borderLeft: "1px solid var(--line)", background: "#fff", display: "flex", flexDirection: "column", overflowY: "auto", padding: 12 }}>
@@ -61,7 +65,24 @@ export function BackgroundInspector({
               style={{ aspectRatio: "1", borderRadius: 8, border: "1.5px dashed var(--sage-light)", background: "#f4faf8", color: "var(--sage-deep)", cursor: "pointer", fontSize: 20 }}>＋</button>
           </div>
           <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => { const f = e.target.files?.[0]; if (f) onUpload(f); e.target.value = ""; }} />
-          <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 4 }}>Le recadrage, la luminosité et le flou arriveront à l'étape suivante.</div>
+
+          {value.imageRef && (
+            <>
+              <div style={label}>Zoom — {Math.round(crop.zoom * 100)} %</div>
+              <input type="range" min={1} max={3} step={0.05} value={crop.zoom} onChange={(e) => setCrop({ zoom: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+
+              <div style={label}>Point focal — horizontal</div>
+              <input type="range" min={0} max={1} step={0.01} value={crop.x} onChange={(e) => setCrop({ x: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+              <div style={label}>Point focal — vertical</div>
+              <input type="range" min={0} max={1} step={0.01} value={crop.y} onChange={(e) => setCrop({ y: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+
+              <div style={label}>Luminosité — {Math.round(filters.brightness * 100)} %</div>
+              <input type="range" min={0.3} max={1.7} step={0.05} value={filters.brightness} onChange={(e) => setFilters({ brightness: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+
+              <div style={label}>Flou — {filters.blur} px</div>
+              <input type="range" min={0} max={20} step={1} value={filters.blur} onChange={(e) => setFilters({ blur: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+            </>
+          )}
         </>
       )}
 
