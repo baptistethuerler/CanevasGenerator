@@ -111,4 +111,19 @@ describe("drawBackground", () => {
     expect(linear).toBe(1);
     expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(2);
   });
+
+  it("crée un dégradé radial pour la direction radiale", () => {
+    const ctx = fakeCtx();
+    let radial = 0;
+    (ctx as any).createRadialGradient = () => { radial++; return { addColorStop: () => {} }; };
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "gradient", color: "#000", intensity: 0.6, direction: "radial", softness: 0.5 } }, dims);
+    expect(radial).toBe(1);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(2);
+  });
+
+  it("ne peint pas de voile si l'intensité est nulle", () => {
+    const ctx = fakeCtx();
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "gradient", color: "#000", intensity: 0, direction: "bottom", softness: 0.5 } }, dims);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(1);
+  });
 });

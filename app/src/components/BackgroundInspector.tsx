@@ -60,8 +60,12 @@ export function BackgroundInspector({
                   </button>
                 ))}
               </div>
-              <div style={label}>Douceur</div>
-              <input type="range" min={0} max={1} step={0.05} value={ov.softness} onChange={(e) => setOverlay({ softness: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+              {ov.direction !== "radial" && (
+                <>
+                  <div style={label}>Douceur</div>
+                  <input type="range" min={0} max={1} step={0.05} value={ov.softness} onChange={(e) => setOverlay({ softness: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+                </>
+              )}
             </>
           )}
 
