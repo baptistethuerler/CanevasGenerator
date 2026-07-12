@@ -1,26 +1,38 @@
 import { useEffect, useState } from "react";
-import { fetchLibrary, type DocMeta } from "@/lib/api";
+import { fetchLibrary, createDoc, type DocMeta } from "@/lib/api";
+import { newStoryPayload } from "@/lib/model";
 import { Shell } from "@/components/Shell";
 
-export function Library() {
+export function Library({ onOpen }: { onOpen: (id: string) => void }) {
   const [docs, setDocs] = useState<DocMeta[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [creating, setCreating] = useState(false);
 
   useEffect(() => {
     fetchLibrary().then(setDocs).catch((e) => setError(e.message));
   }, []);
+
+  async function createStory() {
+    setCreating(true);
+    try {
+      const doc = await createDoc(newStoryPayload());
+      onOpen(doc.id);
+    } catch (e) {
+      setError((e as Error).message);
+      setCreating(false);
+    }
+  }
 
   return (
     <Shell
       active="creations"
       title="Créations"
       actions={
-        <button type="button" className="btn primary" disabled>
+        <button type="button" className="btn primary" onClick={createStory} disabled={creating}>
           + Nouveau
         </button>
       }
     >
-      {/* Barre de filtres sur une seule ligne (câblée en Phase 3) */}
       <div className="filters">
         <div className="search" style={{ maxWidth: 220 }}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -39,9 +51,6 @@ export function Library() {
           <option>Brouillon</option>
           <option>Prêt</option>
         </select>
-        <select className="select" aria-label="Filtrer par période" defaultValue="">
-          <option value="">Période : toutes</option>
-        </select>
         <select className="select" aria-label="Trier" defaultValue="date">
           <option value="date">Tri : date ↓</option>
           <option value="title">Titre A→Z</option>
@@ -54,7 +63,7 @@ export function Library() {
       {docs && docs.length === 0 && (
         <div className="empty">
           Aucune création pour l'instant.
-          <small>La création de stories et de posts arrivera dans les prochaines phases.</small>
+          <small>Clique sur « + Nouveau » pour créer ta première story.</small>
         </div>
       )}
 
@@ -72,7 +81,7 @@ export function Library() {
           </thead>
           <tbody>
             {docs.map((d) => (
-              <tr key={d.id}>
+              <tr key={d.id} onClick={() => onOpen(d.id)}>
                 <td>
                   <div className={`thumb${d.type === "post" ? " square" : ""}`} />
                 </td>
