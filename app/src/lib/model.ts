@@ -36,9 +36,12 @@ export interface Slide {
   lines: Line[];
 }
 
+export type Format = "9:16" | "1:1" | "4:5";
+
 export interface StoryPayload {
-  type: "story";
-  format: "9:16";
+  type: "story" | "post";
+  format: Format;
+  postMode?: "single" | "carousel";
   title: string;
   status: "draft" | "ready";
   date: string;
@@ -57,13 +60,14 @@ export function newSlide(): Slide {
   return { id: uid(), lines: [{ ...newLine("title"), text: "Nouveau slide" }, newLine("text")] };
 }
 
+function today(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
 export function newStoryPayload(title = "Nouvelle story"): StoryPayload {
-  return {
-    type: "story",
-    format: "9:16",
-    title,
-    status: "draft",
-    date: new Date().toISOString().slice(0, 10),
-    slides: [newSlide()],
-  };
+  return { type: "story", format: "9:16", title, status: "draft", date: today(), slides: [newSlide()] };
+}
+
+export function newPostPayload(format: Format = "1:1", title = "Nouveau post"): StoryPayload {
+  return { type: "post", format, postMode: "single", title, status: "draft", date: today(), slides: [newSlide()] };
 }
