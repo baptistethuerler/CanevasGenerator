@@ -1,0 +1,236 @@
+{
+  "id": "b495f805-3e7d-419a-8340-1b53221b5ba5",
+  "createdAt": "2026-07-12T20:10:24.854Z",
+  "updatedAt": "2026-07-12T20:24:58.275Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Nouvelle story",
+  "date": "2026-07-12",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "top",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.5,
+      "y": 0.5
+    },
+    "filters": {
+      "brightness": 1,
+      "blur": 0
+    },
+    "imageRef": "Fond_1080x1920_Gastlosen.png"
+  },
+  "slides": [
+    {
+      "id": "010eb268-40ad-4bad-9311-e6732258493e",
+      "lines": [
+        {
+          "id": "c179b242-d1d1-4363-8d24-03b46aca62c6",
+          "style": "title",
+          "text": "Disponibilités",
+          "icon": {
+            "name": "agenda-1",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "c3f7e183-4ab8-48f2-b5cf-8de5950e75c0",
+          "style": "subtitle",
+          "text": "Du lundi 13 au dimanche 19 juillet "
+        },
+        {
+          "id": "8c7ad975-ad14-471a-b35a-cc931c8b813c",
+          "style": "subtitle",
+          "text": "Cabinet - Riazen",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "ed98667e-0d56-46fd-ba59-c348a37fc44e",
+          "style": "text",
+          "text": "Mercredi 15 juillet "
+        },
+        {
+          "id": "6f11758f-f0bf-4fd1-b753-faed0400923c",
+          "style": "arrow",
+          "text": "08:00"
+        },
+        {
+          "id": "578952a6-c681-4a42-a473-f60d5714c39b",
+          "style": "text",
+          "text": "Jeudi 16 juillet "
+        },
+        {
+          "id": "dbbf12e7-2a7f-4d59-a733-85caaedc8bbc",
+          "style": "arrow",
+          "text": "08:00"
+        }
+      ]
+    },
+    {
+      "id": "ffb1cb31-573c-4521-81be-eb00a19419d6",
+      "lines": [
+        {
+          "id": "b4a23406-3595-438f-b19e-d315e3432451",
+          "style": "text",
+          "text": "Samedi matin \n",
+          "icon": {
+            "name": "etoile-2",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "117c3f13-0aec-4665-bf39-fc898e95f37e",
+          "style": "arrow",
+          "text": "08:00"
+        },
+        {
+          "id": "8f95e741-6af6-4cde-9a71-585a136d3eb5",
+          "style": "arrow",
+          "text": "09:00"
+        },
+        {
+          "id": "790b6e40-f14f-40cf-b2ac-e166369c459f",
+          "style": "arrow",
+          "text": "10:00"
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "7858b9c2-a747-42ac-aa65-dbd61f8855e1",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.25,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-1.5",
+    "scale": 0.9
+  }
+}

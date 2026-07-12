@@ -1,0 +1,236 @@
+{
+  "id": "0db6894b-68eb-438e-ba4e-10d041c993cd",
+  "createdAt": "2026-07-12T19:12:44.977Z",
+  "updatedAt": "2026-07-12T19:52:03.478Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Contact",
+  "date": "2026-07-12",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#81a9a3",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#81a9a3",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "#81a9a3",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "#81a9a3",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#81a9a3",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "#81a9a3",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-top",
+  "background": {
+    "kind": "color",
+    "color": "#eef4f1",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    }
+  },
+  "slides": [
+    {
+      "id": "61dd3a38-85ac-4a63-8d00-51e6bee40746",
+      "lines": [
+        {
+          "id": "07245564-f9b0-4db4-b418-986cfd55a266",
+          "style": "title",
+          "text": "Où se déroulent les séances ? ",
+          "icon": null
+        },
+        {
+          "id": "1087aa96-dc32-4da1-b562-cb6e4767001a",
+          "style": "subtitle",
+          "text": "Les séances sont proposées "
+        },
+        {
+          "id": "0b210661-6411-40b8-a8ff-fb301e71ec87",
+          "style": "subtitle",
+          "text": "Au cabinet Riazen",
+          "icon": {
+            "name": "localisation",
+            "color": "sauge"
+          }
+        },
+        {
+          "id": "6c6c7823-1477-485a-907e-0f081c7bc8a4",
+          "style": "text",
+          "text": "Mercredi et jeudi"
+        },
+        {
+          "id": "779a457f-b671-4199-9dc1-17e695b07cf6",
+          "style": "subtitle",
+          "text": "À votre domicile",
+          "icon": {
+            "name": "maison",
+            "color": "sauge"
+          }
+        },
+        {
+          "id": "8f591808-a731-46ba-9d5c-db0bf19b38b9",
+          "style": "text",
+          "text": "Lundi"
+        },
+        {
+          "id": "5336b406-bc81-4240-b776-8a3d4d9d6efd",
+          "style": "note",
+          "text": "Des créneaux supplémentaires peuvent être proposés ponctuellement, notamment le samedi",
+          "icon": {
+            "name": "etoile-2",
+            "color": "sauge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3f1afafa-c4d6-4fd5-a772-e92cab257d1e",
+      "lines": [
+        {
+          "id": "71b943d5-fe68-4c8f-ae82-315167600357",
+          "style": "title",
+          "text": "Cabinet - Riazen",
+          "icon": {
+            "name": "localisation",
+            "color": "sauge"
+          }
+        },
+        {
+          "id": "e8c1073d-a6e4-48e6-b143-e39110a4a4bf",
+          "style": "subtitle",
+          "text": "Rue de la Gruyère 68, 1632 Riaz"
+        },
+        {
+          "id": "9ea73c55-7a40-4711-9c5e-0b6b6e071aee",
+          "style": "subtitle",
+          "text": "Des places de parking sont disponibles à proximité "
+        },
+        {
+          "id": "6ac2af3f-b0f1-4acd-87d1-b17ee06ef032",
+          "style": "bullet",
+          "text": "Derrière le bâtiment : places 21 et 22"
+        },
+        {
+          "id": "3e9001de-ffb3-4be5-aef4-d21c69205ee8",
+          "style": "bullet",
+          "text": "En face du bâtiment : places 16 et 17 "
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "e7442c45-8e31-4e36-a650-b4686f42eaa3",
+      "logoRef": "3f9a30e3-3ab9-4dbc-86f2-ad8d8fda826e.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.25,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-1.5",
+    "scale": 0.9
+  }
+}

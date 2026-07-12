@@ -1,0 +1,197 @@
+{
+  "id": "8605c32b-c076-467b-a89f-e6d389ce0f1c",
+  "createdAt": "2026-07-12T18:46:13.011Z",
+  "updatedAt": "2026-07-12T19:52:20.748Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Tarifs",
+  "date": "2026-07-12",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 93,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-bottom",
+  "background": {
+    "kind": "color",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.5,
+      "y": 0.5
+    },
+    "filters": {
+      "brightness": 1,
+      "blur": 0
+    },
+    "imageRef": "Fond_1080x1920_Gastlosen.png"
+  },
+  "slides": [
+    {
+      "id": "7f343ece-bde0-49a3-ab0c-90dbec1f31a5",
+      "lines": [
+        {
+          "id": "f89cce04-704e-4add-9658-c928a05a9d7c",
+          "style": "title",
+          "text": "Tarif de lancement",
+          "icon": {
+            "name": "coeur",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "2ef9ae6a-36bf-48c0-9994-d71352b7e62d",
+          "style": "subtitle",
+          "text": "Dans le cadre de mon cursus de formation, je propose actuellement"
+        },
+        {
+          "id": "89e9f69a-88a3-41ed-aff6-af567c0b212a",
+          "style": "subtitle",
+          "text": "Massage thérapeutique",
+          "icon": {
+            "name": "feuille",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "cf0a58a4-2598-4f16-96a6-8e65ba58aec3",
+          "style": "text",
+          "text": "60 min / 60 CHF "
+        },
+        {
+          "id": "a7f9920b-41fe-408d-88b3-7d578ac62e33",
+          "style": "note",
+          "text": "Ce tarif évoluera progressivement au fil de ma formation et des compétences acquises"
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "a9283a25-9e38-4748-a808-c8f0602864e9",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "top-right"
+      ],
+      "free": null,
+      "size": 0.25,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-1.5",
+    "scale": 0.9
+  }
+}
