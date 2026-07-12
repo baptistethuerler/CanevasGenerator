@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground, defaultCrop, defaultFilters, newLogoPlacement, effectiveLogos, ANCHORS } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground, defaultCrop, defaultFilters, newLogoPlacement, effectiveLogos, ANCHORS, defaultTiming } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -157,5 +157,32 @@ describe("logo", () => {
     expect(effectiveLogos({ logos: docLogos }, { id: "s", lines: [], logos: slideLogos })).toBe(slideLogos);
     expect(effectiveLogos({ logos: docLogos }, { id: "s", lines: [] })).toBe(docLogos);
     expect(effectiveLogos({}, null)).toEqual([]);
+  });
+});
+
+describe("timing", () => {
+  it("defaultTiming renvoie 4.5 s de maintien et 0.7 s de transition", () => {
+    expect(defaultTiming()).toEqual({ duration: 4.5, transition: 0.7 });
+  });
+
+  it("ensureDocDefaults ajoute timing quand il est absent", () => {
+    const doc = ensureDocDefaults({
+      id: "x", type: "story", format: "9:16", title: "t",
+      status: "draft", createdAt: "2026-07-12", updatedAt: "2026-07-12", slides: [],
+    });
+    expect(doc.timing).toEqual({ duration: 4.5, transition: 0.7 });
+  });
+
+  it("ensureDocDefaults préserve un timing fourni", () => {
+    const doc = ensureDocDefaults({
+      id: "x", type: "story", format: "9:16", title: "t",
+      status: "draft", createdAt: "2026-07-12", updatedAt: "2026-07-12", slides: [],
+      timing: { duration: 3, transition: 0.4 },
+    });
+    expect(doc.timing).toEqual({ duration: 3, transition: 0.4 });
+  });
+
+  it("newStoryPayload a un timing par défaut", () => {
+    expect(newStoryPayload().timing).toEqual({ duration: 4.5, transition: 0.7 });
   });
 });

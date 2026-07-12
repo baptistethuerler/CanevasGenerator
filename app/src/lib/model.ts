@@ -28,6 +28,11 @@ export interface Filters {
   blur: number;
 }
 
+export interface Timing {
+  duration: number;   // maintien par slide, en secondes
+  transition: number; // durée du fondu enchaîné, en secondes
+}
+
 export interface Background {
   kind: "color" | "image";
   color: string;
@@ -50,6 +55,10 @@ export function defaultCrop(): Crop {
 
 export function defaultFilters(): Filters {
   return { brightness: 1, blur: 0 };
+}
+
+export function defaultTiming(): Timing {
+  return { duration: 4.5, transition: 0.7 };
 }
 
 export function defaultBackground(): Background {
@@ -120,6 +129,7 @@ export interface StoryPayload {
   background: Background;
   slides: Slide[];
   logos: LogoPlacement[];
+  timing?: Timing;
 }
 
 export interface DocLike {
@@ -138,6 +148,7 @@ export interface DocLike {
   background?: Background;
   slides: Slide[];
   logos?: LogoPlacement[];
+  timing?: Timing;
 }
 
 export interface ResolvedDoc extends DocLike {
@@ -146,6 +157,7 @@ export interface ResolvedDoc extends DocLike {
   blockPosition: BlockPosition;
   background: Background;
   logos: LogoPlacement[];
+  timing: Timing;
 }
 
 export type Anchor =
@@ -213,6 +225,7 @@ export function ensureDocDefaults(doc: DocLike): ResolvedDoc {
     blockPosition: doc.blockPosition ?? "center",
     background: doc.background ?? defaultBackground(),
     logos: doc.logos ?? [],
+    timing: doc.timing ?? defaultTiming(),
   };
 }
 
@@ -233,6 +246,7 @@ function baseNew(type: "story" | "post", format: Format, title: string): StoryPa
     background: defaultBackground(),
     slides: [newSlide()],
     logos: [],
+    timing: defaultTiming(),
   };
 }
 
