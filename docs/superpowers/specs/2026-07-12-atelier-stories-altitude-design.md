@@ -42,7 +42,8 @@ Toutes les fonctionnalités listées ci-dessous sont dans la **v1** (l'utilisate
 
 | Couche | Technologie |
 |--------|-------------|
-| Interface | **React + TypeScript**, **Vite**, **Tailwind CSS**, **shadcn/ui** |
+| Interface | **React + TypeScript**, **Vite**, **Tailwind CSS** |
+| Design system | **« Sérénité »** repris de Praxoria : palette sauge `#4e7a63` / terracotta `#c9836a` / crème `#f6f4ee`, police **Nunito**, coins arrondis (18 px), ombres douces, barre latérale vert profond. Classes CSS faites main (`index.css`) ; des composants shadcn/ui thémés pourront être ajoutés ponctuellement si un widget complexe le justifie |
 | Rendu visuel | **Canvas 2D** (moteur unique partagé aperçu ↔ export), portage du moteur actuel |
 | Serveur local | **Node.js** (Express léger) : sert l'app + API fichiers |
 | Persistance | Fichiers **JSON** + assets sur disque (pas de base de données) |
