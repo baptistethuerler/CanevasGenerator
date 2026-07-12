@@ -39,21 +39,24 @@ export function Library({ onOpen }: { onOpen: (id: string) => void }) {
     }
   }
 
-  async function duplicate(id: string) { setBusy(true); try { await duplicateDoc(id); await reload(); } finally { setBusy(false); } }
+  async function duplicate(id: string) {
+    setBusy(true);
+    try { await duplicateDoc(id); await reload(); } catch (e) { setError((e as Error).message); } finally { setBusy(false); }
+  }
   async function rename(d: DocMeta) {
     const t = prompt("Nouveau titre :", d.title);
     if (t === null) return;
     setBusy(true);
-    try { await patchDoc(d.id, { title: t.trim() || d.title }); await reload(); } finally { setBusy(false); }
+    try { await patchDoc(d.id, { title: t.trim() || d.title }); await reload(); } catch (e) { setError((e as Error).message); } finally { setBusy(false); }
   }
   async function toggleStatus(d: DocMeta) {
     setBusy(true);
-    try { await patchDoc(d.id, { status: d.status === "ready" ? "draft" : "ready" }); await reload(); } finally { setBusy(false); }
+    try { await patchDoc(d.id, { status: d.status === "ready" ? "draft" : "ready" }); await reload(); } catch (e) { setError((e as Error).message); } finally { setBusy(false); }
   }
   async function remove(d: DocMeta) {
     if (!confirm(`Supprimer « ${d.title} » ? Cette action est définitive.`)) return;
     setBusy(true);
-    try { await deleteDoc(d.id); await reload(); } finally { setBusy(false); }
+    try { await deleteDoc(d.id); await reload(); } catch (e) { setError((e as Error).message); } finally { setBusy(false); }
   }
 
   const months = docs ? availableMonths(docs) : [];
@@ -151,10 +154,10 @@ export function Library({ onOpen }: { onOpen: (id: string) => void }) {
                 </td>
                 <td>
                   <div className="row-actions" onClick={(e) => e.stopPropagation()}>
-                    <button type="button" style={actBtn} title="Dupliquer" onClick={() => duplicate(d.id)}>⧉</button>
-                    <button type="button" style={actBtn} title="Renommer" onClick={() => rename(d)}>✎</button>
-                    <button type="button" style={actBtn} title="Basculer brouillon/prêt" onClick={() => toggleStatus(d)}>◑</button>
-                    <button type="button" style={{ ...actBtn, color: "var(--terracotta-ink)" }} title="Supprimer" onClick={() => remove(d)}>🗑</button>
+                    <button type="button" disabled={busy} style={actBtn} title="Dupliquer" onClick={() => duplicate(d.id)}>⧉</button>
+                    <button type="button" disabled={busy} style={actBtn} title="Renommer" onClick={() => rename(d)}>✎</button>
+                    <button type="button" disabled={busy} style={actBtn} title="Basculer brouillon/prêt" onClick={() => toggleStatus(d)}>◑</button>
+                    <button type="button" disabled={busy} style={{ ...actBtn, color: "var(--terracotta-ink)" }} title="Supprimer" onClick={() => remove(d)}>🗑</button>
                   </div>
                 </td>
               </tr>

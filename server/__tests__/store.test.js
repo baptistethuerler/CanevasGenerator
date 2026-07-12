@@ -42,4 +42,18 @@ describe("store", () => {
     await store.remove(doc.id);
     await expect(store.get(doc.id)).rejects.toThrow();
   });
+
+  it("patch préserve id/type/createdAt et régénère updatedAt", async () => {
+    const store = await freshStore();
+    const doc = await store.create({ type: "story", title: "X", slides: [] });
+    // Un PATCH tentant de changer le type ne doit PAS déplacer le fichier ni changer le type.
+    const patched = await store.patch(doc.id, { title: "Z", status: "ready", type: "post" });
+    expect(patched.id).toBe(doc.id);
+    expect(patched.type).toBe("story");
+    expect(patched.createdAt).toBe(doc.createdAt);
+    expect(patched.title).toBe("Z");
+    expect(patched.status).toBe("ready");
+    // Toujours relisible (donc resté dans data/stories/) avec le type d'origine.
+    expect((await store.get(doc.id)).type).toBe("story");
+  });
 });
