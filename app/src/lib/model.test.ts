@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground, defaultCrop, defaultFilters } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground, defaultCrop, defaultFilters, newLogoPlacement, effectiveLogos, ANCHORS } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -133,5 +133,29 @@ describe("fond image", () => {
   });
   it("defaultFilters = neutre", () => {
     expect(defaultFilters()).toEqual({ brightness: 1, blur: 0 });
+  });
+});
+
+describe("logo", () => {
+  it("ANCHORS contient les 9 positions", () => {
+    expect(ANCHORS).toHaveLength(9);
+    expect(ANCHORS).toContain("top-left");
+    expect(ANCHORS).toContain("center");
+    expect(ANCHORS).toContain("bottom-right");
+  });
+  it("newLogoPlacement : un ancrage bas-droite, taille et opacité par défaut", () => {
+    const p = newLogoPlacement("logo.png");
+    expect(p.id).toBeTruthy();
+    expect(p.logoRef).toBe("logo.png");
+    expect(p.anchors).toEqual(["bottom-right"]);
+    expect(p.size).toBeGreaterThan(0);
+    expect(p.opacity).toBeGreaterThan(0);
+  });
+  it("effectiveLogos : la surcharge du slide prime, sinon le document, sinon []", () => {
+    const docLogos = [newLogoPlacement("a.png")];
+    const slideLogos = [newLogoPlacement("b.png")];
+    expect(effectiveLogos({ logos: docLogos }, { id: "s", lines: [], logos: slideLogos })).toBe(slideLogos);
+    expect(effectiveLogos({ logos: docLogos }, { id: "s", lines: [] })).toBe(docLogos);
+    expect(effectiveLogos({}, null)).toEqual([]);
   });
 });
