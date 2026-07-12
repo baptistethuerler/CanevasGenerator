@@ -1,4 +1,4 @@
-import type { Slide, StoryPayload } from "./model";
+import type { Slide, StoryPayload, Format } from "./model";
 
 export type DocMeta = {
   id: string;
@@ -52,4 +52,33 @@ export async function updateDoc(id: string, doc: StoryDoc): Promise<StoryDoc> {
   });
   if (!res.ok) throw new Error("Enregistrement impossible");
   return res.json();
+}
+
+export async function patchDoc(id: string, partial: Partial<StoryDoc>): Promise<StoryDoc> {
+  const res = await fetch(`/api/doc/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(partial),
+  });
+  if (!res.ok) throw new Error("Mise à jour impossible");
+  return res.json();
+}
+
+export async function deleteDoc(id: string): Promise<void> {
+  const res = await fetch(`/api/doc/${id}`, { method: "DELETE" });
+  if (!res.ok) throw new Error("Suppression impossible");
+}
+
+export async function duplicateDoc(id: string): Promise<StoryDoc> {
+  const src = await getDoc(id);
+  const payload: StoryPayload = {
+    type: src.type,
+    format: src.format as Format,
+    postMode: src.type === "post" ? "single" : undefined,
+    title: `${src.title} (copie)`,
+    status: "draft",
+    date: src.date ?? new Date().toISOString().slice(0, 10),
+    slides: src.slides,
+  };
+  return createDoc(payload);
 }
