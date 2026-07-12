@@ -1,5 +1,5 @@
 import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, Overlay, Crop, LogoPlacement, Anchor } from "../model";
-import { layoutSlide } from "./layout";
+import { layoutSlide, runFontString } from "./layout";
 
 export interface Dims {
   width: number;
@@ -215,19 +215,21 @@ export function drawSlide(
     const areaLeft = markX + b.markWidth;
     const areaRight = contentRight - st.margins.right;
 
+    ctx.fillStyle = st.color;
     if (st.mark) {
-      ctx.fillStyle = st.color;
+      ctx.font = b.font;
       ctx.fillText(st.mark, markX, firstBaseline);
     }
 
-    ctx.fillStyle = st.color;
-    b.wrapped.forEach((tline, k) => {
+    b.wrapped.forEach((runs, k) => {
       const baseline = firstBaseline + k * b.lineHeight;
-      if (st.align === "center") {
-        const w = ctx.measureText(tline).width;
-        ctx.fillText(tline, (areaLeft + areaRight) / 2 - w / 2, baseline);
-      } else {
-        ctx.fillText(tline, areaLeft, baseline);
+      let lineW = 0;
+      for (const r of runs) { ctx.font = runFontString(st, r.bold); lineW += ctx.measureText(r.text).width; }
+      let x = st.align === "center" ? (areaLeft + areaRight) / 2 - lineW / 2 : areaLeft;
+      for (const r of runs) {
+        ctx.font = runFontString(st, r.bold);
+        ctx.fillText(r.text, x, baseline);
+        x += ctx.measureText(r.text).width;
       }
     });
 

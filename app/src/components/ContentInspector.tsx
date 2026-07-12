@@ -19,7 +19,8 @@ export function ContentInspector({
 }) {
   return (
     <div style={{ width: 260, borderLeft: "1px solid var(--line)", background: "#fff", display: "flex", flexDirection: "column", overflowY: "auto" }}>
-      <div style={{ padding: "12px 12px 6px", fontWeight: 800, color: "var(--sage-deep)", fontSize: 13, textTransform: "uppercase", letterSpacing: ".4px" }}>Contenu</div>
+      <div style={{ padding: "12px 12px 2px", fontWeight: 800, color: "var(--sage-deep)", fontSize: 13, textTransform: "uppercase", letterSpacing: ".4px" }}>Contenu</div>
+      <div style={{ padding: "0 12px 6px", fontSize: 11, color: "var(--muted)" }}>Entrée = nouvelle ligne · <b>**texte**</b> = gras</div>
       <div style={{ padding: 10, display: "flex", flexDirection: "column", gap: 8 }}>
         {lines.map((ln) => (
           <div key={ln.id} style={{ border: "1px solid var(--line)", borderRadius: 10, padding: 8, background: "#fbfdfc", display: "flex", flexDirection: "column", gap: 6 }}>

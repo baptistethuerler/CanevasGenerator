@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { layoutSlide, wrapText, fontString } from "./layout";
+import { layoutSlide, wrapText, wrapRich, parseBold, fontString } from "./layout";
 import { DEFAULT_STYLES } from "../model";
 
 const measure = (t: string) => t.length * 10;
@@ -10,6 +10,37 @@ describe("wrapText", () => {
   });
   it("renvoie une ligne vide pour un texte vide", () => {
     expect(wrapText("", 100, measure)).toEqual([""]);
+  });
+  it("honore un retour à la ligne manuel", () => {
+    expect(wrapText("a\nb", 1000, measure)).toEqual(["a", "b"]);
+  });
+});
+
+describe("parseBold", () => {
+  it("découpe le gras entre **", () => {
+    expect(parseBold("normal **gras** fin")).toEqual([
+      { text: "normal ", bold: false },
+      { text: "gras", bold: true },
+      { text: " fin", bold: false },
+    ]);
+  });
+  it("un texte sans marqueur = un seul segment normal", () => {
+    expect(parseBold("bonjour")).toEqual([{ text: "bonjour", bold: false }]);
+  });
+});
+
+describe("wrapRich", () => {
+  const m = (t: string) => t.length * 10;
+  it("honore les retours à la ligne", () => {
+    expect(wrapRich("a\nb", 1000, m)).toHaveLength(2);
+  });
+  it("marque en gras le segment entre **", () => {
+    const runs = wrapRich("x **y**", 1000, m)[0];
+    expect(runs.some((r) => r.bold && r.text.includes("y"))).toBe(true);
+    expect(runs.some((r) => !r.bold && r.text.includes("x"))).toBe(true);
+  });
+  it("texte vide → une ligne vide", () => {
+    expect(wrapRich("", 100, m)).toEqual([[{ text: "", bold: false }]]);
   });
 });
 
