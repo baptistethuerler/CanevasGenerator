@@ -1,5 +1,6 @@
-# Dépendances
+# Dépendances (locales à chaque machine, jamais synchronisées)
 node_modules/
+node_modules.nosync/
 
 # Build
 dist/
@@ -12,11 +13,8 @@ app/dist/
 # Exports générés
 exports/
 
-# Données locales de l'utilisatrice (créations, uploads) — pas du code
-data/
-images/
-logos/
-fonts/
+# Créations & uploads (data/, images/, logos/, fonts/) : SYNCHRONISÉS via GitHub.
+# (Les exports vidéo/PNG générés, eux, restent ignorés — voir « Exports générés » ci-dessus.)
 
 # Dossiers temporaires de test
 .tmp-test-*
