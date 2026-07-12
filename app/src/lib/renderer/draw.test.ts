@@ -175,14 +175,15 @@ describe("drawBackground image", () => {
 
 describe("computeLogoRect", () => {
   const dims = { width: 1080, height: 1920, margin: 50 };
-  it("bas-droite : logo collé en bas à droite (avec padding)", () => {
-    const r = computeLogoRect(dims.width, dims.height, 100, 100, "bottom-right", 0.1, 50);
-    expect(r.dw).toBeCloseTo(108, 5);
+  const box = { left: 50, top: 50, right: 50, bottom: 50 };
+  it("bas-droite : logo collé au coin bas-droit de la zone", () => {
+    const r = computeLogoRect(dims.width, dims.height, 100, 100, "bottom-right", 0.1, box);
+    expect(r.dw).toBeCloseTo(98, 5); // 0,1 × largeur de la zone (980)
     expect(r.dx).toBeCloseTo(1080 - 50 - r.dw, 5);
     expect(r.dy).toBeCloseTo(1920 - 50 - r.dh, 5);
   });
-  it("haut-gauche : logo au padding", () => {
-    const r = computeLogoRect(dims.width, dims.height, 100, 100, "top-left", 0.1, 50);
+  it("haut-gauche : logo au coin haut-gauche de la zone", () => {
+    const r = computeLogoRect(dims.width, dims.height, 100, 100, "top-left", 0.1, box);
     expect(r.dx).toBe(50);
     expect(r.dy).toBe(50);
   });
@@ -190,37 +191,38 @@ describe("computeLogoRect", () => {
 
 describe("drawLogos", () => {
   const dims = { width: 1080, height: 1920, margin: 50 };
+  const box = { left: 50, top: 50, right: 50, bottom: 50 };
   const img = { width: 100, height: 100 };
 
   it("dessine le logo une fois par ancrage", () => {
     const ctx = fakeCtx();
     const logos = [{ id: "1", logoRef: "a.png", anchors: ["top-left", "bottom-right"] as const, free: null, size: 0.1, opacity: 0.9 }];
-    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, box);
     expect(ctx.calls.filter((c) => c[0] === "drawImage")).toHaveLength(2);
   });
 
   it("ignore un logo dont l'image n'est pas chargée", () => {
     const ctx = fakeCtx();
     const logos = [{ id: "1", logoRef: "a.png", anchors: ["center"] as const, free: null, size: 0.1, opacity: 1 }];
-    drawLogos(ctx as any, logos as any, dims, {} as any, 50);
+    drawLogos(ctx as any, logos as any, dims, {} as any, box);
     expect(ctx.calls.some((c) => c[0] === "drawImage")).toBe(false);
   });
 
   it("dessine une fois en position libre", () => {
     const ctx = fakeCtx();
     const logos = [{ id: "1", logoRef: "a.png", anchors: [] as const, free: { x: 0.5, y: 0.5 }, size: 0.1, opacity: 1 }];
-    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, box);
     expect(ctx.calls.filter((c) => c[0] === "drawImage")).toHaveLength(1);
   });
 
-  it("position libre : le logo est centré sur le point (x, y)", () => {
+  it("position libre : le logo est centré sur le point (x, y) dans la zone", () => {
     const ctx = fakeCtx();
     const logos = [{ id: "1", logoRef: "a.png", anchors: [] as const, free: { x: 0.5, y: 0.5 }, size: 0.1, opacity: 1 }];
-    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, box);
     const call = ctx.calls.find((c) => c[0] === "drawImage");
-    // dw = 1080*0.1 = 108 ; dx = 0.5*1080 - 54 = 486 ; dy = 0.5*1920 - 54 = 906
-    expect(call?.[2]).toBeCloseTo(486, 5);
-    expect(call?.[3]).toBeCloseTo(906, 5);
+    // zoneW=980, zoneH=1820 ; dw=98 ; cx=50+0.5*980=540 → dx=491 ; cy=50+0.5*1820=960 → dy=911
+    expect(call?.[2]).toBeCloseTo(491, 5);
+    expect(call?.[3]).toBeCloseTo(911, 5);
   });
 
   it("applique l'opacité via globalAlpha au moment du dessin", () => {
@@ -228,7 +230,7 @@ describe("drawLogos", () => {
     let alphaAtDraw = -1;
     (ctx as any).drawImage = () => { alphaAtDraw = (ctx as any).globalAlpha; };
     const logos = [{ id: "1", logoRef: "a.png", anchors: ["center"] as const, free: null, size: 0.1, opacity: 0.5 }];
-    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, box);
     expect(alphaAtDraw).toBe(0.5);
   });
 });

@@ -88,7 +88,7 @@ export function LogoInspector({
             </div>
           )}
 
-          <div style={label}>Taille — {Math.round(logo.size * 100)} % de la largeur</div>
+          <div style={label}>Taille — {Math.round(logo.size * 100)} % de la largeur du contenu</div>
           <input type="range" min={0.04} max={1} step={0.01} value={logo.size} onChange={(e) => patch({ size: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
 
           <div style={label}>Opacité — {Math.round(logo.opacity * 100)} %</div>

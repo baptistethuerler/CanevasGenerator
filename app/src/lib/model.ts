@@ -212,6 +212,16 @@ export function defaultContentMargin(): ContentMargin {
   return { linked: true, top: 50, right: 50, bottom: 50, left: 50 };
 }
 
+/**
+ * Zone de contenu (marges) par format — aucun texte ni logo n'est placé au-delà.
+ * Story 9:16 → 861×1423 · Post 4:5 → 930×1150 · Post 1:1 → 930×930.
+ */
+export function contentMarginForFormat(format: Format): ContentMargin {
+  if (format === "1:1") return { linked: false, top: 75, right: 75, bottom: 75, left: 75 };
+  if (format === "4:5") return { linked: false, top: 100, right: 75, bottom: 100, left: 75 };
+  return { linked: false, top: 248.5, right: 109.5, bottom: 248.5, left: 109.5 };
+}
+
 export function mergeStyle(base: StyleDef, override?: Partial<StyleDef>): StyleDef {
   if (!override) return base;
   return { ...base, ...override, margins: { ...base.margins, ...(override.margins ?? {}) } };
@@ -221,7 +231,7 @@ export function ensureDocDefaults(doc: DocLike): ResolvedDoc {
   return {
     ...doc,
     styles: doc.styles ?? defaultStyles(),
-    contentMargin: doc.contentMargin ?? defaultContentMargin(),
+    contentMargin: doc.contentMargin ?? contentMarginForFormat((doc.format as Format) ?? "9:16"),
     blockPosition: doc.blockPosition ?? "center",
     background: doc.background ?? defaultBackground(),
     logos: doc.logos ?? [],
@@ -241,7 +251,7 @@ function baseNew(type: "story" | "post", format: Format, title: string): StoryPa
     status: "draft",
     date: today(),
     styles: defaultStyles(),
-    contentMargin: defaultContentMargin(),
+    contentMargin: contentMarginForFormat(format),
     blockPosition: "center",
     background: defaultBackground(),
     slides: [newSlide()],

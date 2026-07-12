@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground, defaultCrop, defaultFilters, newLogoPlacement, effectiveLogos, ANCHORS, defaultTiming } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, contentMarginForFormat, defaultBackground, effectiveBackground, defaultCrop, defaultFilters, newLogoPlacement, effectiveLogos, ANCHORS, defaultTiming } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -70,10 +70,10 @@ describe("styles & mise en page", () => {
     expect(mergeStyle(DEFAULT_STYLES.title, undefined)).toEqual(DEFAULT_STYLES.title);
   });
 
-  it("newStoryPayload embarque styles, contentMargin (50) et blockPosition", () => {
+  it("newStoryPayload embarque styles, la zone de contenu du format et blockPosition", () => {
     const p = newStoryPayload();
     expect(Object.keys(p.styles).sort()).toEqual([...STYLE_KEYS].sort());
-    expect(p.contentMargin).toEqual({ linked: true, top: 50, right: 50, bottom: 50, left: 50 });
+    expect(p.contentMargin).toEqual(contentMarginForFormat("9:16"));
     expect(p.blockPosition).toBe("center");
   });
 
@@ -83,7 +83,7 @@ describe("styles & mise en page", () => {
       createdAt: "now", updatedAt: "now", slides: [],
     });
     expect(doc.blockPosition).toBe("center");
-    expect(doc.contentMargin).toEqual(defaultContentMargin());
+    expect(doc.contentMargin).toEqual(contentMarginForFormat("9:16"));
     expect(Object.keys(doc.styles).length).toBe(STYLE_KEYS.length);
   });
 

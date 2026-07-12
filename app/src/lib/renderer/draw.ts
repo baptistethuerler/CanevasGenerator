@@ -110,19 +110,29 @@ export function drawBackground(ctx: DrawCtx, bg: Background, dims: Dims, image?:
   drawOverlay(ctx, bg.overlay, dims);
 }
 
+/** Zone de contenu (marges depuis chaque bord). Aucun logo n'en sort. */
+export interface ContentBox {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+}
+
 export function computeLogoRect(
-  W: number, H: number, iw: number, ih: number, anchor: Anchor, sizeFrac: number, padding: number,
+  W: number, H: number, iw: number, ih: number, anchor: Anchor, sizeFrac: number, box: ContentBox,
 ): { dx: number; dy: number; dw: number; dh: number } {
-  const dw = W * sizeFrac;
+  const zoneW = W - box.left - box.right;
+  const zoneH = H - box.top - box.bottom;
+  const dw = zoneW * sizeFrac; // la taille est relative à la largeur de la zone
   const dh = dw * (ih / iw);
   let dx: number;
-  if (anchor === "top-left" || anchor === "left" || anchor === "bottom-left") dx = padding;
-  else if (anchor === "top-right" || anchor === "right" || anchor === "bottom-right") dx = W - padding - dw;
-  else dx = (W - dw) / 2;
+  if (anchor === "top-left" || anchor === "left" || anchor === "bottom-left") dx = box.left;
+  else if (anchor === "top-right" || anchor === "right" || anchor === "bottom-right") dx = W - box.right - dw;
+  else dx = box.left + (zoneW - dw) / 2;
   let dy: number;
-  if (anchor === "top-left" || anchor === "top" || anchor === "top-right") dy = padding;
-  else if (anchor === "bottom-left" || anchor === "bottom" || anchor === "bottom-right") dy = H - padding - dh;
-  else dy = (H - dh) / 2;
+  if (anchor === "top-left" || anchor === "top" || anchor === "top-right") dy = box.top;
+  else if (anchor === "bottom-left" || anchor === "bottom" || anchor === "bottom-right") dy = H - box.bottom - dh;
+  else dy = box.top + (zoneH - dh) / 2;
   return { dx, dy, dw, dh };
 }
 
@@ -131,19 +141,24 @@ export function drawLogos(
   logos: LogoPlacement[],
   dims: Dims,
   images: Record<string, ImageLike>,
-  padding: number,
+  box: ContentBox,
 ): void {
+  const zoneW = dims.width - box.left - box.right;
+  const zoneH = dims.height - box.top - box.bottom;
   for (const p of logos) {
     const img = images[p.logoRef];
     if (!img) continue;
     ctx.globalAlpha = p.opacity ?? 1;
     if (p.free) {
-      const dw = dims.width * p.size;
+      const dw = zoneW * p.size;
       const dh = dw * (img.height / img.width);
-      ctx.drawImage(img, p.free.x * dims.width - dw / 2, p.free.y * dims.height - dh / 2, dw, dh);
+      // Position libre exprimée dans la zone de contenu (0..1), jamais hors zone.
+      const cx = box.left + p.free.x * zoneW;
+      const cy = box.top + p.free.y * zoneH;
+      ctx.drawImage(img, cx - dw / 2, cy - dh / 2, dw, dh);
     } else {
       for (const a of p.anchors) {
-        const { dx, dy, dw, dh } = computeLogoRect(dims.width, dims.height, img.width, img.height, a, p.size, padding);
+        const { dx, dy, dw, dh } = computeLogoRect(dims.width, dims.height, img.width, img.height, a, p.size, box);
         ctx.drawImage(img, dx, dy, dw, dh);
       }
     }
@@ -220,6 +235,6 @@ export function drawSlide(
   }
 
   if (opts.logos && opts.logos.length) {
-    drawLogos(ctx, opts.logos, opts.dims, opts.logoImages ?? {}, opts.dims.margin);
+    drawLogos(ctx, opts.logos, opts.dims, opts.logoImages ?? {}, { left: cm.left, top: cm.top, right: cm.right, bottom: cm.bottom });
   }
 }
