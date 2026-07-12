@@ -104,6 +104,7 @@ export interface Slide {
   name?: string;
   lines: Line[];
   background?: Background | null;
+  logos?: LogoPlacement[] | null;
 }
 
 export interface StoryPayload {
@@ -118,6 +119,7 @@ export interface StoryPayload {
   blockPosition: BlockPosition;
   background: Background;
   slides: Slide[];
+  logos: LogoPlacement[];
 }
 
 export interface DocLike {
@@ -135,6 +137,7 @@ export interface DocLike {
   blockPosition?: BlockPosition;
   background?: Background;
   slides: Slide[];
+  logos?: LogoPlacement[];
 }
 
 export interface ResolvedDoc extends DocLike {
@@ -142,6 +145,39 @@ export interface ResolvedDoc extends DocLike {
   contentMargin: ContentMargin;
   blockPosition: BlockPosition;
   background: Background;
+  logos: LogoPlacement[];
+}
+
+export type Anchor =
+  | "top-left" | "top" | "top-right"
+  | "left" | "center" | "right"
+  | "bottom-left" | "bottom" | "bottom-right";
+
+export const ANCHORS: Anchor[] = [
+  "top-left", "top", "top-right",
+  "left", "center", "right",
+  "bottom-left", "bottom", "bottom-right",
+];
+
+export interface LogoPlacement {
+  id: string;
+  logoRef: string;
+  anchors: Anchor[];
+  free?: { x: number; y: number } | null;
+  size: number;
+  opacity: number;
+}
+
+export function newLogoPlacement(logoRef: string): LogoPlacement {
+  return { id: uid(), logoRef, anchors: ["bottom-right"], free: null, size: 0.12, opacity: 0.9 };
+}
+
+export function effectiveLogos(
+  doc: { logos?: LogoPlacement[] },
+  slide: Slide | null,
+): LogoPlacement[] {
+  if (slide && slide.logos) return slide.logos;
+  return doc.logos ?? [];
 }
 
 export function uid(): string {
@@ -176,6 +212,7 @@ export function ensureDocDefaults(doc: DocLike): ResolvedDoc {
     contentMargin: doc.contentMargin ?? defaultContentMargin(),
     blockPosition: doc.blockPosition ?? "center",
     background: doc.background ?? defaultBackground(),
+    logos: doc.logos ?? [],
   };
 }
 
@@ -195,6 +232,7 @@ function baseNew(type: "story" | "post", format: Format, title: string): StoryPa
     blockPosition: "center",
     background: defaultBackground(),
     slides: [newSlide()],
+    logos: [],
   };
 }
 

@@ -1,4 +1,4 @@
-import type { Slide, StoryPayload, Format, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background } from "./model";
+import type { Slide, StoryPayload, Format, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, LogoPlacement } from "./model";
 import { ensureDocDefaults } from "./model";
 
 export type DocMeta = {
@@ -31,6 +31,7 @@ export interface StoryDoc {
   contentMargin?: ContentMargin;
   blockPosition?: BlockPosition;
   background?: Background;
+  logos?: LogoPlacement[];
   slides: Slide[];
 }
 
@@ -88,6 +89,7 @@ export async function duplicateDoc(id: string): Promise<StoryDoc> {
     contentMargin: src.contentMargin,
     blockPosition: src.blockPosition,
     background: src.background,
+    logos: src.logos ?? [],
     slides: src.slides,
   };
   return createDoc(payload);
@@ -127,4 +129,26 @@ export async function uploadImage(file: File): Promise<ImageAsset> {
 export async function deleteImage(ref: string): Promise<void> {
   const res = await fetch(`/api/assets/images/${ref}`, { method: "DELETE" });
   if (!res.ok) throw new Error("Suppression de l'image impossible");
+}
+
+export async function listLogos(): Promise<ImageAsset[]> {
+  const res = await fetch("/api/assets/logos");
+  if (!res.ok) throw new Error("Chargement des logos impossible");
+  return res.json();
+}
+
+export async function uploadLogo(file: File): Promise<ImageAsset> {
+  const dataUrl = await fileToDataUrl(file);
+  const res = await fetch("/api/assets/logos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ dataUrl }),
+  });
+  if (!res.ok) throw new Error("Upload du logo impossible");
+  return res.json();
+}
+
+export async function deleteLogo(ref: string): Promise<void> {
+  const res = await fetch(`/api/assets/logos/${ref}`, { method: "DELETE" });
+  if (!res.ok) throw new Error("Suppression du logo impossible");
 }

@@ -16,7 +16,7 @@ const PNG_1x1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1H
 async function freshAssets() {
   const p = makePaths(tmp);
   await ensureDataDirs(p);
-  return createAssets(p);
+  return createAssets(p.images, "/images");
 }
 
 describe("assets", () => {
@@ -69,5 +69,17 @@ describe("API assets", () => {
   it("POST d'une dataUrl invalide renvoie 400", async () => {
     const app = await freshApp();
     await request(app).post("/api/assets/images").send({ dataUrl: "nope" }).expect(400);
+  });
+});
+
+describe("API assets — logos", () => {
+  it("POST puis GET liste le logo ; DELETE le retire", async () => {
+    const app = await freshApp();
+    const post = await request(app).post("/api/assets/logos").send({ dataUrl: PNG_1x1 });
+    expect(post.status).toBe(201);
+    expect(post.body.url).toBe(`/logos/${post.body.ref}`);
+    const list = await request(app).get("/api/assets/logos");
+    expect(list.body.map((x) => x.ref)).toContain(post.body.ref);
+    await request(app).delete(`/api/assets/logos/${post.body.ref}`).expect(200);
   });
 });

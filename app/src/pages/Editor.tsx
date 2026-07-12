@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { getDoc, updateDoc, listImages, uploadImage, deleteImage, type ImageAsset } from "@/lib/api";
+import { getDoc, updateDoc, listImages, uploadImage, deleteImage, listLogos, uploadLogo, deleteLogo, type ImageAsset } from "@/lib/api";
 import {
-  newSlide, newLine, uid, ensureDocDefaults, effectiveBackground,
-  type LineStyleKey, type StyleDef, type ContentMargin, type BlockPosition, type ResolvedDoc, type Background,
+  newSlide, newLine, uid, ensureDocDefaults, effectiveBackground, effectiveLogos,
+  type LineStyleKey, type StyleDef, type ContentMargin, type BlockPosition, type ResolvedDoc, type Background, type LogoPlacement,
 } from "@/lib/model";
 import { CanvasPreview } from "@/components/CanvasPreview";
 import { SlidesRail } from "@/components/SlidesRail";
 import { ContentInspector } from "@/components/ContentInspector";
 import { TextInspector } from "@/components/TextInspector";
 import { BackgroundInspector } from "@/components/BackgroundInspector";
+import { LogoInspector } from "@/components/LogoInspector";
 import { FormatInspector } from "@/components/FormatInspector";
 
-type Tab = "contenu" | "texte" | "fond" | "format";
+type Tab = "contenu" | "texte" | "fond" | "logo" | "format";
 
 function formatLabel(type: string, format: string): string {
   if (type === "post") return format === "4:5" ? "🖼️ Post 1080×1350" : "🖼️ Post 1080×1080";
@@ -26,6 +27,10 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [images, setImages] = useState<ImageAsset[]>([]);
   const refreshImages = () => listImages().then(setImages).catch(() => {});
   useEffect(() => { refreshImages(); }, []);
+  const [logoAssets, setLogoAssets] = useState<ImageAsset[]>([]);
+  const refreshLogos = () => listLogos().then(setLogoAssets).catch(() => {});
+  useEffect(() => { refreshLogos(); }, []);
+  const [logoScope, setLogoScope] = useState<"story" | "slide">("story");
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -110,7 +115,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
           />
 
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#eaf1ef", padding: 16 }}>
-            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} background={effectiveBackground(doc, slide)} />
+            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} background={effectiveBackground(doc, slide)} logos={effectiveLogos(doc, slide)} />
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", borderLeft: "1px solid var(--line)", background: "#fff", minWidth: 260 }}>
@@ -118,6 +123,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
               {tabBtn("contenu", "Contenu")}
               {tabBtn("texte", "Texte")}
               {tabBtn("fond", "Fond")}
+              {tabBtn("logo", "Logo")}
               {tabBtn("format", "Format")}
             </div>
             <div style={{ flex: 1, minHeight: 0, display: "flex" }}>
@@ -157,6 +163,22 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                   onChange={(bg: Background) => {
                     if (bgScope === "slide") updateSlide(idx, (s) => ({ ...s, background: bg }));
                     else setDoc({ ...doc, background: bg });
+                  }}
+                />
+              )}
+              {tab === "logo" && (
+                <LogoInspector
+                  scope={logoScope}
+                  onScopeChange={setLogoScope}
+                  logos={logoScope === "slide" ? (slide?.logos ?? doc.logos) : doc.logos}
+                  isSlideOverride={!!(slide && slide.logos)}
+                  onClearSlide={() => updateSlide(idx, (s) => ({ ...s, logos: null }))}
+                  logoAssets={logoAssets}
+                  onUpload={(file) => uploadLogo(file).then(refreshLogos).catch((e) => setError((e as Error).message))}
+                  onDeleteAsset={(ref) => deleteLogo(ref).then(refreshLogos).catch(() => {})}
+                  onChange={(next: LogoPlacement[]) => {
+                    if (logoScope === "slide") updateSlide(idx, (s) => ({ ...s, logos: next }));
+                    else setDoc({ ...doc, logos: next });
                   }}
                 />
               )}
