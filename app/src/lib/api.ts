@@ -1,4 +1,4 @@
-import type { Slide, StoryPayload, Format, LineStyleKey, StyleDef, ContentMargin, BlockPosition } from "./model";
+import type { Slide, StoryPayload, Format, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background } from "./model";
 import { ensureDocDefaults } from "./model";
 
 export type DocMeta = {
@@ -30,6 +30,7 @@ export interface StoryDoc {
   styles?: Record<LineStyleKey, StyleDef>;
   contentMargin?: ContentMargin;
   blockPosition?: BlockPosition;
+  background?: Background;
   slides: Slide[];
 }
 
@@ -86,6 +87,7 @@ export async function duplicateDoc(id: string): Promise<StoryDoc> {
     styles: src.styles,
     contentMargin: src.contentMargin,
     blockPosition: src.blockPosition,
+    background: src.background,
     slides: src.slides,
   };
   return createDoc(payload);

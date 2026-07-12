@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { drawSlide, STORY_DIMS, dimsFor, DIMS } from "./draw";
-import { DEFAULT_STYLES, defaultContentMargin } from "../model";
+import { drawSlide, STORY_DIMS, dimsFor, DIMS, drawBackground, hexToRgba } from "./draw";
+import { DEFAULT_STYLES, defaultContentMargin, defaultBackground } from "../model";
 
 function fakeCtx() {
   const calls: any[][] = [];
@@ -10,11 +10,15 @@ function fakeCtx() {
     fillRect: (...a: any[]) => calls.push(["fillRect", ...a]),
     fillText: (...a: any[]) => calls.push(["fillText", ...a]),
     measureText: (t: string) => ({ width: String(t).length * 20 }),
+    createLinearGradient: () => ({ addColorStop: () => {} }),
+    createRadialGradient: () => ({ addColorStop: () => {} }),
+    save: () => {},
+    restore: () => {},
     calls,
   };
 }
 
-const opts = { dims: STORY_DIMS, background: "#4e7a63", contentMargin: defaultContentMargin(), blockPosition: "center" as const };
+const opts = { dims: STORY_DIMS, background: defaultBackground(), contentMargin: defaultContentMargin(), blockPosition: "center" as const };
 
 describe("drawSlide", () => {
   it("peint le fond puis le texte", () => {
@@ -73,5 +77,53 @@ describe("dimsFor", () => {
   });
   it("retombe sur 9:16 pour un format inconnu", () => {
     expect(dimsFor("bidon")).toEqual(DIMS["9:16"]);
+  });
+});
+
+describe("hexToRgba", () => {
+  it("convertit un hex + alpha", () => {
+    expect(hexToRgba("#000000", 0.5)).toBe("rgba(0, 0, 0, 0.5)");
+    expect(hexToRgba("#ffffff", 1)).toBe("rgba(255, 255, 255, 1)");
+  });
+});
+
+describe("drawBackground", () => {
+  const dims = { width: 1080, height: 1920, margin: 50 };
+
+  it("peint la couleur (fillRect) sans voile quand overlay=none", () => {
+    const ctx = fakeCtx();
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "none", color: "#000", intensity: 0.5, direction: "bottom", softness: 0.5 } }, dims);
+    const fills = ctx.calls.filter((c) => c[0] === "fillRect");
+    expect(fills).toHaveLength(1);
+  });
+
+  it("ajoute un fillRect pour un voile uniforme", () => {
+    const ctx = fakeCtx();
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "uniform", color: "#000", intensity: 0.5, direction: "bottom", softness: 0.5 } }, dims);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(2);
+  });
+
+  it("crée un dégradé linéaire pour un voile dégradé", () => {
+    const ctx = fakeCtx();
+    let linear = 0;
+    (ctx as any).createLinearGradient = () => { linear++; return { addColorStop: () => {} }; };
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "gradient", color: "#000", intensity: 0.6, direction: "bottom", softness: 0.5 } }, dims);
+    expect(linear).toBe(1);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(2);
+  });
+
+  it("crée un dégradé radial pour la direction radiale", () => {
+    const ctx = fakeCtx();
+    let radial = 0;
+    (ctx as any).createRadialGradient = () => { radial++; return { addColorStop: () => {} }; };
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "gradient", color: "#000", intensity: 0.6, direction: "radial", softness: 0.5 } }, dims);
+    expect(radial).toBe(1);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(2);
+  });
+
+  it("ne peint pas de voile si l'intensité est nulle", () => {
+    const ctx = fakeCtx();
+    drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "gradient", color: "#000", intensity: 0, direction: "bottom", softness: 0.5 } }, dims);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(1);
   });
 });

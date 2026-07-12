@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -95,5 +95,34 @@ describe("styles & mise en page", () => {
     });
     expect(doc.contentMargin).toEqual(cm);
     expect(doc.blockPosition).toBe("top");
+  });
+});
+
+describe("fond & voile", () => {
+  it("defaultBackground est une couleur sauge sans voile", () => {
+    const bg = defaultBackground();
+    expect(bg.kind).toBe("color");
+    expect(bg.color).toBe("#4e7a63");
+    expect(bg.overlay.type).toBe("none");
+  });
+
+  it("newStoryPayload embarque un background par défaut", () => {
+    expect(newStoryPayload().background).toEqual(defaultBackground());
+  });
+
+  it("ensureDocDefaults ajoute un background si absent", () => {
+    const doc = ensureDocDefaults({
+      id: "x", type: "story", format: "9:16", title: "T", status: "draft",
+      createdAt: "now", updatedAt: "now", slides: [],
+    });
+    expect(doc.background).toEqual(defaultBackground());
+  });
+
+  it("effectiveBackground : la surcharge du slide prime sur celle du document", () => {
+    const docBg = defaultBackground();
+    const slideBg = { ...defaultBackground(), color: "#c9836a" };
+    const doc = { background: docBg } as any;
+    expect(effectiveBackground(doc, { id: "s", lines: [], background: slideBg })).toBe(slideBg);
+    expect(effectiveBackground(doc, { id: "s", lines: [] })).toBe(docBg);
   });
 });

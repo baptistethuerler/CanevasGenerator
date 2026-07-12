@@ -6,6 +6,34 @@ export type Format = "9:16" | "1:1" | "4:5";
 export type BlockPosition = "top" | "center" | "bottom";
 export type Align = "left" | "center";
 
+export type OverlayType = "none" | "uniform" | "gradient";
+export type OverlayDirection = "bottom" | "top" | "radial";
+
+export interface Overlay {
+  type: OverlayType;
+  color: string;
+  intensity: number;
+  direction: OverlayDirection;
+  softness: number;
+}
+
+export interface Background {
+  kind: "color" | "image";
+  color: string;
+  overlay: Overlay;
+}
+
+export const BG_COLOR_CHOICES = ["#4e7a63", "#3f6b54", "#f6f4ee", "#2f3a34", "#c9836a", "#ffffff"];
+export const OVERLAY_COLOR_CHOICES = ["#000000", "#2f3a34", "#3f6b54", "#ffffff"];
+
+export function defaultOverlay(): Overlay {
+  return { type: "none", color: "#000000", intensity: 0.5, direction: "bottom", softness: 0.5 };
+}
+
+export function defaultBackground(): Background {
+  return { kind: "color", color: "#4e7a63", overlay: defaultOverlay() };
+}
+
 export interface Margins {
   linked: boolean;
   top: number;
@@ -53,6 +81,7 @@ export interface Slide {
   id: string;
   name?: string;
   lines: Line[];
+  background?: Background | null;
 }
 
 export interface StoryPayload {
@@ -65,6 +94,7 @@ export interface StoryPayload {
   styles: Record<LineStyleKey, StyleDef>;
   contentMargin: ContentMargin;
   blockPosition: BlockPosition;
+  background: Background;
   slides: Slide[];
 }
 
@@ -81,6 +111,7 @@ export interface DocLike {
   styles?: Record<LineStyleKey, StyleDef>;
   contentMargin?: ContentMargin;
   blockPosition?: BlockPosition;
+  background?: Background;
   slides: Slide[];
 }
 
@@ -88,6 +119,7 @@ export interface ResolvedDoc extends DocLike {
   styles: Record<LineStyleKey, StyleDef>;
   contentMargin: ContentMargin;
   blockPosition: BlockPosition;
+  background: Background;
 }
 
 export function uid(): string {
@@ -121,6 +153,7 @@ export function ensureDocDefaults(doc: DocLike): ResolvedDoc {
     styles: doc.styles ?? defaultStyles(),
     contentMargin: doc.contentMargin ?? defaultContentMargin(),
     blockPosition: doc.blockPosition ?? "center",
+    background: doc.background ?? defaultBackground(),
   };
 }
 
@@ -138,6 +171,7 @@ function baseNew(type: "story" | "post", format: Format, title: string): StoryPa
     styles: defaultStyles(),
     contentMargin: defaultContentMargin(),
     blockPosition: "center",
+    background: defaultBackground(),
     slides: [newSlide()],
   };
 }
@@ -148,4 +182,11 @@ export function newStoryPayload(title = "Nouvelle story"): StoryPayload {
 
 export function newPostPayload(format: Format = "1:1", title = "Nouveau post"): StoryPayload {
   return { ...baseNew("post", format, title), postMode: "single" };
+}
+
+export function effectiveBackground(
+  doc: { background: Background },
+  slide: Slide | null,
+): Background {
+  return (slide && slide.background) ? slide.background : doc.background;
 }

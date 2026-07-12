@@ -1,4 +1,4 @@
-import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition } from "../model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, Overlay } from "../model";
 import { layoutSlide } from "./layout";
 
 export interface Dims {
@@ -28,20 +28,65 @@ export interface DrawCtx {
   fillRect(x: number, y: number, w: number, h: number): void;
   fillText(text: string, x: number, y: number): void;
   measureText(text: string): { width: number };
+  createLinearGradient(x0: number, y0: number, x1: number, y1: number): { addColorStop(offset: number, color: string): void };
+  createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): { addColorStop(offset: number, color: string): void };
+}
+
+export function hexToRgba(hex: string, alpha: number): string {
+  const h = hex.replace("#", "");
+  const full = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const r = parseInt(full.slice(0, 2), 16);
+  const g = parseInt(full.slice(2, 4), 16);
+  const b = parseInt(full.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function drawOverlay(ctx: DrawCtx, ov: Overlay, dims: Dims): void {
+  if (ov.type === "none" || ov.intensity <= 0) return;
+  const { width, height } = dims;
+  const strong = hexToRgba(ov.color, ov.intensity);
+  const clear = hexToRgba(ov.color, 0);
+
+  if (ov.type === "uniform") {
+    ctx.fillStyle = strong;
+    ctx.fillRect(0, 0, width, height);
+    return;
+  }
+
+  let grad: { addColorStop(offset: number, color: string): void };
+  if (ov.direction === "radial") {
+    grad = ctx.createRadialGradient(width / 2, height / 2, Math.min(width, height) * 0.2, width / 2, height / 2, Math.max(width, height) * 0.7);
+    grad.addColorStop(0, clear);
+    grad.addColorStop(1, strong);
+  } else {
+    const coords: [number, number, number, number] = ov.direction === "bottom" ? [0, 0, 0, height] : [0, height, 0, 0];
+    grad = ctx.createLinearGradient(coords[0], coords[1], coords[2], coords[3]);
+    const start = Math.min(0.98, Math.max(0, 1 - ov.softness));
+    grad.addColorStop(0, clear);
+    grad.addColorStop(start, clear);
+    grad.addColorStop(1, strong);
+  }
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, width, height);
+}
+
+export function drawBackground(ctx: DrawCtx, bg: Background, dims: Dims): void {
+  ctx.fillStyle = bg.color;
+  ctx.fillRect(0, 0, dims.width, dims.height);
+  drawOverlay(ctx, bg.overlay, dims);
 }
 
 export function drawSlide(
   ctx: DrawCtx,
   slide: Slide,
   styles: Record<LineStyleKey, StyleDef>,
-  opts: { dims: Dims; background: string; contentMargin: ContentMargin; blockPosition: BlockPosition },
+  opts: { dims: Dims; background: Background; contentMargin: ContentMargin; blockPosition: BlockPosition },
 ): void {
   const { width, height } = opts.dims;
   const cm = opts.contentMargin;
 
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = opts.background;
-  ctx.fillRect(0, 0, width, height);
+  drawBackground(ctx, opts.background, opts.dims);
 
   const contentLeft = cm.left;
   const contentRight = width - cm.right;
