@@ -1,7 +1,7 @@
 {
   "id": "b495f805-3e7d-419a-8340-1b53221b5ba5",
   "createdAt": "2026-07-12T20:10:24.854Z",
-  "updatedAt": "2026-07-12T20:24:58.275Z",
+  "updatedAt": "2026-07-12T20:46:26.121Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -180,6 +180,20 @@
           "id": "dbbf12e7-2a7f-4d59-a733-85caaedc8bbc",
           "style": "arrow",
           "text": "08:00"
+        },
+        {
+          "id": "b489bc19-b20f-4304-ad5d-2a9f5f3e367b",
+          "style": "text",
+          "text": "Créneaux exceptionnels ",
+          "icon": {
+            "name": "etoile-2",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "e9788ed5-ab59-44fd-9149-f2264d749f07",
+          "style": "arrow",
+          "text": "samedi matin"
         }
       ]
     },
