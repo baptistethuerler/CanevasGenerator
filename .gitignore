@@ -12,5 +12,11 @@ app/dist/
 # Exports générés
 exports/
 
+# Données locales de l'utilisatrice (créations, uploads) — pas du code
+data/
+
+# Dossiers temporaires de test
+.tmp-test-*
+
 # macOS
 .DS_Store
