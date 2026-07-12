@@ -3,6 +3,9 @@ import { rm } from "node:fs/promises";
 import { join } from "node:path";
 import { makePaths, ensureDataDirs } from "../paths.js";
 import { createAssets } from "../assets.js";
+import request from "supertest";
+import { createStore } from "../store.js";
+import { createApp } from "../app.js";
 
 const tmp = join(process.cwd(), ".tmp-test-assets");
 afterEach(async () => { await rm(tmp, { recursive: true, force: true }); });
@@ -41,5 +44,30 @@ describe("assets", () => {
   it("refuse un ref contenant un chemin (anti-traversal)", async () => {
     const a = await freshAssets();
     await expect(a.remove("../secret.txt")).rejects.toThrow();
+  });
+});
+
+async function freshApp() {
+  const p = makePaths(tmp);
+  await ensureDataDirs(p);
+  return createApp({ store: createStore(p), paths: p, serveStatic: false });
+}
+
+describe("API assets", () => {
+  it("POST puis GET liste l'image ; DELETE la retire", async () => {
+    const app = await freshApp();
+    const post = await request(app).post("/api/assets/images").send({ dataUrl: PNG_1x1 });
+    expect(post.status).toBe(201);
+    expect(post.body.ref).toMatch(/\.png$/);
+    const list = await request(app).get("/api/assets/images");
+    expect(list.body.map((x) => x.ref)).toContain(post.body.ref);
+    await request(app).delete(`/api/assets/images/${post.body.ref}`).expect(200);
+    const after = await request(app).get("/api/assets/images");
+    expect(after.body.map((x) => x.ref)).not.toContain(post.body.ref);
+  });
+
+  it("POST d'une dataUrl invalide renvoie 400", async () => {
+    const app = await freshApp();
+    await request(app).post("/api/assets/images").send({ dataUrl: "nope" }).expect(400);
   });
 });
