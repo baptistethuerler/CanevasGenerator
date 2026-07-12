@@ -11,6 +11,7 @@ import { TextInspector } from "@/components/TextInspector";
 import { BackgroundInspector } from "@/components/BackgroundInspector";
 import { LogoInspector } from "@/components/LogoInspector";
 import { FormatInspector } from "@/components/FormatInspector";
+import { exportPostImage, exportCarousel } from "@/lib/export";
 
 type Tab = "contenu" | "texte" | "fond" | "logo" | "format";
 
@@ -33,6 +34,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [logoScope, setLogoScope] = useState<"story" | "slide">("story");
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dirty = useRef(false);
   const firstLoad = useRef(true);
@@ -60,6 +62,19 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
     onBack();
   };
 
+  const runExport = async (kind: "image" | "carrousel") => {
+    if (!doc) return;
+    setExporting(true);
+    try {
+      if (kind === "carrousel") await exportCarousel(doc);
+      else await exportPostImage(doc);
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setExporting(false);
+    }
+  };
+
   if (error) return <div className="empty" style={{ padding: 40 }}>Erreur : {error} <button className="btn ghost" onClick={handleBack}>← Retour</button></div>;
   if (!doc) return <div className="empty" style={{ padding: 40 }}>Chargement…</div>;
 
@@ -84,6 +99,16 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
           <span className="badge draft">{formatLabel(doc.type, doc.format)}</span>
           <div className="top-actions">
             <span style={{ color: "var(--sage-deep)", fontSize: 13, fontWeight: 700, opacity: saved ? 1 : 0, transition: "opacity .3s" }}>✓ Enregistré</span>
+            {doc.type === "post" ? (
+              <>
+                <button type="button" className="btn" disabled={exporting} onClick={() => runExport("image")}>⤓ Image</button>
+                {doc.slides.length > 1 && (
+                  <button type="button" className="btn ghost" disabled={exporting} onClick={() => runExport("carrousel")}>⤓ Carrousel</button>
+                )}
+              </>
+            ) : (
+              <button type="button" className="btn ghost" disabled title="L'export vidéo arrive en Phase 5b">🎬 Vidéo (bientôt)</button>
+            )}
           </div>
         </header>
 
