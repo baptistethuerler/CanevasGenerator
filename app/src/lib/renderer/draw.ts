@@ -32,6 +32,8 @@ export interface DrawCtx {
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): { addColorStop(offset: number, color: string): void };
   filter: string;
   drawImage(image: unknown, dx: number, dy: number, dw: number, dh: number): void;
+  save(): void;
+  restore(): void;
 }
 
 export function hexToRgba(hex: string, alpha: number): string {
