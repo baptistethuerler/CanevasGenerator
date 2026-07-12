@@ -1,6 +1,6 @@
 import JSZip from "jszip";
 import type { ResolvedDoc, Slide } from "./model";
-import { effectiveBackground, effectiveLogos } from "./model";
+import { effectiveBackground, effectiveLogos, iconUrl } from "./model";
 import { drawSlide, dimsFor } from "./renderer/draw";
 
 export function slug(title: string): string {
@@ -16,6 +16,7 @@ export function slug(title: string): string {
 export interface Resources {
   bgImages: Record<string, HTMLImageElement>;
   logoImages: Record<string, HTMLImageElement>;
+  iconImages: Record<string, HTMLImageElement>;
 }
 
 function loadImg(url: string): Promise<HTMLImageElement> {
@@ -38,11 +39,16 @@ export async function loadResources(doc: ResolvedDoc): Promise<Resources> {
   collect(null);
   for (const s of doc.slides) collect(s);
 
+  const iconUrls = new Set<string>();
+  for (const s of doc.slides) for (const l of s.lines) if (l.icon) iconUrls.add(iconUrl(l.icon, doc.icons.stroke));
+
   const bgImages: Record<string, HTMLImageElement> = {};
   const logoImages: Record<string, HTMLImageElement> = {};
+  const iconImages: Record<string, HTMLImageElement> = {};
   await Promise.all([...bgRefs].map(async (r) => { try { bgImages[r] = await loadImg(`/images/${r}`); } catch { /* fond manquant : repli couleur */ } }));
   await Promise.all([...logoRefs].map(async (r) => { try { logoImages[r] = await loadImg(`/logos/${r}`); } catch { /* logo manquant : ignoré */ } }));
-  return { bgImages, logoImages };
+  await Promise.all([...iconUrls].map(async (u) => { try { iconImages[u] = await loadImg(u); } catch { /* icône manquante : ignorée */ } }));
+  return { bgImages, logoImages, iconImages };
 }
 
 export function renderSlideToCanvas(doc: ResolvedDoc, slide: Slide, res: Resources): HTMLCanvasElement {
@@ -62,6 +68,8 @@ export function renderSlideToCanvas(doc: ResolvedDoc, slide: Slide, res: Resourc
     image,
     logos: effectiveLogos(doc, slide),
     logoImages: res.logoImages,
+    icons: doc.icons,
+    iconImages: res.iconImages,
   });
   return canvas;
 }

@@ -1,11 +1,11 @@
-import type { ContentMargin, BlockPosition, Timing } from "@/lib/model";
+import type { ContentMargin, BlockPosition, Timing, IconSettings } from "@/lib/model";
 import { MarginsEditor } from "./MarginsEditor";
 
 const label: React.CSSProperties = { fontSize: 10, textTransform: "uppercase", letterSpacing: ".4px", color: "var(--muted)", fontWeight: 800, margin: "10px 0 4px" };
 
 export function FormatInspector({
   formatLabel, contentMargin, blockPosition, onChangeContentMargin, onChangeBlockPosition,
-  timing, onChangeTiming,
+  timing, onChangeTiming, icons, onChangeIcons,
 }: {
   formatLabel: string;
   contentMargin: ContentMargin;
@@ -14,6 +14,8 @@ export function FormatInspector({
   onChangeBlockPosition: (p: BlockPosition) => void;
   timing?: Timing;
   onChangeTiming?: (t: Timing) => void;
+  icons?: IconSettings;
+  onChangeIcons?: (i: IconSettings) => void;
 }) {
   return (
     <div style={{ width: 260, borderLeft: "1px solid var(--line)", background: "#fff", display: "flex", flexDirection: "column", overflowY: "auto", padding: 12 }}>
@@ -45,6 +47,28 @@ export function FormatInspector({
         ))}
       </div>
       <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 4 }}>« Règle d'or » place le texte sur la ligne d'or (haute ou basse) pour une composition équilibrée.</div>
+
+      {icons && onChangeIcons && (
+        <>
+          <div style={label}>Icônes (à gauche des textes)</div>
+          <div style={{ display: "flex", gap: 6 }}>
+            {([["trait-1.5", "Trait fin"], ["trait-2", "Trait épais"]] as const).map(([s, lbl]) => (
+              <button key={s} type="button" onClick={() => onChangeIcons({ ...icons, stroke: s })}
+                style={{ flex: 1, padding: "6px 0", fontSize: 12, borderRadius: 8, cursor: "pointer", fontFamily: "inherit",
+                  border: icons.stroke === s ? "1.5px solid var(--sage)" : "1px solid var(--line)", background: icons.stroke === s ? "#e3efe7" : "#fff", color: "var(--ink)" }}>
+                {lbl}
+              </button>
+            ))}
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--ink)", marginTop: 8 }}>
+            <span>Taille des icônes</span><span style={{ fontWeight: 700 }}>{Math.round(icons.scale * 100)} %</span>
+          </div>
+          <input type="range" min={0.6} max={2} step={0.1} value={icons.scale}
+            onChange={(e) => onChangeIcons({ ...icons, scale: Number(e.target.value) })}
+            style={{ width: "100%" }} aria-label="Taille des icônes" />
+          <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 4 }}>L'épaisseur et la taille s'appliquent à toutes les icônes du document.</div>
+        </>
+      )}
 
       {timing && onChangeTiming && (
         <>

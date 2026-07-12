@@ -101,11 +101,31 @@ export const DEFAULT_STYLES: Record<LineStyleKey, StyleDef> = {
   note:     { label: "Note",       font: DEFAULT_FONT,          size: 40, color: "rgba(255,255,255,.82)",   align: "left", lineHeight: 1.36, mark: null, margins: m(40) },
 };
 
+export interface LineIcon { name: string; color: string; }
+
+export const ICON_NAMES = [
+  "agenda-1", "agenda-2", "attention", "avis", "bon-cadeau", "coeur", "contact", "drapeau",
+  "etoile-1", "etoile-2", "feuille", "fleur-1", "fleur-2", "formation", "localisation", "mail",
+  "maison", "message", "plante", "projet", "question", "soin", "tarif", "vacances",
+];
+export const ICON_COLORS = ["blanc", "encre", "noir", "sauge", "sauge-fonce", "terracotta"];
+export type IconStroke = "trait-1.5" | "trait-2";
+export interface IconSettings { stroke: IconStroke; scale: number; }
+
+export function defaultIcons(): IconSettings {
+  return { stroke: "trait-2", scale: 1 };
+}
+
+export function iconUrl(icon: LineIcon, stroke: IconStroke): string {
+  return `/icons/${icon.color}/${stroke}/${icon.name}.svg`;
+}
+
 export interface Line {
   id: string;
   style: LineStyleKey;
   text: string;
   override?: Partial<StyleDef>;
+  icon?: LineIcon | null;
 }
 
 export interface Slide {
@@ -130,6 +150,7 @@ export interface StoryPayload {
   slides: Slide[];
   logos: LogoPlacement[];
   timing?: Timing;
+  icons?: IconSettings;
 }
 
 export interface DocLike {
@@ -149,6 +170,7 @@ export interface DocLike {
   slides: Slide[];
   logos?: LogoPlacement[];
   timing?: Timing;
+  icons?: IconSettings;
 }
 
 export interface ResolvedDoc extends DocLike {
@@ -158,6 +180,7 @@ export interface ResolvedDoc extends DocLike {
   background: Background;
   logos: LogoPlacement[];
   timing: Timing;
+  icons: IconSettings;
 }
 
 export type Anchor =
@@ -236,6 +259,7 @@ export function ensureDocDefaults(doc: DocLike): ResolvedDoc {
     background: doc.background ?? defaultBackground(),
     logos: doc.logos ?? [],
     timing: doc.timing ?? defaultTiming(),
+    icons: doc.icons ?? defaultIcons(),
   };
 }
 
@@ -257,6 +281,7 @@ function baseNew(type: "story" | "post", format: Format, title: string): StoryPa
     slides: [newSlide()],
     logos: [],
     timing: defaultTiming(),
+    icons: defaultIcons(),
   };
 }
 

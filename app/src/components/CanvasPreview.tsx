@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, LogoPlacement } from "@/lib/model";
-import { DEFAULT_STYLES, defaultContentMargin, defaultBackground } from "@/lib/model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, LogoPlacement, IconSettings } from "@/lib/model";
+import { DEFAULT_STYLES, defaultContentMargin, defaultBackground, defaultIcons, iconUrl } from "@/lib/model";
 import { drawSlide, dimsFor } from "@/lib/renderer/draw";
 
 export function CanvasPreview({
-  slide, format, styles, contentMargin, blockPosition, background, logos,
+  slide, format, styles, contentMargin, blockPosition, background, logos, icons,
 }: {
   slide: Slide | null;
   format: string;
@@ -13,6 +13,7 @@ export function CanvasPreview({
   blockPosition?: BlockPosition;
   background?: Background;
   logos?: LogoPlacement[];
+  icons?: IconSettings;
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const dims = dimsFor(format);
@@ -27,6 +28,11 @@ export function CanvasPreview({
 
   const [logoImgs, setLogoImgs] = useState<Record<string, HTMLImageElement>>({});
   const logoRefsKey = logoList.map((l) => l.logoRef).join(",");
+
+  const ic = icons ?? defaultIcons();
+  const [iconImgs, setIconImgs] = useState<Record<string, HTMLImageElement>>({});
+  const iconUrls = (slide?.lines ?? []).filter((l) => l.icon).map((l) => iconUrl(l.icon!, ic.stroke));
+  const iconUrlsKey = iconUrls.join(",");
 
   useEffect(() => {
     if (!wantImage) { setImg(null); return; }
@@ -52,6 +58,19 @@ export function CanvasPreview({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logoRefsKey]);
 
+  // Charge les icônes manquantes (SVG servis depuis /icons).
+  useEffect(() => {
+    let cancelled = false;
+    for (const u of [...new Set(iconUrls)]) {
+      if (iconImgs[u]) continue;
+      const image = new Image();
+      image.onload = () => { if (!cancelled) setIconImgs((m) => ({ ...m, [u]: image })); };
+      image.src = u;
+    }
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [iconUrlsKey]);
+
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -61,13 +80,13 @@ export function CanvasPreview({
     document.fonts.ready.then(() => {
       if (cancelled) return;
       if (slide) {
-        drawSlide(ctx, slide, st, { dims, background: bg, contentMargin: cm, blockPosition: bp, image: img, logos: logoList, logoImages: logoImgs });
+        drawSlide(ctx, slide, st, { dims, background: bg, contentMargin: cm, blockPosition: bp, image: img, logos: logoList, logoImages: logoImgs, icons: ic, iconImages: iconImgs });
       } else {
         ctx.clearRect(0, 0, dims.width, dims.height);
       }
     });
     return () => { cancelled = true; };
-  }, [slide, st, cm, bp, bg, img, logoList, logoImgs, dims.width, dims.height, dims.margin]);
+  }, [slide, st, cm, bp, bg, img, logoList, logoImgs, iconImgs, ic.stroke, ic.scale, dims.width, dims.height, dims.margin]);
 
   return (
     <canvas

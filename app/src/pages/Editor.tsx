@@ -158,7 +158,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
           />
 
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#eaf1ef", padding: 16 }}>
-            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} background={effectiveBackground(doc, slide)} logos={effectiveLogos(doc, slide)} />
+            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} background={effectiveBackground(doc, slide)} logos={effectiveLogos(doc, slide)} icons={doc.icons} />
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", borderLeft: "1px solid var(--line)", background: "#fff", minWidth: 260 }}>
@@ -175,6 +175,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                   lines={slide.lines}
                   onChangeText={(lid, text) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, text } : l)) }))}
                   onChangeStyle={(lid, style: LineStyleKey) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, style } : l)) }))}
+                  onChangeIcon={(lid, icon) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, icon } : l)) }))}
                   onAdd={() => updateSlide(idx, (s) => ({ ...s, lines: [...s.lines, newLine()] }))}
                   onDelete={(lid) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.length > 1 ? s.lines.filter((l) => l.id !== lid) : s.lines }))}
                   onMove={(lid, dir) => updateSlide(idx, (s) => {
@@ -234,6 +235,8 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                   onChangeBlockPosition={(p: BlockPosition) => setDoc({ ...doc, blockPosition: p })}
                   timing={doc.type === "story" ? doc.timing : undefined}
                   onChangeTiming={doc.type === "story" ? (t) => setDoc({ ...doc, timing: t }) : undefined}
+                  icons={doc.icons}
+                  onChangeIcons={(i) => setDoc({ ...doc, icons: i })}
                 />
               )}
             </div>

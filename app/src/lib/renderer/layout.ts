@@ -116,15 +116,19 @@ export interface SlideLayout {
 export function layoutSlide(
   lines: Line[],
   styles: Record<LineStyleKey, StyleDef>,
-  opts: { contentWidth: number; measure: Measure },
+  opts: { contentWidth: number; measure: Measure; iconScale?: number },
 ): SlideLayout {
   const { contentWidth, measure } = opts;
+  const iconScale = opts.iconScale ?? 1;
   const blocks: LayoutBlock[] = [];
   let total = 0;
   lines.forEach((ln, i) => {
     const st = mergeStyle(styles[ln.style] ?? styles.text, ln.override);
     const font = fontString(st);
-    const markWidth = st.mark ? measure(st.mark + "  ", font) : 0;
+    // Une icône (à gauche) réserve sa largeur ; sinon la marque (puce/flèche) du style.
+    const markWidth = ln.icon
+      ? st.size * iconScale + st.size * 0.3
+      : (st.mark ? measure(st.mark + "  ", font) : 0);
     const avail = contentWidth - st.margins.left - st.margins.right - markWidth;
     const wrapped = wrapRich(ln.text, avail, (t, bold) => measure(t, runFontString(st, bold)));
     const lineHeight = st.size * st.lineHeight;

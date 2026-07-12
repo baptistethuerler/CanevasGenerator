@@ -1,4 +1,5 @@
-import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, Overlay, Crop, LogoPlacement, Anchor } from "../model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, Overlay, Crop, LogoPlacement, Anchor, IconSettings } from "../model";
+import { iconUrl } from "../model";
 import { layoutSlide, runFontString } from "./layout";
 
 export interface Dims {
@@ -170,7 +171,7 @@ export function drawSlide(
   ctx: DrawCtx,
   slide: Slide,
   styles: Record<LineStyleKey, StyleDef>,
-  opts: { dims: Dims; background: Background; contentMargin: ContentMargin; blockPosition: BlockPosition; image?: ImageLike | null; logos?: LogoPlacement[]; logoImages?: Record<string, ImageLike> },
+  opts: { dims: Dims; background: Background; contentMargin: ContentMargin; blockPosition: BlockPosition; image?: ImageLike | null; logos?: LogoPlacement[]; logoImages?: Record<string, ImageLike>; icons?: IconSettings; iconImages?: Record<string, ImageLike> },
 ): void {
   const { width, height } = opts.dims;
   const cm = opts.contentMargin;
@@ -184,6 +185,7 @@ export function drawSlide(
 
   const layout = layoutSlide(slide.lines, styles, {
     contentWidth,
+    iconScale: opts.icons?.scale ?? 1,
     measure: (t, f) => {
       ctx.font = f;
       return ctx.measureText(t).width;
@@ -216,7 +218,14 @@ export function drawSlide(
     const areaRight = contentRight - st.margins.right;
 
     ctx.fillStyle = st.color;
-    if (st.mark) {
+    const icon = b.line.icon;
+    if (icon && opts.iconImages) {
+      const img = opts.iconImages[iconUrl(icon, opts.icons?.stroke ?? "trait-2")];
+      if (img) {
+        const iconSize = st.size * (opts.icons?.scale ?? 1);
+        ctx.drawImage(img, markX, firstBaseline - iconSize * 0.82, iconSize, iconSize);
+      }
+    } else if (st.mark) {
       ctx.font = b.font;
       ctx.fillText(st.mark, markX, firstBaseline);
     }
