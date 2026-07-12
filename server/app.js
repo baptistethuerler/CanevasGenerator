@@ -23,8 +23,8 @@ export function createApp({ store, paths, serveStatic = true }) {
   if (serveStatic) {
     const dist = join(__dirname, "..", "app", "dist");
     app.use(express.static(dist));
-    // SPA fallback : toute route non-API renvoie index.html
-    app.get(/^(?!\/api).*/, (_req, res) => res.sendFile(join(dist, "index.html")));
+    // SPA fallback : toute route hors /api et /images renvoie index.html
+    app.get(/^(?!\/(api|images)).*/, (_req, res) => res.sendFile(join(dist, "index.html")));
   }
 
   // Filet de sécurité : toute erreur non gérée renvoie un 500 JSON plutôt que de laisser pendre la requête

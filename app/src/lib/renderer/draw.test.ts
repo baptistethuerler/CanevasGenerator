@@ -161,4 +161,13 @@ describe("drawBackground image", () => {
     expect(ctx.calls.some((c) => c[0] === "drawImage")).toBe(false);
     expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(1);
   });
+
+  it("applique un filtre brightness/blur au moment du dessin de l'image", () => {
+    const ctx = fakeCtx();
+    let filterAtDraw = "";
+    (ctx as any).drawImage = () => { filterAtDraw = (ctx as any).filter; };
+    const bg = { kind: "image" as const, color: "#4e7a63", imageRef: "a.png", filters: { brightness: 1.2, blur: 3 }, overlay: { type: "none" as const, color: "#000", intensity: 0.5, direction: "bottom" as const, softness: 0.5 } };
+    drawBackground(ctx as any, bg, dims, img as any);
+    expect(filterAtDraw).toBe("brightness(1.2) blur(3px)");
+  });
 });
