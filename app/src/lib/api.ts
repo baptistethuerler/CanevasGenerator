@@ -1,3 +1,5 @@
+import type { Slide, StoryPayload } from "./model";
+
 export type DocMeta = {
   id: string;
   type: "story" | "post";
@@ -13,8 +15,6 @@ export async function fetchLibrary(): Promise<DocMeta[]> {
   if (!res.ok) throw new Error("Échec du chargement de la bibliothèque");
   return res.json();
 }
-
-import type { Slide, StoryPayload } from "./model";
 
 export interface StoryDoc {
   id: string;

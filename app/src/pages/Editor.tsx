@@ -12,6 +12,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [saved, setSaved] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const firstLoad = useRef(true);
+  const dirty = useRef(false);
 
   useEffect(() => {
     getDoc(id).then(setDoc).catch((e) => setError(e.message));
@@ -20,14 +21,26 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   useEffect(() => {
     if (!doc) return;
     if (firstLoad.current) { firstLoad.current = false; return; }
+    dirty.current = true;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       updateDoc(id, doc)
-        .then(() => { setSaved(true); setTimeout(() => setSaved(false), 1200); })
+        .then(() => { dirty.current = false; setSaved(true); setTimeout(() => setSaved(false), 1200); })
         .catch((e) => setError((e as Error).message));
     }, 600);
     return () => { if (saveTimer.current) clearTimeout(saveTimer.current); };
   }, [doc, id]);
+
+  // Retour à la bibliothèque : on sauvegarde immédiatement toute édition en attente
+  // (sinon un clic dans les 600 ms suivant une frappe perdrait la dernière modification).
+  const handleBack = () => {
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    if (dirty.current && doc) {
+      dirty.current = false;
+      updateDoc(id, doc).catch(() => {});
+    }
+    onBack();
+  };
 
   if (error) return <div className="empty" style={{ padding: 40 }}>Erreur : {error} <button className="btn ghost" onClick={onBack}>← Retour</button></div>;
   if (!doc) return <div className="empty" style={{ padding: 40 }}>Chargement…</div>;
@@ -44,7 +57,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
     <div className="app" style={{ gridTemplateColumns: "1fr" }}>
       <div className="content">
         <header className="topbar">
-          <button className="btn ghost" onClick={onBack}>←</button>
+          <button className="btn ghost" onClick={handleBack}>←</button>
           <input
             className="input"
             style={{ maxWidth: 260, fontWeight: 800 }}
