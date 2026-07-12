@@ -1,4 +1,5 @@
-import type { Slide, StoryPayload, Format } from "./model";
+import type { Slide, StoryPayload, Format, LineStyleKey, StyleDef, ContentMargin, BlockPosition } from "./model";
+import { ensureDocDefaults } from "./model";
 
 export type DocMeta = {
   id: string;
@@ -20,11 +21,15 @@ export interface StoryDoc {
   id: string;
   type: "story" | "post";
   format: string;
+  postMode?: "single" | "carousel";
   title: string;
   status: "draft" | "ready";
   date?: string;
   createdAt: string;
   updatedAt: string;
+  styles?: Record<LineStyleKey, StyleDef>;
+  contentMargin?: ContentMargin;
+  blockPosition?: BlockPosition;
   slides: Slide[];
 }
 
@@ -70,7 +75,7 @@ export async function deleteDoc(id: string): Promise<void> {
 }
 
 export async function duplicateDoc(id: string): Promise<StoryDoc> {
-  const src = await getDoc(id);
+  const src = ensureDocDefaults(await getDoc(id));
   const payload: StoryPayload = {
     type: src.type,
     format: src.format as Format,
@@ -78,6 +83,9 @@ export async function duplicateDoc(id: string): Promise<StoryDoc> {
     title: `${src.title} (copie)`,
     status: "draft",
     date: src.date ?? new Date().toISOString().slice(0, 10),
+    styles: src.styles,
+    contentMargin: src.contentMargin,
+    blockPosition: src.blockPosition,
     slides: src.slides,
   };
   return createDoc(payload);
