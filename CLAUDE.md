@@ -5,7 +5,7 @@
 ## Le projet
 
 **Atelier de Stories — Altitude** : petite app web **locale** qui permet à *Altitude Massage* de créer, gérer et exporter des visuels Instagram :
-- **Stories** (vidéo verticale 1080×1920) — export MP4 **à venir (Phase 5b)**.
+- **Stories** (vidéo verticale 1080×1920) — export vidéo (MP4 H.264, repli WebM) **livré (Phase 5b)**.
 - **Posts** de feed (image PNG unique ou carrousel .zip, carré 1:1 ou portrait 4:5) — export **livré (Phase 5a)**.
 
 Éditeur riche : contenu texte, styles typographiques configurables, fond couleur/image + voile, logo multi-positions, format. Rendu 100 % **canvas** (l'aperçu = l'export).
@@ -23,7 +23,7 @@
 - **Serveur** : Node.js + Express (`server/`) — sert le build de l'app + une API fichiers REST locale.
 - **Rendu** : Canvas 2D (moteur unique partagé aperçu ↔ export), dans `app/src/lib/renderer/`.
 - **Persistance** : fichiers JSON sur disque (`data/stories/*.json`, `data/posts/*.json`), assets dans `images/`, `logos/` (servis sur `/images`, `/logos`). Pas de base de données.
-- **Tests** : Vitest (+ Supertest pour l'API). **78 tests** actuellement.
+- **Tests** : Vitest (+ Supertest pour l'API). **92 tests** actuellement.
 - **Export carrousel** : JSZip.
 
 ## Commandes
@@ -85,19 +85,20 @@ app/src/
 - ✅ **Phase 4B-2b** — Ajustements d'image (zoom, point focal, luminosité, flou)
 - ✅ **Phase 4C** — Logo (banque, placement multi-positions + libre, taille, opacité, portée story/slide)
 - ✅ **Phase 5a** — Export Post (image PNG + carrousel .zip)
+- ✅ **Phase 5b** — Export Story vidéo (MP4 H.264, repli WebM) : moteur d'animation pur `lib/anim.ts` (`buildStoryPhases`/`frameAt`/`phasesTotalDuration`, phases `in → hold → (cross → hold)×N` **sans fondu sortant**, dernière image figée), module navigateur `lib/video.ts` (pré-rendu slides → boucle rAF → `MediaRecorder` sur `canvas.captureStream(30)` → download), champ `timing` au modèle (défauts 4.5 / 0.7) + curseurs Durée/Transition dans l'onglet **Format** (story uniquement), bouton « 🎬 Vidéo » actif dans la topbar. Vérifié en navigateur (MP4 H.264 produit ~433 Ko sur 2 slides).
 
-## PROCHAINE ÉTAPE — Phase 5b (à planifier puis exécuter)
+## PROCHAINE ÉTAPE — Phase 6 — Extras (à planifier puis exécuter)
 
-**Phase 5b — Export Story MP4** (la pièce maîtresse restante) :
-- Moteur d'animation : `buildStoryPhases(nbSlides, timing)` (pur, testable) → phases `in → hold → (cross → hold)×N` **SANS fondu sortant** → se termine sur un **hold final = dernière image figée** (exigence explicite de l'utilisateur : pas de fondu final qui ferait disparaître le texte).
-- Rendu de frame par cross-fade (composer les slides voisins avec `globalAlpha`, idéalement via un canvas hors-écran par slide pour cross-fader fond+texte+logo).
-- Enregistrement via **MediaRecorder** sur `canvas.captureStream(30)` → **MP4 H.264** (repli WebM), téléchargement.
-- Ajouter `timing: { duration, transition }` au modèle (+ défauts 4.5 / 0.7) + curseurs durée/transition dans l'onglet **Format** (story uniquement).
-- Réutiliser `export.ts` (loadResources, renderSlideToCanvas) déjà en place.
-- Activer le bouton « 🎬 Vidéo » de la topbar (actuellement désactivé « bientôt » pour les stories dans `Editor.tsx`).
-- Voir spec §10 (Rendu, dernière image figée) et §11 (Export).
+**Phase 6 — Extras** :
+- Onglet **Marque** (palette/polices/logos par défaut).
+- **Planning** (calendrier).
+- **Modèles** (gabarits réutilisables).
+- **Annuler/rétablir**.
+- **Glisser-déposer** (réordonner slides/lignes).
+- **Zones de sécurité** Instagram (overlay indicatif non exporté) + **alerte de débordement** (spec §10).
+- **Archivage serveur** des exports dans `exports/` + `exports/Archives/` (spec §11) — aujourd'hui l'export télécharge dans le dossier Téléchargements du navigateur.
 
-Puis reste la **Phase 6 — Extras** : onglet **Marque** (palette/polices/logos par défaut), **Planning** (calendrier), **modèles**, **annuler/rétablir**, **glisser-déposer**.
+Dettes de robustesse mineures de la 5b, à traiter à l'occasion : le type MIME du `Blob` de repli retombe sur `video/webm` même si le navigateur enregistre un autre format (cosmétique).
 
 ## Méthodologie de travail (à SUIVRE)
 
