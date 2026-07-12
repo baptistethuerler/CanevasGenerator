@@ -1,16 +1,19 @@
-import type { ContentMargin, BlockPosition } from "@/lib/model";
+import type { ContentMargin, BlockPosition, Timing } from "@/lib/model";
 import { MarginsEditor } from "./MarginsEditor";
 
 const label: React.CSSProperties = { fontSize: 10, textTransform: "uppercase", letterSpacing: ".4px", color: "var(--muted)", fontWeight: 800, margin: "10px 0 4px" };
 
 export function FormatInspector({
   formatLabel, contentMargin, blockPosition, onChangeContentMargin, onChangeBlockPosition,
+  timing, onChangeTiming,
 }: {
   formatLabel: string;
   contentMargin: ContentMargin;
   blockPosition: BlockPosition;
   onChangeContentMargin: (m: ContentMargin) => void;
   onChangeBlockPosition: (p: BlockPosition) => void;
+  timing?: Timing;
+  onChangeTiming?: (t: Timing) => void;
 }) {
   return (
     <div style={{ width: 260, borderLeft: "1px solid var(--line)", background: "#fff", display: "flex", flexDirection: "column", overflowY: "auto", padding: 12 }}>
@@ -35,6 +38,25 @@ export function FormatInspector({
           </button>
         ))}
       </div>
+
+      {timing && onChangeTiming && (
+        <>
+          <div style={label}>Animation vidéo</div>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--ink)" }}>
+            <span>Durée par slide</span><span style={{ fontWeight: 700 }}>{timing.duration.toFixed(1)} s</span>
+          </div>
+          <input type="range" min={1.5} max={8} step={0.5} value={timing.duration}
+            onChange={(e) => onChangeTiming({ ...timing, duration: Number(e.target.value) })}
+            style={{ width: "100%" }} aria-label="Durée par slide" />
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--ink)", marginTop: 8 }}>
+            <span>Transition</span><span style={{ fontWeight: 700 }}>{timing.transition.toFixed(1)} s</span>
+          </div>
+          <input type="range" min={0} max={2} step={0.1} value={timing.transition}
+            onChange={(e) => onChangeTiming({ ...timing, transition: Number(e.target.value) })}
+            style={{ width: "100%" }} aria-label="Transition" />
+          <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 4 }}>La vidéo se termine sur la dernière image figée.</div>
+        </>
+      )}
     </div>
   );
 }
