@@ -1,9 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import { getDoc, updateDoc, type StoryDoc } from "@/lib/api";
-import { newSlide, newLine, uid, type LineStyleKey } from "@/lib/model";
+import { getDoc, updateDoc } from "@/lib/api";
+import {
+  newSlide, newLine, uid, ensureDocDefaults,
+  type LineStyleKey, type StyleDef, type ContentMargin, type BlockPosition, type ResolvedDoc,
+} from "@/lib/model";
 import { CanvasPreview } from "@/components/CanvasPreview";
 import { SlidesRail } from "@/components/SlidesRail";
 import { ContentInspector } from "@/components/ContentInspector";
+import { TextInspector } from "@/components/TextInspector";
+import { FormatInspector } from "@/components/FormatInspector";
+
+type Tab = "contenu" | "texte" | "format";
 
 function formatLabel(type: string, format: string): string {
   if (type === "post") return format === "4:5" ? "🖼️ Post 1080×1350" : "🖼️ Post 1080×1080";
@@ -11,16 +18,17 @@ function formatLabel(type: string, format: string): string {
 }
 
 export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
-  const [doc, setDoc] = useState<StoryDoc | null>(null);
+  const [doc, setDoc] = useState<ResolvedDoc | null>(null);
   const [active, setActive] = useState(0);
+  const [tab, setTab] = useState<Tab>("contenu");
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const firstLoad = useRef(true);
   const dirty = useRef(false);
+  const firstLoad = useRef(true);
 
   useEffect(() => {
-    getDoc(id).then(setDoc).catch((e) => setError(e.message));
+    getDoc(id).then((d) => setDoc(ensureDocDefaults(d))).catch((e) => setError(e.message));
   }, [id]);
 
   useEffect(() => {
@@ -36,18 +44,13 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
     return () => { if (saveTimer.current) clearTimeout(saveTimer.current); };
   }, [doc, id]);
 
-  // Retour à la bibliothèque : on sauvegarde immédiatement toute édition en attente
-  // (sinon un clic dans les 600 ms suivant une frappe perdrait la dernière modification).
   const handleBack = () => {
     if (saveTimer.current) clearTimeout(saveTimer.current);
-    if (dirty.current && doc) {
-      dirty.current = false;
-      updateDoc(id, doc).catch(() => {});
-    }
+    if (dirty.current && doc) { dirty.current = false; updateDoc(id, doc).catch(() => {}); }
     onBack();
   };
 
-  if (error) return <div className="empty" style={{ padding: 40 }}>Erreur : {error} <button className="btn ghost" onClick={onBack}>← Retour</button></div>;
+  if (error) return <div className="empty" style={{ padding: 40 }}>Erreur : {error} <button className="btn ghost" onClick={handleBack}>← Retour</button></div>;
   if (!doc) return <div className="empty" style={{ padding: 40 }}>Chargement…</div>;
 
   const slides = doc.slides;
@@ -58,18 +61,16 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const updateSlide = (i: number, fn: (s: typeof slides[number]) => typeof slides[number]) =>
     setSlides(slides.map((s, j) => (j === i ? fn(s) : s)));
 
+  const tabBtn = (t: Tab, lbl: string) => (
+    <button type="button" className={`tab${tab === t ? " active" : ""}`} style={{ padding: "8px 12px", fontSize: 12 }} onClick={() => setTab(t)}>{lbl}</button>
+  );
+
   return (
     <div className="app" style={{ gridTemplateColumns: "1fr" }}>
       <div className="content">
         <header className="topbar">
           <button className="btn ghost" onClick={handleBack}>←</button>
-          <input
-            className="input"
-            style={{ maxWidth: 260, fontWeight: 800 }}
-            value={doc.title}
-            onChange={(e) => setDoc({ ...doc, title: e.target.value })}
-            aria-label="Titre de la story"
-          />
+          <input className="input" style={{ maxWidth: 240, fontWeight: 800 }} value={doc.title} onChange={(e) => setDoc({ ...doc, title: e.target.value })} aria-label="Titre" />
           <span className="badge draft">{formatLabel(doc.type, doc.format)}</span>
           <div className="top-actions">
             <span style={{ color: "var(--sage-deep)", fontSize: 13, fontWeight: 700, opacity: saved ? 1 : 0, transition: "opacity .3s" }}>✓ Enregistré</span>
@@ -103,27 +104,51 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
             }}
           />
 
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", background: "#eaf1ef", padding: 16 }}>
-            <CanvasPreview slide={slide} format={doc.format} />
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#eaf1ef", padding: 16 }}>
+            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} />
           </div>
 
-          {slide && (
-            <ContentInspector
-              lines={slide.lines}
-              onChangeText={(lid, text) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, text } : l)) }))}
-              onChangeStyle={(lid, style: LineStyleKey) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, style } : l)) }))}
-              onAdd={() => updateSlide(idx, (s) => ({ ...s, lines: [...s.lines, newLine()] }))}
-              onDelete={(lid) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.length > 1 ? s.lines.filter((l) => l.id !== lid) : s.lines }))}
-              onMove={(lid, dir) => updateSlide(idx, (s) => {
-                const i = s.lines.findIndex((l) => l.id === lid);
-                const j = i + dir;
-                if (i < 0 || j < 0 || j >= s.lines.length) return s;
-                const lines = [...s.lines];
-                [lines[i], lines[j]] = [lines[j], lines[i]];
-                return { ...s, lines };
-              })}
-            />
-          )}
+          <div style={{ display: "flex", flexDirection: "column", borderLeft: "1px solid var(--line)", background: "#fff", minWidth: 260 }}>
+            <div className="tabs" style={{ margin: 0, padding: "8px 8px 0", gap: 4, borderBottom: "1px solid var(--line)" }}>
+              {tabBtn("contenu", "Contenu")}
+              {tabBtn("texte", "Texte")}
+              {tabBtn("format", "Format")}
+            </div>
+            <div style={{ flex: 1, minHeight: 0, display: "flex" }}>
+              {tab === "contenu" && slide && (
+                <ContentInspector
+                  lines={slide.lines}
+                  onChangeText={(lid, text) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, text } : l)) }))}
+                  onChangeStyle={(lid, style: LineStyleKey) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.map((l) => (l.id === lid ? { ...l, style } : l)) }))}
+                  onAdd={() => updateSlide(idx, (s) => ({ ...s, lines: [...s.lines, newLine()] }))}
+                  onDelete={(lid) => updateSlide(idx, (s) => ({ ...s, lines: s.lines.length > 1 ? s.lines.filter((l) => l.id !== lid) : s.lines }))}
+                  onMove={(lid, dir) => updateSlide(idx, (s) => {
+                    const i = s.lines.findIndex((l) => l.id === lid);
+                    const j = i + dir;
+                    if (i < 0 || j < 0 || j >= s.lines.length) return s;
+                    const lines = [...s.lines];
+                    [lines[i], lines[j]] = [lines[j], lines[i]];
+                    return { ...s, lines };
+                  })}
+                />
+              )}
+              {tab === "texte" && (
+                <TextInspector
+                  styles={doc.styles}
+                  onChangeStyle={(key: LineStyleKey, next: StyleDef) => setDoc({ ...doc, styles: { ...doc.styles, [key]: next } })}
+                />
+              )}
+              {tab === "format" && (
+                <FormatInspector
+                  formatLabel={formatLabel(doc.type, doc.format)}
+                  contentMargin={doc.contentMargin}
+                  blockPosition={doc.blockPosition}
+                  onChangeContentMargin={(cm: ContentMargin) => setDoc({ ...doc, contentMargin: cm })}
+                  onChangeBlockPosition={(p: BlockPosition) => setDoc({ ...doc, blockPosition: p })}
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

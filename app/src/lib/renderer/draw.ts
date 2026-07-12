@@ -1,4 +1,4 @@
-import type { Slide, LineStyleKey, StyleDef } from "../model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition } from "../model";
 import { layoutSlide } from "./layout";
 
 export interface Dims {
@@ -17,7 +17,6 @@ export function dimsFor(format: string): Dims {
   return DIMS[format] ?? DIMS["9:16"];
 }
 
-// Alias rétro-compatible (utilisé par l'aperçu par défaut et les tests existants).
 export const STORY_DIMS: Dims = DIMS["9:16"];
 
 export interface DrawCtx {
@@ -35,15 +34,19 @@ export function drawSlide(
   ctx: DrawCtx,
   slide: Slide,
   styles: Record<LineStyleKey, StyleDef>,
-  opts: { dims: Dims; background: string },
+  opts: { dims: Dims; background: string; contentMargin: ContentMargin; blockPosition: BlockPosition },
 ): void {
-  const { width, height, margin } = opts.dims;
+  const { width, height } = opts.dims;
+  const cm = opts.contentMargin;
 
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = opts.background;
   ctx.fillRect(0, 0, width, height);
 
-  const contentWidth = width - 2 * margin;
+  const contentLeft = cm.left;
+  const contentRight = width - cm.right;
+  const contentWidth = contentRight - contentLeft;
+
   const layout = layoutSlide(slide.lines, styles, {
     contentWidth,
     measure: (t, f) => {
@@ -52,30 +55,41 @@ export function drawSlide(
     },
   });
 
-  const bandTop = margin;
-  const bandBottom = height - margin;
-  let y = bandTop + Math.max(0, (bandBottom - bandTop - layout.totalHeight) / 2);
+  const bandTop = cm.top;
+  const bandBottom = height - cm.bottom;
+  let y: number;
+  if (opts.blockPosition === "top") y = bandTop;
+  else if (opts.blockPosition === "bottom") y = Math.max(bandTop, bandBottom - layout.totalHeight);
+  else y = bandTop + Math.max(0, (bandBottom - bandTop - layout.totalHeight) / 2);
 
   ctx.textBaseline = "alphabetic";
   ctx.textAlign = "left";
 
   for (const b of layout.blocks) {
-    y += b.gap;
+    y += b.gapBefore;
+    const st = b.style;
     ctx.font = b.font;
-    const firstBaseline = y + b.style.size * 0.8;
-    const markX = margin + b.indent;
-    const textX = markX + b.markWidth;
+    const firstBaseline = y + st.size * 0.8;
+    const markX = contentLeft + st.margins.left;
+    const areaLeft = markX + b.markWidth;
+    const areaRight = contentRight - st.margins.right;
 
-    if (b.style.mark) {
-      ctx.fillStyle = b.style.color;
-      ctx.fillText(b.style.mark, markX, firstBaseline);
+    if (st.mark) {
+      ctx.fillStyle = st.color;
+      ctx.fillText(st.mark, markX, firstBaseline);
     }
 
-    ctx.fillStyle = b.style.color;
+    ctx.fillStyle = st.color;
     b.wrapped.forEach((tline, k) => {
-      ctx.fillText(tline, textX, firstBaseline + k * b.lineHeight);
+      const baseline = firstBaseline + k * b.lineHeight;
+      if (st.align === "center") {
+        const w = ctx.measureText(tline).width;
+        ctx.fillText(tline, (areaLeft + areaRight) / 2 - w / 2, baseline);
+      } else {
+        ctx.fillText(tline, areaLeft, baseline);
+      }
     });
 
-    y += b.height;
+    y += b.height + b.gapAfter;
   }
 }

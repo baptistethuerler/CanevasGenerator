@@ -2,32 +2,51 @@ export type LineStyleKey = "title" | "subtitle" | "text" | "bullet" | "arrow" | 
 
 export const STYLE_KEYS: LineStyleKey[] = ["title", "subtitle", "text", "bullet", "arrow", "note"];
 
+export type Format = "9:16" | "1:1" | "4:5";
+export type BlockPosition = "top" | "center" | "bottom";
+export type Align = "left" | "center";
+
+export interface Margins {
+  linked: boolean;
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
+
+export type ContentMargin = Margins;
+
 export interface StyleDef {
   label: string;
   font: string;
   size: number;
   color: string;
+  align: Align;
   lineHeight: number;
-  gapTop: number;
   mark: string | null;
-  indent: number;
+  margins: Margins;
 }
 
 export const DEFAULT_FONT = "Nunito";
+export const FONT_CHOICES = ["Nunito", "Georgia", "Arial"];
+export const COLOR_CHOICES = ["#ffffff", "#2f3a34", "#4e7a63", "#c9836a", "#eaf5f2"];
+
+const m = (top: number, left = 0): Margins => ({ linked: false, top, right: 0, bottom: 0, left });
 
 export const DEFAULT_STYLES: Record<LineStyleKey, StyleDef> = {
-  title: { label: "Titre", font: DEFAULT_FONT, size: 78, color: "#ffffff", lineHeight: 1.12, gapTop: 0, mark: null, indent: 0 },
-  subtitle: { label: "Sous-titre", font: DEFAULT_FONT, size: 48, color: "#ffffff", lineHeight: 1.2, gapTop: 52, mark: null, indent: 0 },
-  text: { label: "Texte", font: DEFAULT_FONT, size: 39, color: "rgba(255,255,255,.95)", lineHeight: 1.32, gapTop: 24, mark: null, indent: 0 },
-  bullet: { label: "Puce", font: DEFAULT_FONT, size: 38, color: "rgba(255,255,255,.95)", lineHeight: 1.3, gapTop: 14, mark: "•", indent: 44 },
-  arrow: { label: "Créneau", font: DEFAULT_FONT, size: 42, color: "#eaf5f2", lineHeight: 1.24, gapTop: 10, mark: "→", indent: 44 },
-  note: { label: "Note", font: DEFAULT_FONT, size: 31, color: "rgba(255,255,255,.82)", lineHeight: 1.36, gapTop: 40, mark: null, indent: 0 },
+  title:    { label: "Titre",      font: DEFAULT_FONT, size: 78, color: "#ffffff",                 align: "left", lineHeight: 1.12, mark: null, margins: m(0) },
+  subtitle: { label: "Sous-titre", font: DEFAULT_FONT, size: 48, color: "#ffffff",                 align: "left", lineHeight: 1.2,  mark: null, margins: m(52) },
+  text:     { label: "Texte",      font: DEFAULT_FONT, size: 39, color: "rgba(255,255,255,.95)",   align: "left", lineHeight: 1.32, mark: null, margins: m(24) },
+  bullet:   { label: "Puce",       font: DEFAULT_FONT, size: 38, color: "rgba(255,255,255,.95)",   align: "left", lineHeight: 1.3,  mark: "•",  margins: m(14, 44) },
+  arrow:    { label: "Créneau",    font: DEFAULT_FONT, size: 42, color: "#eaf5f2",                 align: "left", lineHeight: 1.24, mark: "→",  margins: m(10, 44) },
+  note:     { label: "Note",       font: DEFAULT_FONT, size: 31, color: "rgba(255,255,255,.82)",   align: "left", lineHeight: 1.36, mark: null, margins: m(40) },
 };
 
 export interface Line {
   id: string;
   style: LineStyleKey;
   text: string;
+  override?: Partial<StyleDef>;
 }
 
 export interface Slide {
@@ -36,8 +55,6 @@ export interface Slide {
   lines: Line[];
 }
 
-export type Format = "9:16" | "1:1" | "4:5";
-
 export interface StoryPayload {
   type: "story" | "post";
   format: Format;
@@ -45,7 +62,32 @@ export interface StoryPayload {
   title: string;
   status: "draft" | "ready";
   date: string;
+  styles: Record<LineStyleKey, StyleDef>;
+  contentMargin: ContentMargin;
+  blockPosition: BlockPosition;
   slides: Slide[];
+}
+
+export interface DocLike {
+  id: string;
+  type: "story" | "post";
+  format: string;
+  postMode?: "single" | "carousel";
+  title: string;
+  status: "draft" | "ready";
+  date?: string;
+  createdAt: string;
+  updatedAt: string;
+  styles?: Record<LineStyleKey, StyleDef>;
+  contentMargin?: ContentMargin;
+  blockPosition?: BlockPosition;
+  slides: Slide[];
+}
+
+export interface ResolvedDoc extends DocLike {
+  styles: Record<LineStyleKey, StyleDef>;
+  contentMargin: ContentMargin;
+  blockPosition: BlockPosition;
 }
 
 export function uid(): string {
@@ -60,14 +102,50 @@ export function newSlide(): Slide {
   return { id: uid(), lines: [{ ...newLine("title"), text: "Nouveau slide" }, newLine("text")] };
 }
 
+export function defaultStyles(): Record<LineStyleKey, StyleDef> {
+  return structuredClone(DEFAULT_STYLES);
+}
+
+export function defaultContentMargin(): ContentMargin {
+  return { linked: true, top: 50, right: 50, bottom: 50, left: 50 };
+}
+
+export function mergeStyle(base: StyleDef, override?: Partial<StyleDef>): StyleDef {
+  if (!override) return base;
+  return { ...base, ...override, margins: { ...base.margins, ...(override.margins ?? {}) } };
+}
+
+export function ensureDocDefaults(doc: DocLike): ResolvedDoc {
+  return {
+    ...doc,
+    styles: doc.styles ?? defaultStyles(),
+    contentMargin: doc.contentMargin ?? defaultContentMargin(),
+    blockPosition: doc.blockPosition ?? "center",
+  };
+}
+
 function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function baseNew(type: "story" | "post", format: Format, title: string): StoryPayload {
+  return {
+    type,
+    format,
+    title,
+    status: "draft",
+    date: today(),
+    styles: defaultStyles(),
+    contentMargin: defaultContentMargin(),
+    blockPosition: "center",
+    slides: [newSlide()],
+  };
+}
+
 export function newStoryPayload(title = "Nouvelle story"): StoryPayload {
-  return { type: "story", format: "9:16", title, status: "draft", date: today(), slides: [newSlide()] };
+  return baseNew("story", "9:16", title);
 }
 
 export function newPostPayload(format: Format = "1:1", title = "Nouveau post"): StoryPayload {
-  return { type: "post", format, postMode: "single", title, status: "draft", date: today(), slides: [newSlide()] };
+  return { ...baseNew("post", format, title), postMode: "single" };
 }
