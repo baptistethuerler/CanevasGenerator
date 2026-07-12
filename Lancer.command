@@ -54,6 +54,18 @@ else
   open "$URL"
 fi
 
+# 4b) Envoi automatique des créations/fonds vers le dépôt partagé (best-effort, non bloquant).
+#     Nécessite une connexion GitHub acceptée une première fois (via Sync.command).
+if [ -d .git ]; then
+  sleep 2   # laisse le serveur importer les nouveaux fonds dans la banque
+  git add -A 2>/dev/null
+  if ! git diff --cached --quiet 2>/dev/null; then
+    git commit -m "Sync auto — $(scutil --get ComputerName 2>/dev/null || echo Mac), $(date '+%d/%m/%Y %H:%M')" >/dev/null 2>&1
+  fi
+  git pull --rebase --autostash 2>/dev/null || git rebase --abort 2>/dev/null
+  git push >/dev/null 2>&1 &
+fi
+
 # 5) Referme cette fenêtre Terminal (le serveur continue en arrière-plan).
 if [ -n "$WINID" ]; then
   osascript -e "tell application \"Terminal\" to close (every window whose id is $WINID)" >/dev/null 2>&1 &
