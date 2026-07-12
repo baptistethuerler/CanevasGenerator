@@ -1,4 +1,5 @@
 import type { Line, LineStyleKey, StyleDef } from "../model";
+import { mergeStyle } from "../model";
 
 export type Measure = (text: string, font: string) => number;
 
@@ -29,10 +30,10 @@ export interface LayoutBlock {
   font: string;
   wrapped: string[];
   lineHeight: number;
-  indent: number;
   markWidth: number;
   height: number;
-  gap: number;
+  gapBefore: number;
+  gapAfter: number;
 }
 
 export interface SlideLayout {
@@ -49,16 +50,17 @@ export function layoutSlide(
   const blocks: LayoutBlock[] = [];
   let total = 0;
   lines.forEach((ln, i) => {
-    const st = styles[ln.style] ?? styles.text;
+    const st = mergeStyle(styles[ln.style] ?? styles.text, ln.override);
     const font = fontString(st);
     const markWidth = st.mark ? measure(st.mark + "  ", font) : 0;
-    const avail = contentWidth - st.indent - markWidth;
+    const avail = contentWidth - st.margins.left - st.margins.right - markWidth;
     const wrapped = wrapText(ln.text, avail, (t) => measure(t, font));
     const lineHeight = st.size * st.lineHeight;
     const height = wrapped.length * lineHeight;
-    const gap = i === 0 ? 0 : st.gapTop;
-    blocks.push({ line: ln, style: st, font, wrapped, lineHeight, indent: st.indent, markWidth, height, gap });
-    total += gap + height;
+    const gapBefore = i === 0 ? 0 : st.margins.top;
+    const gapAfter = st.margins.bottom;
+    blocks.push({ line: ln, style: st, font, wrapped, lineHeight, markWidth, height, gapBefore, gapAfter });
+    total += gapBefore + height + gapAfter;
   });
   return { blocks, totalHeight: total };
 }
