@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin, defaultBackground, effectiveBackground, defaultCrop, defaultFilters } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -124,5 +124,14 @@ describe("fond & voile", () => {
     const doc = { background: docBg } as any;
     expect(effectiveBackground(doc, { id: "s", lines: [], background: slideBg })).toBe(slideBg);
     expect(effectiveBackground(doc, { id: "s", lines: [] })).toBe(docBg);
+  });
+});
+
+describe("fond image", () => {
+  it("defaultCrop = zoom 1, centré", () => {
+    expect(defaultCrop()).toEqual({ zoom: 1, x: 0.5, y: 0.5 });
+  });
+  it("defaultFilters = neutre", () => {
+    expect(defaultFilters()).toEqual({ brightness: 1, blur: 0 });
   });
 });
