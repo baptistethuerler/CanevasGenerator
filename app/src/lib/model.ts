@@ -186,7 +186,7 @@ export function newPostPayload(format: Format = "1:1", title = "Nouveau post"): 
 
 export function effectiveBackground(
   doc: { background: Background },
-  slide: { background?: Background | null } | null,
+  slide: Slide | null,
 ): Background {
   return (slide && slide.background) ? slide.background : doc.background;
 }
