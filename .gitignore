@@ -1,0 +1,16 @@
+# Dépendances
+node_modules/
+
+# Build
+dist/
+build/
+app/dist/
+
+# Compagnon visuel de brainstorming (maquettes temporaires)
+.superpowers/
+
+# Exports générés
+exports/
+
+# macOS
+.DS_Store
