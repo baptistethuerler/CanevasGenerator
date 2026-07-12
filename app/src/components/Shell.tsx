@@ -54,8 +54,7 @@ export function Shell({
     <div className="app">
       <aside className="sidebar">
         <div className="brand">
-          <span className="mark">🌿</span>
-          <b>Atelier</b>
+          <img className="brand-logo" src="/brand/logo-altitude-white.png" alt="Altitude Massage" />
         </div>
         {NAV.map((n) => (
           <button key={n.k} type="button" className={`nav-item${n.k === active ? " active" : ""}`}>

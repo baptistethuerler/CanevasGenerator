@@ -21,3 +21,6 @@ exports/
 
 # macOS
 .DS_Store
+
+# Dépôt local de fonds (importés dans images/ au démarrage)
+fonds/

@@ -10,7 +10,7 @@ import "./index.css";
 // Précharge les polices de marque Erode pour que l'aperçu/export canvas
 // les affiche dès le premier rendu (sinon repli Georgia le temps du chargement).
 if (typeof document !== "undefined" && "fonts" in document) {
-  for (const f of ["Erode", "Erode Medium", "Erode Semibold", "Erode Medium Italic"]) {
+  for (const f of ["Erode", "Erode Medium", "Erode Semibold", "Erode Medium Italic", "Erode Semibold Italic"]) {
     document.fonts.load(`600 40px "${f}"`).catch(() => {});
   }
 }

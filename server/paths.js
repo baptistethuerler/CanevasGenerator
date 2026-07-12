@@ -14,13 +14,14 @@ export function makePaths(root) {
     images: join(root, "images"),
     logos: join(root, "logos"),
     fonts: join(root, "fonts"),
+    fonds: join(root, "fonds"),
     exports: join(root, "exports"),
     archives: join(root, "exports", "Archives"),
   };
 }
 
 export async function ensureDataDirs(p) {
-  for (const dir of [p.stories, p.posts, p.templates, p.images, p.logos, p.fonts, p.exports, p.archives]) {
+  for (const dir of [p.stories, p.posts, p.templates, p.images, p.logos, p.fonts, p.fonds, p.exports, p.archives]) {
     await mkdir(dir, { recursive: true });
   }
 }

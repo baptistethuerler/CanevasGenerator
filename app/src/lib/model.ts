@@ -87,7 +87,7 @@ export interface StyleDef {
 }
 
 export const DEFAULT_FONT = "Erode Medium";
-export const FONT_CHOICES = ["Erode Medium", "Erode Medium Italic", "Erode Semibold", "Erode", "Nunito", "Georgia", "Arial"];
+export const FONT_CHOICES = ["Erode", "Erode Light", "Erode Medium", "Erode Semibold", "Erode Italic", "Erode Medium Italic", "Erode Semibold Italic"];
 export const COLOR_CHOICES = ["#ffffff", "#fdfbf7", "#33474a", "#81a9a3", "#6f948d", "#a25a4b"];
 
 const m = (top: number, left = 0): Margins => ({ linked: false, top, right: 0, bottom: 0, left });

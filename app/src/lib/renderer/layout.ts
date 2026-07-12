@@ -10,7 +10,8 @@ export function fontString(st: StyleDef): string {
 /** Chaîne de police d'un segment : gras → Erode Semibold (ou graisse 800 pour les autres polices). */
 export function runFontString(st: StyleDef, bold: boolean): string {
   if (!bold) return fontString(st);
-  const fam = st.font.startsWith("Erode") ? "Erode Semibold" : st.font;
+  let fam = st.font;
+  if (fam.startsWith("Erode")) fam = fam.includes("Italic") ? "Erode Semibold Italic" : "Erode Semibold";
   return `800 ${st.size}px ${fam}, Georgia, serif`;
 }
 

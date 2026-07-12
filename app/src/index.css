@@ -10,6 +10,8 @@
 @font-face { font-family: "Erode Medium";        src: url("/fonts/Erode-Medium.otf")      format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Erode Semibold";      src: url("/fonts/Erode-Semibold.otf")    format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Erode Medium Italic"; src: url("/fonts/Erode-MediumItalic.otf") format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Erode Italic";          src: url("/fonts/Erode-Italic.otf")         format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Erode Semibold Italic"; src: url("/fonts/Erode-SemiboldItalic.otf") format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
 
 /* =========================================================================
    Design system « Sérénité » — repris de Praxoria et adapté à l'Atelier.
@@ -17,22 +19,22 @@
    ========================================================================= */
 :root {
   --font-nunito: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --sage: #4e7a63;
-  --sage-deep: #3f6b54;
-  --sage-soft: #e3efe7;
-  --cream: #f6f4ee;
+  --sage: #81a9a3;
+  --sage-deep: #6f948d;
+  --sage-soft: #e7f1ee;
+  --cream: #fdfbf7;
   --surface: #ffffff;
-  --terracotta: #c9836a;
-  --terracotta-ink: #a75c40;
-  --terracotta-soft: #f5e7e0;
-  --ink: #2f3a34;
-  --muted: #5f6a63;
-  --line: #e8e6df;
-  --beige: #ece9e2;
-  --beige-ink: #8a8275;
+  --terracotta: #a25a4b;
+  --terracotta-ink: #8a4a3d;
+  --terracotta-soft: #f6ece9;
+  --ink: #33474a;
+  --muted: #818285;
+  --line: #e6ece9;
+  --beige: #eef1ef;
+  --beige-ink: #6f7772;
   --radius: 18px;
   --radius-sm: 12px;
-  --shadow: 0 10px 30px rgba(63, 107, 84, 0.08);
+  --shadow: 0 10px 30px rgba(51, 71, 74, 0.08);
 }
 
 * { box-sizing: border-box; }
@@ -42,11 +44,13 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  font-family: var(--font-nunito);
+  font-family: "Erode Medium", Georgia, serif;
   background: var(--cream);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
+/* Titres, gras et boutons : Erode Semibold (graisse réelle de la famille Erode). */
+h1, h2, h3, b, strong, .btn, .badge, .brand b, .card h2, .tab.active { font-family: "Erode Semibold", Georgia, serif; }
 a { color: inherit; text-decoration: none; }
 
 /* ---- Gabarit : barre latérale + contenu ---- */
@@ -54,9 +58,10 @@ a { color: inherit; text-decoration: none; }
 .content { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
 
 .sidebar { background: var(--sage-deep); color: #eaf2ec; padding: 26px 18px; display: flex; flex-direction: column; gap: 6px; }
-.brand { display: flex; align-items: center; gap: 12px; padding: 4px 10px 26px; }
+.brand { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 4px 10px 22px; }
 .brand .mark { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(140deg, #cfe3d6, #9cc3ab); display: grid; place-items: center; color: var(--sage-deep); font-weight: 800; }
 .brand b { font-size: 20px; font-weight: 800; }
+.brand-logo { width: auto; max-width: 208px; max-height: 132px; display: block; }
 .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; color: #d4e4da; font-weight: 600; font-size: 15px; border: 0; background: transparent; font-family: inherit; cursor: pointer; text-align: left; width: 100%; }
 .nav-item svg { width: 19px; height: 19px; opacity: .9; }
 .nav-item:hover { background: rgba(255,255,255,.08); }
@@ -130,6 +135,7 @@ main { padding: 10px 28px 28px; flex: 1; min-height: 0; overflow-y: auto; displa
   .sidebar { flex-direction: row; align-items: center; gap: 4px; padding: 8px 10px; overflow-x: auto; position: sticky; top: 0; z-index: 50; }
   .sidebar .brand { padding: 0 8px 0 2px; }
   .sidebar .brand b { display: none; }
+  .sidebar .brand-logo { max-height: 34px; max-width: 120px; }
   .nav-item { padding: 9px 11px; font-size: 13.5px; flex-shrink: 0; width: auto; }
   .sidebar .spacer, .nav-foot { display: none; }
   .topbar { flex-wrap: wrap; gap: 10px; padding: 12px 14px; }
