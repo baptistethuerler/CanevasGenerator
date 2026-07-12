@@ -12,6 +12,7 @@ import { BackgroundInspector } from "@/components/BackgroundInspector";
 import { LogoInspector } from "@/components/LogoInspector";
 import { FormatInspector } from "@/components/FormatInspector";
 import { exportPostImage, exportCarousel } from "@/lib/export";
+import { exportStoryVideo } from "@/lib/video";
 
 type Tab = "contenu" | "texte" | "fond" | "logo" | "format";
 
@@ -35,6 +36,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [videoProgress, setVideoProgress] = useState<number | null>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dirty = useRef(false);
   const firstLoad = useRef(true);
@@ -75,6 +77,20 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
     }
   };
 
+  const runVideo = async () => {
+    if (!doc) return;
+    setExporting(true);
+    setVideoProgress(0);
+    try {
+      await exportStoryVideo(doc, (r) => setVideoProgress(r));
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setExporting(false);
+      setVideoProgress(null);
+    }
+  };
+
   if (error) return <div className="empty" style={{ padding: 40 }}>Erreur : {error} <button className="btn ghost" onClick={handleBack}>← Retour</button></div>;
   if (!doc) return <div className="empty" style={{ padding: 40 }}>Chargement…</div>;
 
@@ -107,7 +123,9 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                 )}
               </>
             ) : (
-              <button type="button" className="btn ghost" disabled title="L'export vidéo arrive en Phase 5b">🎬 Vidéo (bientôt)</button>
+              <button type="button" className="btn" disabled={exporting} onClick={runVideo}>
+                {videoProgress !== null ? `🎬 Rendu… ${Math.round(videoProgress * 100)} %` : "🎬 Vidéo"}
+              </button>
             )}
           </div>
         </header>
@@ -214,6 +232,8 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                   blockPosition={doc.blockPosition}
                   onChangeContentMargin={(cm: ContentMargin) => setDoc({ ...doc, contentMargin: cm })}
                   onChangeBlockPosition={(p: BlockPosition) => setDoc({ ...doc, blockPosition: p })}
+                  timing={doc.type === "story" ? doc.timing : undefined}
+                  onChangeTiming={doc.type === "story" ? (t) => setDoc({ ...doc, timing: t }) : undefined}
                 />
               )}
             </div>
