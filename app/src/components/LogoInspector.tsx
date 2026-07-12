@@ -89,7 +89,7 @@ export function LogoInspector({
           )}
 
           <div style={label}>Taille — {Math.round(logo.size * 100)} % de la largeur</div>
-          <input type="range" min={0.04} max={0.4} step={0.01} value={logo.size} onChange={(e) => patch({ size: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
+          <input type="range" min={0.04} max={1} step={0.01} value={logo.size} onChange={(e) => patch({ size: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />
 
           <div style={label}>Opacité — {Math.round(logo.opacity * 100)} %</div>
           <input type="range" min={0.1} max={1} step={0.05} value={logo.opacity} onChange={(e) => patch({ opacity: Number(e.target.value) })} style={{ width: "100%", accentColor: "var(--sage)" }} />

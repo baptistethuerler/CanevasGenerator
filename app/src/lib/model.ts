@@ -3,7 +3,7 @@ export type LineStyleKey = "title" | "subtitle" | "text" | "bullet" | "arrow" | 
 export const STYLE_KEYS: LineStyleKey[] = ["title", "subtitle", "text", "bullet", "arrow", "note"];
 
 export type Format = "9:16" | "1:1" | "4:5";
-export type BlockPosition = "top" | "center" | "bottom";
+export type BlockPosition = "top" | "golden-top" | "center" | "golden-bottom" | "bottom";
 export type Align = "left" | "center";
 
 export type OverlayType = "none" | "uniform" | "gradient";

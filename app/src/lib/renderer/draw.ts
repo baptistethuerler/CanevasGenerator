@@ -177,9 +177,15 @@ export function drawSlide(
 
   const bandTop = cm.top;
   const bandBottom = height - cm.bottom;
+  // Règle d'or (φ ≈ 1,68) : centre le bloc sur la ligne d'or, haute ou basse,
+  // en le maintenant dans la zone de sécurité (marges).
+  const PHI = 1.68;
+  const clampBand = (top: number) => Math.min(Math.max(bandTop, top), Math.max(bandTop, bandBottom - layout.totalHeight));
   let y: number;
   if (opts.blockPosition === "top") y = bandTop;
   else if (opts.blockPosition === "bottom") y = Math.max(bandTop, bandBottom - layout.totalHeight);
+  else if (opts.blockPosition === "golden-top") y = clampBand(height * (1 - 1 / PHI) - layout.totalHeight / 2);
+  else if (opts.blockPosition === "golden-bottom") y = clampBand(height * (1 / PHI) - layout.totalHeight / 2);
   else y = bandTop + Math.max(0, (bandBottom - bandTop - layout.totalHeight) / 2);
 
   ctx.textBaseline = "alphabetic";

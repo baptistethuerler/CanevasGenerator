@@ -19,5 +19,5 @@ const app = createApp({ store, paths, serveStatic: isProd });
 app.listen(PORT, () => {
   const url = `http://localhost:${PORT}`;
   console.log(`Atelier de Stories — serveur prêt sur ${url}`);
-  if (isProd) open(url).catch(() => {});
+  if (isProd && process.env.ATELIER_NO_OPEN !== "1") open(url).catch(() => {});
 });

@@ -29,15 +29,22 @@ export function FormatInspector({
       <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 4 }}>Marge de contenu (zone de sécurité, 50 px par défaut).</div>
 
       <div style={label}>Position du bloc</div>
-      <div style={{ display: "flex", gap: 6 }}>
-        {(["top", "center", "bottom"] as const).map((p) => (
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {([
+          ["top", "Haut"],
+          ["golden-top", "Règle d'or ↑"],
+          ["center", "Centre"],
+          ["golden-bottom", "Règle d'or ↓"],
+          ["bottom", "Bas"],
+        ] as const).map(([p, lbl]) => (
           <button key={p} type="button" onClick={() => onChangeBlockPosition(p)}
-            style={{ flex: 1, padding: "6px 0", fontSize: 12, borderRadius: 8, cursor: "pointer", fontFamily: "inherit",
+            style={{ flex: "1 0 30%", padding: "6px 4px", fontSize: 11, borderRadius: 8, cursor: "pointer", fontFamily: "inherit",
               border: blockPosition === p ? "1.5px solid var(--sage)" : "1px solid var(--line)", background: blockPosition === p ? "#e3efe7" : "#fff", color: "var(--ink)" }}>
-            {p === "top" ? "Haut" : p === "center" ? "Centre" : "Bas"}
+            {lbl}
           </button>
         ))}
       </div>
+      <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 4 }}>« Règle d'or » place le texte sur la ligne d'or (haute ou basse) pour une composition équilibrée.</div>
 
       {timing && onChangeTiming && (
         <>
