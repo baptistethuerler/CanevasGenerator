@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background } from "@/lib/model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, LogoPlacement } from "@/lib/model";
 import { DEFAULT_STYLES, defaultContentMargin, defaultBackground } from "@/lib/model";
 import { drawSlide, dimsFor } from "@/lib/renderer/draw";
 
 export function CanvasPreview({
-  slide, format, styles, contentMargin, blockPosition, background,
+  slide, format, styles, contentMargin, blockPosition, background, logos,
 }: {
   slide: Slide | null;
   format: string;
@@ -12,6 +12,7 @@ export function CanvasPreview({
   contentMargin?: ContentMargin;
   blockPosition?: BlockPosition;
   background?: Background;
+  logos?: LogoPlacement[];
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const dims = dimsFor(format);
@@ -19,11 +20,14 @@ export function CanvasPreview({
   const cm = contentMargin ?? defaultContentMargin();
   const bp = blockPosition ?? "center";
   const bg = background ?? defaultBackground();
+  const logoList = logos ?? [];
 
   const [img, setImg] = useState<HTMLImageElement | null>(null);
   const wantImage = bg.kind === "image" && !!bg.imageRef;
 
-  // Charge l'image de fond quand la référence change.
+  const [logoImgs, setLogoImgs] = useState<Record<string, HTMLImageElement>>({});
+  const logoRefsKey = logoList.map((l) => l.logoRef).join(",");
+
   useEffect(() => {
     if (!wantImage) { setImg(null); return; }
     const image = new Image();
@@ -34,6 +38,20 @@ export function CanvasPreview({
     return () => { cancelled = true; };
   }, [wantImage, bg.imageRef]);
 
+  // Charge les images de logo manquantes.
+  useEffect(() => {
+    const refs = [...new Set(logoList.map((l) => l.logoRef))];
+    let cancelled = false;
+    for (const r of refs) {
+      if (logoImgs[r]) continue;
+      const image = new Image();
+      image.onload = () => { if (!cancelled) setLogoImgs((m) => ({ ...m, [r]: image })); };
+      image.src = `/logos/${r}`;
+    }
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [logoRefsKey]);
+
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -43,13 +61,13 @@ export function CanvasPreview({
     document.fonts.ready.then(() => {
       if (cancelled) return;
       if (slide) {
-        drawSlide(ctx, slide, st, { dims, background: bg, contentMargin: cm, blockPosition: bp, image: img });
+        drawSlide(ctx, slide, st, { dims, background: bg, contentMargin: cm, blockPosition: bp, image: img, logos: logoList, logoImages: logoImgs });
       } else {
         ctx.clearRect(0, 0, dims.width, dims.height);
       }
     });
     return () => { cancelled = true; };
-  }, [slide, st, cm, bp, bg, img, dims.width, dims.height, dims.margin]);
+  }, [slide, st, cm, bp, bg, img, logoList, logoImgs, dims.width, dims.height, dims.margin]);
 
   return (
     <canvas
