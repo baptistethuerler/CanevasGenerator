@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS, mergeStyle, ensureDocDefaults, defaultContentMargin } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -43,5 +43,57 @@ describe("model", () => {
 
   it("newPostPayload accepte le format portrait", () => {
     expect(newPostPayload("4:5").format).toBe("4:5");
+  });
+});
+
+describe("styles & mise en page", () => {
+  it("chaque style par défaut a un alignement et 4 marges", () => {
+    for (const k of STYLE_KEYS) {
+      expect(DEFAULT_STYLES[k].align).toBe("left");
+      const m = DEFAULT_STYLES[k].margins;
+      expect(typeof m.top).toBe("number");
+      expect(typeof m.right).toBe("number");
+      expect(typeof m.bottom).toBe("number");
+      expect(typeof m.left).toBe("number");
+    }
+  });
+
+  it("mergeStyle applique une surcharge partielle (dont marges)", () => {
+    const base = DEFAULT_STYLES.text;
+    const merged = mergeStyle(base, { size: 100, margins: { ...base.margins, left: 80 } });
+    expect(merged.size).toBe(100);
+    expect(merged.margins.left).toBe(80);
+    expect(merged.color).toBe(base.color);
+  });
+
+  it("mergeStyle sans surcharge renvoie le style de base", () => {
+    expect(mergeStyle(DEFAULT_STYLES.title, undefined)).toEqual(DEFAULT_STYLES.title);
+  });
+
+  it("newStoryPayload embarque styles, contentMargin (50) et blockPosition", () => {
+    const p = newStoryPayload();
+    expect(Object.keys(p.styles).sort()).toEqual([...STYLE_KEYS].sort());
+    expect(p.contentMargin).toEqual({ linked: true, top: 50, right: 50, bottom: 50, left: 50 });
+    expect(p.blockPosition).toBe("center");
+  });
+
+  it("ensureDocDefaults complète un doc sans réglages de mise en page", () => {
+    const doc = ensureDocDefaults({
+      id: "x", type: "story", format: "9:16", title: "T", status: "draft",
+      createdAt: "now", updatedAt: "now", slides: [],
+    });
+    expect(doc.blockPosition).toBe("center");
+    expect(doc.contentMargin).toEqual(defaultContentMargin());
+    expect(Object.keys(doc.styles).length).toBe(STYLE_KEYS.length);
+  });
+
+  it("ensureDocDefaults préserve les réglages existants", () => {
+    const cm = { linked: false, top: 10, right: 20, bottom: 30, left: 40 };
+    const doc = ensureDocDefaults({
+      id: "x", type: "story", format: "9:16", title: "T", status: "draft",
+      createdAt: "now", updatedAt: "now", slides: [], contentMargin: cm, blockPosition: "top",
+    });
+    expect(doc.contentMargin).toEqual(cm);
+    expect(doc.blockPosition).toBe("top");
   });
 });
