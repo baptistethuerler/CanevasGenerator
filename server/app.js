@@ -18,7 +18,7 @@ export function createApp({ store, paths, serveStatic = true }) {
 
   app.use("/api", libraryRouter(store));
   app.use("/api", docsRouter(store));
-  app.use("/api", assetsRouter(createAssets(paths.images, "/images"), "images"));
+  app.use("/api", assetsRouter(createAssets(paths.images, "/images", paths.fonds), "images"));
   app.use("/api", assetsRouter(createAssets(paths.logos, "/logos"), "logos"));
   // Version de l'interface (mtime du build) : l'app recharge la page quand elle change.
   app.get("/api/version", (_req, res) => {

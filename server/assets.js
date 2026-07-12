@@ -1,4 +1,4 @@
-import { readdir, writeFile, unlink } from "node:fs/promises";
+import { readdir, writeFile, unlink, copyFile, access } from "node:fs/promises";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
 
@@ -6,9 +6,22 @@ const EXT_BY_MIME = { "image/png": "png", "image/jpeg": "jpg", "image/jpg": "jpg
 const IMG_RE = /\.(png|jpe?g|webp|gif)$/i;
 const SAFE_REF = /^[a-zA-Z0-9._-]+$/;
 
-export function createAssets(dir, urlBase) {
+// syncFrom : dossier « dépôt » (ex. fonds/) dont les images sont importées dans dir avant chaque listing.
+export function createAssets(dir, urlBase, syncFrom = null) {
+  const importNew = async () => {
+    if (!syncFrom) return;
+    let files = [];
+    try { files = await readdir(syncFrom); } catch { return; }
+    for (const f of files) {
+      if (!IMG_RE.test(f)) continue;
+      const dest = join(dir, f);
+      try { await access(dest); continue; } catch { /* absent → on copie */ }
+      try { await copyFile(join(syncFrom, f), dest); } catch { /* ignoré */ }
+    }
+  };
   return {
     async list() {
+      await importNew();
       let files = [];
       try { files = await readdir(dir); } catch { files = []; }
       return files.filter((f) => IMG_RE.test(f)).map((ref) => ({ ref, url: `${urlBase}/${ref}` }));
