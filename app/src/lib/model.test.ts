@@ -102,7 +102,7 @@ describe("fond & voile", () => {
   it("defaultBackground est une couleur sauge sans voile", () => {
     const bg = defaultBackground();
     expect(bg.kind).toBe("color");
-    expect(bg.color).toBe("#4e7a63");
+    expect(bg.color).toBe("#81a9a3");
     expect(bg.overlay.type).toBe("none");
   });
 

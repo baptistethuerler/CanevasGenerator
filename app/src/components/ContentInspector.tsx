@@ -33,11 +33,12 @@ export function ContentInspector({
               <button type="button" onClick={() => onMove(ln.id, 1)} style={inspBtn} title="Descendre">↓</button>
               <button type="button" onClick={() => onDelete(ln.id)} style={{ ...inspBtn, color: "var(--terracotta-ink)" }} title="Supprimer">✕</button>
             </div>
-            <input
+            <textarea
               className="input"
-              style={{ padding: "8px 10px", fontSize: 13 }}
+              style={{ padding: "8px 10px", fontSize: 13, fontFamily: "inherit", resize: "vertical", minHeight: 38, lineHeight: 1.4 }}
+              rows={2}
               value={ln.text}
-              placeholder="Texte de la ligne…"
+              placeholder="Texte de la ligne… (Entrée = nouvelle ligne)"
               onChange={(e) => onChangeText(ln.id, e.target.value)}
             />
           </div>

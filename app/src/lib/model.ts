@@ -42,8 +42,8 @@ export interface Background {
   overlay: Overlay;
 }
 
-export const BG_COLOR_CHOICES = ["#4e7a63", "#3f6b54", "#f6f4ee", "#2f3a34", "#c9836a", "#ffffff"];
-export const OVERLAY_COLOR_CHOICES = ["#000000", "#2f3a34", "#3f6b54", "#ffffff"];
+export const BG_COLOR_CHOICES = ["#81a9a3", "#6f948d", "#eef4f1", "#fdfbf7", "#33474a", "#ffffff"];
+export const OVERLAY_COLOR_CHOICES = ["#33474a", "#000000", "#6f948d", "#ffffff"];
 
 export function defaultOverlay(): Overlay {
   return { type: "none", color: "#000000", intensity: 0.5, direction: "bottom", softness: 0.5 };
@@ -62,7 +62,7 @@ export function defaultTiming(): Timing {
 }
 
 export function defaultBackground(): Background {
-  return { kind: "color", color: "#4e7a63", overlay: defaultOverlay() };
+  return { kind: "color", color: "#81a9a3", overlay: defaultOverlay() };
 }
 
 export interface Margins {
@@ -86,19 +86,19 @@ export interface StyleDef {
   margins: Margins;
 }
 
-export const DEFAULT_FONT = "Nunito";
-export const FONT_CHOICES = ["Nunito", "Georgia", "Arial"];
-export const COLOR_CHOICES = ["#ffffff", "#2f3a34", "#4e7a63", "#c9836a", "#eaf5f2"];
+export const DEFAULT_FONT = "Erode Medium";
+export const FONT_CHOICES = ["Erode Medium", "Erode Medium Italic", "Erode Semibold", "Erode", "Nunito", "Georgia", "Arial"];
+export const COLOR_CHOICES = ["#ffffff", "#fdfbf7", "#33474a", "#81a9a3", "#6f948d", "#a25a4b"];
 
 const m = (top: number, left = 0): Margins => ({ linked: false, top, right: 0, bottom: 0, left });
 
 export const DEFAULT_STYLES: Record<LineStyleKey, StyleDef> = {
-  title:    { label: "Titre",      font: DEFAULT_FONT, size: 78, color: "#ffffff",                 align: "left", lineHeight: 1.12, mark: null, margins: m(0) },
-  subtitle: { label: "Sous-titre", font: DEFAULT_FONT, size: 48, color: "#ffffff",                 align: "left", lineHeight: 1.2,  mark: null, margins: m(52) },
-  text:     { label: "Texte",      font: DEFAULT_FONT, size: 39, color: "rgba(255,255,255,.95)",   align: "left", lineHeight: 1.32, mark: null, margins: m(24) },
-  bullet:   { label: "Puce",       font: DEFAULT_FONT, size: 38, color: "rgba(255,255,255,.95)",   align: "left", lineHeight: 1.3,  mark: "•",  margins: m(14, 44) },
-  arrow:    { label: "Créneau",    font: DEFAULT_FONT, size: 42, color: "#eaf5f2",                 align: "left", lineHeight: 1.24, mark: "→",  margins: m(10, 44) },
-  note:     { label: "Note",       font: DEFAULT_FONT, size: 31, color: "rgba(255,255,255,.82)",   align: "left", lineHeight: 1.36, mark: null, margins: m(40) },
+  title:    { label: "Titre",      font: "Erode Medium Italic", size: 96, color: "#ffffff",                 align: "left", lineHeight: 1.12, mark: null, margins: m(0) },
+  subtitle: { label: "Sous-titre", font: "Erode Medium Italic", size: 60, color: "#ffffff",                 align: "left", lineHeight: 1.2,  mark: null, margins: m(52) },
+  text:     { label: "Texte",      font: DEFAULT_FONT,          size: 48, color: "rgba(255,255,255,.95)",   align: "left", lineHeight: 1.32, mark: null, margins: m(24) },
+  bullet:   { label: "Puce",       font: DEFAULT_FONT,          size: 46, color: "rgba(255,255,255,.95)",   align: "left", lineHeight: 1.3,  mark: "•",  margins: m(14, 44) },
+  arrow:    { label: "Créneau",    font: DEFAULT_FONT,          size: 52, color: "#eef4f1",                 align: "left", lineHeight: 1.24, mark: "→",  margins: m(10, 44) },
+  note:     { label: "Note",       font: DEFAULT_FONT,          size: 40, color: "rgba(255,255,255,.82)",   align: "left", lineHeight: 1.36, mark: null, margins: m(40) },
 };
 
 export interface Line {

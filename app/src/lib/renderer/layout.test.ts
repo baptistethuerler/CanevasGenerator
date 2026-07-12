@@ -15,8 +15,8 @@ describe("wrapText", () => {
 
 describe("fontString", () => {
   it("compose taille + police", () => {
-    expect(fontString(DEFAULT_STYLES.title)).toContain("78px");
-    expect(fontString(DEFAULT_STYLES.title)).toContain("Nunito");
+    expect(fontString(DEFAULT_STYLES.title)).toContain("96px");
+    expect(fontString(DEFAULT_STYLES.title)).toContain("Erode Medium Italic");
   });
 });
 

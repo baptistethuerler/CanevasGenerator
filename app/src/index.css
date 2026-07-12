@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Police de marque « Erode » (site Altitude), servie depuis /fonts.
+   font-style: normal (même sur la variante italique) et font-weight: 100 900
+   pour que le canvas (graisse figée à 600) utilise le glyphe réel sans fausse graisse. */
+@font-face { font-family: "Erode";               src: url("/fonts/Erode-Regular.otf")     format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Erode Light";         src: url("/fonts/Erode-Light.otf")       format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Erode Medium";        src: url("/fonts/Erode-Medium.otf")      format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Erode Semibold";      src: url("/fonts/Erode-Semibold.otf")    format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Erode Medium Italic"; src: url("/fonts/Erode-MediumItalic.otf") format("opentype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
 /* =========================================================================
    Design system « Sérénité » — repris de Praxoria et adapté à l'Atelier.
    Palette sauge / terracotta / crème, police Nunito, coins arrondis, ombres douces.

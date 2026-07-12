@@ -8,19 +8,23 @@ export function fontString(st: StyleDef): string {
 }
 
 export function wrapText(text: string, maxWidth: number, measure: (t: string) => number): string[] {
-  const words = String(text).split(/\s+/).filter(Boolean);
   const out: string[] = [];
-  let cur = "";
-  for (const w of words) {
-    const candidate = cur ? cur + " " + w : w;
-    if (measure(candidate) > maxWidth && cur) {
-      out.push(cur);
-      cur = w;
-    } else {
-      cur = candidate;
+  // Les retours à la ligne manuels (\n) découpent d'abord en paragraphes,
+  // chacun étant ensuite replié automatiquement selon la largeur disponible.
+  for (const para of String(text).split("\n")) {
+    const words = para.split(/[ \t]+/).filter(Boolean);
+    let cur = "";
+    for (const w of words) {
+      const candidate = cur ? cur + " " + w : w;
+      if (measure(candidate) > maxWidth && cur) {
+        out.push(cur);
+        cur = w;
+      } else {
+        cur = candidate;
+      }
     }
+    out.push(cur); // conserve les lignes vides (retour à la ligne explicite)
   }
-  if (cur) out.push(cur);
   return out.length ? out : [""];
 }
 
