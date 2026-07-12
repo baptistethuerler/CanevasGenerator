@@ -7,6 +7,10 @@ cd "$(dirname "$0")" || exit 1
 
 URL="http://localhost:4321"
 
+# Mémorise CETTE fenêtre Terminal pour la refermer précisément à la fin,
+# même après que le navigateur a pris le focus (macOS demandera une autorisation la 1re fois).
+WINID="$(osascript -e 'tell application "Terminal" to id of front window' 2>/dev/null)"
+
 # 1) Synchronisation automatique (sans bloquer si hors-ligne ou en cas de conflit).
 UPDATED=0
 if [ -d .git ]; then
@@ -51,4 +55,8 @@ else
 fi
 
 # 5) Referme cette fenêtre Terminal (le serveur continue en arrière-plan).
-osascript -e 'tell application "Terminal" to close (first window whose frontmost is true)' >/dev/null 2>&1 &
+if [ -n "$WINID" ]; then
+  osascript -e "tell application \"Terminal\" to close (every window whose id is $WINID)" >/dev/null 2>&1 &
+else
+  osascript -e 'tell application "Terminal" to close (first window whose frontmost is true)' >/dev/null 2>&1 &
+fi
