@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { getDoc, updateDoc } from "@/lib/api";
 import {
-  newSlide, newLine, uid, ensureDocDefaults,
-  type LineStyleKey, type StyleDef, type ContentMargin, type BlockPosition, type ResolvedDoc,
+  newSlide, newLine, uid, ensureDocDefaults, effectiveBackground,
+  type LineStyleKey, type StyleDef, type ContentMargin, type BlockPosition, type ResolvedDoc, type Background,
 } from "@/lib/model";
 import { CanvasPreview } from "@/components/CanvasPreview";
 import { SlidesRail } from "@/components/SlidesRail";
 import { ContentInspector } from "@/components/ContentInspector";
 import { TextInspector } from "@/components/TextInspector";
+import { BackgroundInspector } from "@/components/BackgroundInspector";
 import { FormatInspector } from "@/components/FormatInspector";
 
-type Tab = "contenu" | "texte" | "format";
+type Tab = "contenu" | "texte" | "fond" | "format";
 
 function formatLabel(type: string, format: string): string {
   if (type === "post") return format === "4:5" ? "🖼️ Post 1080×1350" : "🖼️ Post 1080×1080";
@@ -21,6 +22,7 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [doc, setDoc] = useState<ResolvedDoc | null>(null);
   const [active, setActive] = useState(0);
   const [tab, setTab] = useState<Tab>("contenu");
+  const [bgScope, setBgScope] = useState<"story" | "slide">("story");
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -105,13 +107,14 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
           />
 
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#eaf1ef", padding: 16 }}>
-            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} />
+            <CanvasPreview slide={slide} format={doc.format} styles={doc.styles} contentMargin={doc.contentMargin} blockPosition={doc.blockPosition} background={effectiveBackground(doc, slide)} />
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", borderLeft: "1px solid var(--line)", background: "#fff", minWidth: 260 }}>
             <div className="tabs" style={{ margin: 0, padding: "8px 8px 0", gap: 4, borderBottom: "1px solid var(--line)" }}>
               {tabBtn("contenu", "Contenu")}
               {tabBtn("texte", "Texte")}
+              {tabBtn("fond", "Fond")}
               {tabBtn("format", "Format")}
             </div>
             <div style={{ flex: 1, minHeight: 0, display: "flex" }}>
@@ -136,6 +139,19 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                 <TextInspector
                   styles={doc.styles}
                   onChangeStyle={(key: LineStyleKey, next: StyleDef) => setDoc({ ...doc, styles: { ...doc.styles, [key]: next } })}
+                />
+              )}
+              {tab === "fond" && (
+                <BackgroundInspector
+                  scope={bgScope}
+                  onScopeChange={setBgScope}
+                  value={bgScope === "slide" ? (slide?.background ?? doc.background) : doc.background}
+                  isSlideOverride={!!(slide && slide.background)}
+                  onClearSlide={() => updateSlide(idx, (s) => ({ ...s, background: null }))}
+                  onChange={(bg: Background) => {
+                    if (bgScope === "slide") updateSlide(idx, (s) => ({ ...s, background: bg }));
+                    else setDoc({ ...doc, background: bg });
+                  }}
                 />
               )}
               {tab === "format" && (
