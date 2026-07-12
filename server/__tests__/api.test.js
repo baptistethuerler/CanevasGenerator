@@ -42,4 +42,11 @@ describe("API", () => {
     await request(app).delete(`/api/doc/${body.id}`).expect(200);
     await request(app).get(`/api/doc/${body.id}`).expect(404);
   });
+
+  it("une route /api inconnue renvoie un 404 JSON", async () => {
+    const app = await freshApp();
+    const res = await request(app).get("/api/inconnu");
+    expect(res.status).toBe(404);
+    expect(res.body).toEqual({ error: "not found" });
+  });
 });

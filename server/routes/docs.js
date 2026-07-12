@@ -5,8 +5,12 @@ export function docsRouter(store) {
   const r = Router();
 
   r.post("/doc", async (req, res) => {
-    const doc = await store.create(req.body);
-    res.status(201).json(doc);
+    try {
+      const doc = await store.create(req.body);
+      res.status(201).json(doc);
+    } catch {
+      res.status(500).json({ error: "create failed" });
+    }
   });
 
   r.get("/doc/:id", async (req, res) => {
