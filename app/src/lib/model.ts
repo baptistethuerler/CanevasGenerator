@@ -17,9 +17,23 @@ export interface Overlay {
   softness: number;
 }
 
+export interface Crop {
+  zoom: number;
+  x: number;
+  y: number;
+}
+
+export interface Filters {
+  brightness: number;
+  blur: number;
+}
+
 export interface Background {
   kind: "color" | "image";
   color: string;
+  imageRef?: string;
+  crop?: Crop;
+  filters?: Filters;
   overlay: Overlay;
 }
 
@@ -28,6 +42,14 @@ export const OVERLAY_COLOR_CHOICES = ["#000000", "#2f3a34", "#3f6b54", "#ffffff"
 
 export function defaultOverlay(): Overlay {
   return { type: "none", color: "#000000", intensity: 0.5, direction: "bottom", softness: 0.5 };
+}
+
+export function defaultCrop(): Crop {
+  return { zoom: 1, x: 0.5, y: 0.5 };
+}
+
+export function defaultFilters(): Filters {
+  return { brightness: 1, blur: 0 };
 }
 
 export function defaultBackground(): Background {

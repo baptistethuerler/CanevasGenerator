@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { drawSlide, STORY_DIMS, dimsFor, DIMS, drawBackground, hexToRgba } from "./draw";
+import { drawSlide, STORY_DIMS, dimsFor, DIMS, drawBackground, hexToRgba, computeImageRect } from "./draw";
 import { DEFAULT_STYLES, defaultContentMargin, defaultBackground } from "../model";
 
 function fakeCtx() {
@@ -12,6 +12,8 @@ function fakeCtx() {
     measureText: (t: string) => ({ width: String(t).length * 20 }),
     createLinearGradient: () => ({ addColorStop: () => {} }),
     createRadialGradient: () => ({ addColorStop: () => {} }),
+    drawImage: (...a: any[]) => calls.push(["drawImage", ...a]),
+    filter: "none",
     save: () => {},
     restore: () => {},
     calls,
@@ -125,5 +127,47 @@ describe("drawBackground", () => {
     const ctx = fakeCtx();
     drawBackground(ctx as any, { kind: "color", color: "#4e7a63", overlay: { type: "gradient", color: "#000", intensity: 0, direction: "bottom", softness: 0.5 } }, dims);
     expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(1);
+  });
+});
+
+describe("computeImageRect (cover + zoom + focal)", () => {
+  it("couvre entièrement le canvas", () => {
+    const r = computeImageRect(1080, 1920, 1080, 1080, { zoom: 1, x: 0.5, y: 0.5 });
+    expect(r.dw).toBeGreaterThanOrEqual(1080);
+    expect(r.dh).toBeGreaterThanOrEqual(1920);
+  });
+  it("centre l'image quand le point focal est au milieu", () => {
+    const r = computeImageRect(1080, 1920, 1080, 1080, { zoom: 1, x: 0.5, y: 0.5 });
+    expect(r.dx).toBeCloseTo((1080 - r.dw) / 2, 5);
+  });
+});
+
+describe("drawBackground image", () => {
+  const dims = { width: 1080, height: 1920, margin: 50 };
+  const img = { width: 1080, height: 1080 };
+
+  it("dessine l'image quand kind=image et image fournie (pas de fillRect de couleur)", () => {
+    const ctx = fakeCtx();
+    const bg = { kind: "image" as const, color: "#4e7a63", imageRef: "a.png", overlay: { type: "none" as const, color: "#000", intensity: 0.5, direction: "bottom" as const, softness: 0.5 } };
+    drawBackground(ctx as any, bg, dims, img as any);
+    expect(ctx.calls.some((c) => c[0] === "drawImage")).toBe(true);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(0);
+  });
+
+  it("retombe sur la couleur si l'image n'est pas encore chargée", () => {
+    const ctx = fakeCtx();
+    const bg = { kind: "image" as const, color: "#4e7a63", imageRef: "a.png", overlay: { type: "none" as const, color: "#000", intensity: 0.5, direction: "bottom" as const, softness: 0.5 } };
+    drawBackground(ctx as any, bg, dims, undefined);
+    expect(ctx.calls.some((c) => c[0] === "drawImage")).toBe(false);
+    expect(ctx.calls.filter((c) => c[0] === "fillRect")).toHaveLength(1);
+  });
+
+  it("applique un filtre brightness/blur au moment du dessin de l'image", () => {
+    const ctx = fakeCtx();
+    let filterAtDraw = "";
+    (ctx as any).drawImage = () => { filterAtDraw = (ctx as any).filter; };
+    const bg = { kind: "image" as const, color: "#4e7a63", imageRef: "a.png", filters: { brightness: 1.2, blur: 3 }, overlay: { type: "none" as const, color: "#000", intensity: 0.5, direction: "bottom" as const, softness: 0.5 } };
+    drawBackground(ctx as any, bg, dims, img as any);
+    expect(filterAtDraw).toBe("brightness(1.2) blur(3px)");
   });
 });

@@ -92,3 +92,39 @@ export async function duplicateDoc(id: string): Promise<StoryDoc> {
   };
   return createDoc(payload);
 }
+
+export interface ImageAsset {
+  ref: string;
+  url: string;
+}
+
+export async function listImages(): Promise<ImageAsset[]> {
+  const res = await fetch("/api/assets/images");
+  if (!res.ok) throw new Error("Chargement des images impossible");
+  return res.json();
+}
+
+function fileToDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result));
+    r.onerror = () => reject(new Error("Lecture du fichier impossible"));
+    r.readAsDataURL(file);
+  });
+}
+
+export async function uploadImage(file: File): Promise<ImageAsset> {
+  const dataUrl = await fileToDataUrl(file);
+  const res = await fetch("/api/assets/images", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ dataUrl }),
+  });
+  if (!res.ok) throw new Error("Upload de l'image impossible");
+  return res.json();
+}
+
+export async function deleteImage(ref: string): Promise<void> {
+  const res = await fetch(`/api/assets/images/${ref}`, { method: "DELETE" });
+  if (!res.ok) throw new Error("Suppression de l'image impossible");
+}
