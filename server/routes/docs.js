@@ -38,5 +38,13 @@ export function docsRouter(store) {
     }
   });
 
+  r.patch("/doc/:id", async (req, res) => {
+    try {
+      res.json(await store.patch(req.params.id, req.body));
+    } catch {
+      res.status(404).json({ error: "not found" });
+    }
+  });
+
   return r;
 }
