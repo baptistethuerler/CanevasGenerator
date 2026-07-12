@@ -1,24 +1,24 @@
 import { useEffect, useRef } from "react";
-import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition } from "@/lib/model";
-import { DEFAULT_STYLES, defaultContentMargin } from "@/lib/model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background } from "@/lib/model";
+import { DEFAULT_STYLES, defaultContentMargin, defaultBackground } from "@/lib/model";
 import { drawSlide, dimsFor } from "@/lib/renderer/draw";
 
-const DEFAULT_BG = "#4e7a63"; // fond sauge par défaut (fonds/images en Phase 4B)
-
 export function CanvasPreview({
-  slide, format, styles, contentMargin, blockPosition,
+  slide, format, styles, contentMargin, blockPosition, background,
 }: {
   slide: Slide | null;
   format: string;
   styles?: Record<LineStyleKey, StyleDef>;
   contentMargin?: ContentMargin;
   blockPosition?: BlockPosition;
+  background?: Background;
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const dims = dimsFor(format);
   const st = styles ?? DEFAULT_STYLES;
   const cm = contentMargin ?? defaultContentMargin();
   const bp = blockPosition ?? "center";
+  const bg = background ?? defaultBackground();
 
   useEffect(() => {
     const canvas = ref.current;
@@ -29,13 +29,13 @@ export function CanvasPreview({
     document.fonts.ready.then(() => {
       if (cancelled) return;
       if (slide) {
-        drawSlide(ctx, slide, st, { dims, background: DEFAULT_BG, contentMargin: cm, blockPosition: bp });
+        drawSlide(ctx, slide, st, { dims, background: bg, contentMargin: cm, blockPosition: bp });
       } else {
         ctx.clearRect(0, 0, dims.width, dims.height);
       }
     });
     return () => { cancelled = true; };
-  }, [slide, st, cm, bp, dims.width, dims.height, dims.margin]);
+  }, [slide, st, cm, bp, bg, dims.width, dims.height, dims.margin]);
 
   return (
     <canvas
