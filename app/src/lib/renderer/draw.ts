@@ -1,4 +1,4 @@
-import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, Overlay } from "../model";
+import type { Slide, LineStyleKey, StyleDef, ContentMargin, BlockPosition, Background, Overlay, Crop } from "../model";
 import { layoutSlide } from "./layout";
 
 export interface Dims {
@@ -30,6 +30,8 @@ export interface DrawCtx {
   measureText(text: string): { width: number };
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): { addColorStop(offset: number, color: string): void };
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): { addColorStop(offset: number, color: string): void };
+  filter: string;
+  drawImage(image: unknown, dx: number, dy: number, dw: number, dh: number): void;
 }
 
 export function hexToRgba(hex: string, alpha: number): string {
@@ -70,9 +72,38 @@ function drawOverlay(ctx: DrawCtx, ov: Overlay, dims: Dims): void {
   ctx.fillRect(0, 0, width, height);
 }
 
-export function drawBackground(ctx: DrawCtx, bg: Background, dims: Dims): void {
-  ctx.fillStyle = bg.color;
-  ctx.fillRect(0, 0, dims.width, dims.height);
+export interface ImageLike {
+  width: number;
+  height: number;
+}
+
+export function computeImageRect(
+  W: number, H: number, iw: number, ih: number, crop: Crop,
+): { dx: number; dy: number; dw: number; dh: number } {
+  const cover = Math.max(W / iw, H / ih);
+  const scale = cover * (crop.zoom || 1);
+  const dw = iw * scale;
+  const dh = ih * scale;
+  const dx = (W - dw) * (crop.x ?? 0.5);
+  const dy = (H - dh) * (crop.y ?? 0.5);
+  return { dx, dy, dw, dh };
+}
+
+export function drawBackground(ctx: DrawCtx, bg: Background, dims: Dims, image?: ImageLike | null): void {
+  const { width, height } = dims;
+  if (bg.kind === "image" && bg.imageRef && image) {
+    const crop = bg.crop ?? { zoom: 1, x: 0.5, y: 0.5 };
+    const f = bg.filters ?? { brightness: 1, blur: 0 };
+    const { dx, dy, dw, dh } = computeImageRect(width, height, image.width, image.height, crop);
+    ctx.save();
+    ctx.filter = `brightness(${f.brightness}) blur(${f.blur}px)`;
+    ctx.drawImage(image, dx, dy, dw, dh);
+    ctx.restore();
+    ctx.filter = "none";
+  } else {
+    ctx.fillStyle = bg.color;
+    ctx.fillRect(0, 0, width, height);
+  }
   drawOverlay(ctx, bg.overlay, dims);
 }
 
@@ -80,13 +111,13 @@ export function drawSlide(
   ctx: DrawCtx,
   slide: Slide,
   styles: Record<LineStyleKey, StyleDef>,
-  opts: { dims: Dims; background: Background; contentMargin: ContentMargin; blockPosition: BlockPosition },
+  opts: { dims: Dims; background: Background; contentMargin: ContentMargin; blockPosition: BlockPosition; image?: ImageLike | null },
 ): void {
   const { width, height } = opts.dims;
   const cm = opts.contentMargin;
 
   ctx.clearRect(0, 0, width, height);
-  drawBackground(ctx, opts.background, opts.dims);
+  drawBackground(ctx, opts.background, opts.dims, opts.image);
 
   const contentLeft = cm.left;
   const contentRight = width - cm.right;
