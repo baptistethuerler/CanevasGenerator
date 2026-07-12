@@ -84,8 +84,9 @@ export async function exportStoryVideo(
   const chunks: Blob[] = [];
   rec.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
 
-  const recorded = new Promise<Blob>((resolve) => {
+  const recorded = new Promise<Blob>((resolve, reject) => {
     rec.onstop = () => resolve(new Blob(chunks, { type: mime || "video/webm" }));
+    rec.onerror = () => reject(new Error("L'enregistrement vidéo a échoué."));
   });
 
   rec.start();
@@ -110,5 +111,6 @@ export async function exportStoryVideo(
 
   rec.stop();
   const blob = await recorded;
+  stream.getTracks().forEach((t) => t.stop());
   downloadBlob(blob, `${slug(doc.title)}.${ext}`);
 }
