@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getDoc, updateDoc } from "@/lib/api";
+import { getDoc, updateDoc, listImages, uploadImage, deleteImage, type ImageAsset } from "@/lib/api";
 import {
   newSlide, newLine, uid, ensureDocDefaults, effectiveBackground,
   type LineStyleKey, type StyleDef, type ContentMargin, type BlockPosition, type ResolvedDoc, type Background,
@@ -23,6 +23,9 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
   const [active, setActive] = useState(0);
   const [tab, setTab] = useState<Tab>("contenu");
   const [bgScope, setBgScope] = useState<"story" | "slide">("story");
+  const [images, setImages] = useState<ImageAsset[]>([]);
+  const refreshImages = () => listImages().then(setImages).catch(() => {});
+  useEffect(() => { refreshImages(); }, []);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -148,6 +151,9 @@ export function Editor({ id, onBack }: { id: string; onBack: () => void }) {
                   value={bgScope === "slide" ? (slide?.background ?? doc.background) : doc.background}
                   isSlideOverride={!!(slide && slide.background)}
                   onClearSlide={() => updateSlide(idx, (s) => ({ ...s, background: null }))}
+                  images={images}
+                  onUpload={(file) => uploadImage(file).then(refreshImages).catch((e) => setError((e as Error).message))}
+                  onDeleteImage={(ref) => deleteImage(ref).then(refreshImages).catch(() => {})}
                   onChange={(bg: Background) => {
                     if (bgScope === "slide") updateSlide(idx, (s) => ({ ...s, background: bg }));
                     else setDoc({ ...doc, background: bg });
