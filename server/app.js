@@ -1,5 +1,6 @@
 // server/app.js
 import express from "express";
+import { statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { libraryRouter } from "./routes/library.js";
@@ -19,6 +20,12 @@ export function createApp({ store, paths, serveStatic = true }) {
   app.use("/api", docsRouter(store));
   app.use("/api", assetsRouter(createAssets(paths.images, "/images"), "images"));
   app.use("/api", assetsRouter(createAssets(paths.logos, "/logos"), "logos"));
+  // Version de l'interface (mtime du build) : l'app recharge la page quand elle change.
+  app.get("/api/version", (_req, res) => {
+    let v = "dev";
+    try { v = String(statSync(join(__dirname, "..", "app", "dist", "index.html")).mtimeMs); } catch { /* pas de build (dev) */ }
+    res.json({ v });
+  });
   // 404 JSON pour toute route /api inconnue (cohérent avec les 404 des handlers)
   app.use("/api", (_req, res) => res.status(404).json({ error: "not found" }));
 

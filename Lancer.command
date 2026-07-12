@@ -29,7 +29,12 @@ if [ ! -d app/dist ] || [ "$UPDATED" = "1" ]; then
   npm run build || { echo "Échec du build."; read -r; exit 1; }
 fi
 
-# 4) Lancement.
+# 4) (Re)lancement. Si une mise à jour a été récupérée, on redémarre le serveur.
+if [ "$UPDATED" = "1" ]; then
+  echo "Mise à jour récupérée — redémarrage…"
+  pkill -f "server/index.js" 2>/dev/null
+  sleep 1
+fi
 if curl -s -o /dev/null "$URL"; then
   echo "L'Atelier tourne déjà — ouverture du navigateur…"
   open "$URL"
