@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, STYLE_KEYS } from "./model";
+import { DEFAULT_STYLES, newLine, newSlide, newStoryPayload, newPostPayload, STYLE_KEYS } from "./model";
 
 describe("model", () => {
   it("expose les 6 styles par défaut avec une taille et une couleur", () => {
@@ -31,5 +31,17 @@ describe("model", () => {
     expect(p.status).toBe("draft");
     expect(p.slides).toHaveLength(1);
     expect(typeof p.date).toBe("string");
+  });
+
+  it("newPostPayload produit un post au format demandé", () => {
+    const p = newPostPayload("1:1");
+    expect(p.type).toBe("post");
+    expect(p.format).toBe("1:1");
+    expect(p.postMode).toBe("single");
+    expect(p.slides).toHaveLength(1);
+  });
+
+  it("newPostPayload accepte le format portrait", () => {
+    expect(newPostPayload("4:5").format).toBe("4:5");
   });
 });

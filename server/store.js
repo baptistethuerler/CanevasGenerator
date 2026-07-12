@@ -57,6 +57,13 @@ export function createStore(p) {
       await writeFile(path, JSON.stringify(doc, null, 2));
       return doc;
     },
+    async patch(id, partial) {
+      const { doc, path } = await findFile(id);
+      // On ignore un éventuel changement de `type` (le fichier ne doit pas changer de dossier).
+      const next = { ...doc, ...partial, id: doc.id, type: doc.type, createdAt: doc.createdAt, updatedAt: new Date().toISOString() };
+      await writeFile(path, JSON.stringify(next, null, 2));
+      return next;
+    },
     async remove(id) {
       const { path } = await findFile(id);
       await unlink(path);

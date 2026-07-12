@@ -7,7 +7,18 @@ export interface Dims {
   margin: number;
 }
 
-export const STORY_DIMS: Dims = { width: 1080, height: 1920, margin: 50 };
+export const DIMS: Record<string, Dims> = {
+  "9:16": { width: 1080, height: 1920, margin: 50 },
+  "1:1": { width: 1080, height: 1080, margin: 50 },
+  "4:5": { width: 1080, height: 1350, margin: 50 },
+};
+
+export function dimsFor(format: string): Dims {
+  return DIMS[format] ?? DIMS["9:16"];
+}
+
+// Alias rétro-compatible (utilisé par l'aperçu par défaut et les tests existants).
+export const STORY_DIMS: Dims = DIMS["9:16"];
 
 export interface DrawCtx {
   font: string;

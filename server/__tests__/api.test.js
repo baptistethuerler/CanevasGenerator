@@ -49,4 +49,19 @@ describe("API", () => {
     expect(res.status).toBe(404);
     expect(res.body).toEqual({ error: "not found" });
   });
+
+  it("PATCH met à jour partiellement (titre + statut) sans toucher au type", async () => {
+    const app = await freshApp();
+    const { body } = await request(app).post("/api/doc").send({ type: "story", title: "A", slides: [] });
+    const res = await request(app).patch(`/api/doc/${body.id}`).send({ title: "B", status: "ready" });
+    expect(res.status).toBe(200);
+    expect(res.body.title).toBe("B");
+    expect(res.body.status).toBe("ready");
+    expect(res.body.type).toBe("story");
+  });
+
+  it("PATCH sur un id inconnu renvoie 404", async () => {
+    const app = await freshApp();
+    await request(app).patch("/api/doc/inconnu").send({ title: "X" }).expect(404);
+  });
 });
