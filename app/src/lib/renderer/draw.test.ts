@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { drawSlide, STORY_DIMS, dimsFor, DIMS, drawBackground, hexToRgba, computeImageRect } from "./draw";
+import { drawSlide, STORY_DIMS, dimsFor, DIMS, drawBackground, hexToRgba, computeImageRect, computeLogoRect, drawLogos } from "./draw";
 import { DEFAULT_STYLES, defaultContentMargin, defaultBackground } from "../model";
 
 function fakeCtx() {
@@ -14,6 +14,7 @@ function fakeCtx() {
     createRadialGradient: () => ({ addColorStop: () => {} }),
     drawImage: (...a: any[]) => calls.push(["drawImage", ...a]),
     filter: "none",
+    globalAlpha: 1,
     save: () => {},
     restore: () => {},
     calls,
@@ -169,5 +170,46 @@ describe("drawBackground image", () => {
     const bg = { kind: "image" as const, color: "#4e7a63", imageRef: "a.png", filters: { brightness: 1.2, blur: 3 }, overlay: { type: "none" as const, color: "#000", intensity: 0.5, direction: "bottom" as const, softness: 0.5 } };
     drawBackground(ctx as any, bg, dims, img as any);
     expect(filterAtDraw).toBe("brightness(1.2) blur(3px)");
+  });
+});
+
+describe("computeLogoRect", () => {
+  const dims = { width: 1080, height: 1920, margin: 50 };
+  it("bas-droite : logo collé en bas à droite (avec padding)", () => {
+    const r = computeLogoRect(dims.width, dims.height, 100, 100, "bottom-right", 0.1, 50);
+    expect(r.dw).toBeCloseTo(108, 5);
+    expect(r.dx).toBeCloseTo(1080 - 50 - r.dw, 5);
+    expect(r.dy).toBeCloseTo(1920 - 50 - r.dh, 5);
+  });
+  it("haut-gauche : logo au padding", () => {
+    const r = computeLogoRect(dims.width, dims.height, 100, 100, "top-left", 0.1, 50);
+    expect(r.dx).toBe(50);
+    expect(r.dy).toBe(50);
+  });
+});
+
+describe("drawLogos", () => {
+  const dims = { width: 1080, height: 1920, margin: 50 };
+  const img = { width: 100, height: 100 };
+
+  it("dessine le logo une fois par ancrage", () => {
+    const ctx = fakeCtx();
+    const logos = [{ id: "1", logoRef: "a.png", anchors: ["top-left", "bottom-right"] as const, free: null, size: 0.1, opacity: 0.9 }];
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    expect(ctx.calls.filter((c) => c[0] === "drawImage")).toHaveLength(2);
+  });
+
+  it("ignore un logo dont l'image n'est pas chargée", () => {
+    const ctx = fakeCtx();
+    const logos = [{ id: "1", logoRef: "a.png", anchors: ["center"] as const, free: null, size: 0.1, opacity: 1 }];
+    drawLogos(ctx as any, logos as any, dims, {} as any, 50);
+    expect(ctx.calls.some((c) => c[0] === "drawImage")).toBe(false);
+  });
+
+  it("dessine une fois en position libre", () => {
+    const ctx = fakeCtx();
+    const logos = [{ id: "1", logoRef: "a.png", anchors: [] as const, free: { x: 0.5, y: 0.5 }, size: 0.1, opacity: 1 }];
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    expect(ctx.calls.filter((c) => c[0] === "drawImage")).toHaveLength(1);
   });
 });
