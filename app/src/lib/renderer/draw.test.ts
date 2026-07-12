@@ -212,4 +212,23 @@ describe("drawLogos", () => {
     drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
     expect(ctx.calls.filter((c) => c[0] === "drawImage")).toHaveLength(1);
   });
+
+  it("position libre : le logo est centré sur le point (x, y)", () => {
+    const ctx = fakeCtx();
+    const logos = [{ id: "1", logoRef: "a.png", anchors: [] as const, free: { x: 0.5, y: 0.5 }, size: 0.1, opacity: 1 }];
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    const call = ctx.calls.find((c) => c[0] === "drawImage");
+    // dw = 1080*0.1 = 108 ; dx = 0.5*1080 - 54 = 486 ; dy = 0.5*1920 - 54 = 906
+    expect(call?.[2]).toBeCloseTo(486, 5);
+    expect(call?.[3]).toBeCloseTo(906, 5);
+  });
+
+  it("applique l'opacité via globalAlpha au moment du dessin", () => {
+    const ctx = fakeCtx();
+    let alphaAtDraw = -1;
+    (ctx as any).drawImage = () => { alphaAtDraw = (ctx as any).globalAlpha; };
+    const logos = [{ id: "1", logoRef: "a.png", anchors: ["center"] as const, free: null, size: 0.1, opacity: 0.5 }];
+    drawLogos(ctx as any, logos as any, dims, { "a.png": img } as any, 50);
+    expect(alphaAtDraw).toBe(0.5);
+  });
 });

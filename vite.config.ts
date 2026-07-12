@@ -10,7 +10,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    proxy: { "/api": "http://localhost:4321", "/images": "http://localhost:4321" },
+    proxy: { "/api": "http://localhost:4321", "/images": "http://localhost:4321", "/logos": "http://localhost:4321" },
   },
   build: { outDir: "dist", emptyOutDir: true },
 });
