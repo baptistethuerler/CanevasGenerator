@@ -1,11 +1,11 @@
 {
-  "id": "e8d5cd87-dfed-4772-bd29-780017a2d551",
-  "createdAt": "2026-07-12T20:57:01.000Z",
-  "updatedAt": "2026-07-12T21:05:05.380Z",
+  "id": "1ebe12ad-d4b9-4a75-ba0d-ce51d731c5fc",
+  "createdAt": "2026-07-13T13:34:03.146Z",
+  "updatedAt": "2026-07-13T20:35:35.668Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo juillet",
+  "title": "Dispo septembre",
   "date": "2026-07-12",
   "styles": {
     "title": {
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -124,7 +124,7 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1,
+      "zoom": 1.95,
       "x": 0.5,
       "y": 0.5
     },
@@ -148,99 +148,73 @@
   ],
   "slides": [
     {
-      "id": "010eb268-40ad-4bad-9311-e6732258493e",
-      "lines": [
-        {
-          "id": "c179b242-d1d1-4363-8d24-03b46aca62c6",
-          "style": "title",
-          "text": "Disponibilités juillet ",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "8c7ad975-ad14-471a-b35a-cc931c8b813c",
-          "style": "subtitle",
-          "text": "Cabinet - Riazen",
-          "icon": {
-            "name": "localisation",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "ed98667e-0d56-46fd-ba59-c348a37fc44e",
-          "style": "bullet",
-          "text": "Mercredi 15 juillet "
-        },
-        {
-          "id": "578952a6-c681-4a42-a473-f60d5714c39b",
-          "style": "bullet",
-          "text": "Jeudi 16 juillet "
-        },
-        {
-          "id": "9e3e5a2b-24ed-4d37-be73-b340361b331c",
-          "style": "bullet",
-          "text": "Mercredi 22 juillet "
-        },
-        {
-          "id": "aa4f2ef5-02cc-458d-9acb-a9aa0d51073b",
-          "style": "bullet",
-          "text": "Mercredi 29 juillet "
-        },
-        {
-          "id": "d37d6c19-c632-4d93-93ff-776c7256893c",
-          "style": "bullet",
-          "text": "Jeudi 30 juillet "
-        },
-        {
-          "id": "b489bc19-b20f-4304-ad5d-2a9f5f3e367b",
-          "style": "text",
-          "text": "Créneaux exceptionnels ",
-          "icon": {
-            "name": "etoile-2",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "e9788ed5-ab59-44fd-9149-f2264d749f07",
-          "style": "arrow",
-          "text": "samedi 18 juillet (le matin)"
-        }
-      ]
-    },
-    {
       "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
       "lines": [
         {
           "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
           "style": "title",
-          "text": "Disponibilités juillet ",
+          "text": "Les dispos du mois ",
           "icon": {
             "name": "feuille",
             "color": "blanc"
           }
         },
         {
-          "id": "4d6bd336-cfa2-4fc5-aff8-d95c5a435147",
+          "id": "e0784bdd-1ded-4a98-bf22-505224169dfb",
           "style": "subtitle",
-          "text": "A domicile ",
+          "text": "Septembre"
+        },
+        {
+          "id": "000f8356-2da7-4bda-ab1e-feab1b5e5854",
+          "style": "bullet",
+          "text": "Mercredi 02 - cabinet \nmatin et après-midi ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
           }
         },
         {
-          "id": "000f8356-2da7-4bda-ab1e-feab1b5e5854",
+          "id": "7243c831-ba61-4e03-8405-b69c0e77cb93",
           "style": "bullet",
-          "text": "Lundi 20 juillet "
+          "text": "Lundi 07 - domicile \naprès-midi",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
         },
         {
-          "id": "22e59424-3f7b-4a9d-b0dc-cc50b8668658",
-          "style": "note",
-          "text": "Réservation par message ",
+          "id": "f1cd22b8-1462-4fa0-b4a9-67e8ccdbe5a2",
+          "style": "bullet",
+          "text": "Mercredi 09 - cabinet\nmatin et après-midi ",
           "icon": {
-            "name": "mail",
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "b1e21916-991e-4496-ade0-c79c904a96b9",
+          "style": "bullet",
+          "text": "Jeudi 10 - cabinet\nmatin et après-midi ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
+          "style": "bullet",
+          "text": "Lundi 14 - domicile \nmatin et après-midi ",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
+          "style": "bullet",
+          "text": "Mercredi 30 - cabinet\nmatin et après-midi ",
+          "icon": {
+            "name": "localisation",
             "color": "blanc"
           }
         }
@@ -253,6 +227,6 @@
   },
   "icons": {
     "stroke": "trait-1.5",
-    "scale": 1
+    "scale": 0.9
   }
 }

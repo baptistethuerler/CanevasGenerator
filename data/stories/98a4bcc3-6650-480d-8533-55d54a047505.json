@@ -1,7 +1,7 @@
 {
   "id": "98a4bcc3-6650-480d-8533-55d54a047505",
   "createdAt": "2026-07-12T21:05:58.514Z",
-  "updatedAt": "2026-07-12T21:12:20.322Z",
+  "updatedAt": "2026-07-13T20:28:27.552Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -115,7 +115,7 @@
   "blockPosition": "top",
   "background": {
     "kind": "image",
-    "color": "#81a9a3",
+    "color": "#6f948d",
     "overlay": {
       "type": "none",
       "color": "#000000",
@@ -124,7 +124,7 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1,
+      "zoom": 1.85,
       "x": 0.5,
       "y": 0.5
     },
@@ -148,78 +148,66 @@
   ],
   "slides": [
     {
-      "id": "010eb268-40ad-4bad-9311-e6732258493e",
-      "lines": [
-        {
-          "id": "c179b242-d1d1-4363-8d24-03b46aca62c6",
-          "style": "title",
-          "text": "Disponibilités août",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "8c7ad975-ad14-471a-b35a-cc931c8b813c",
-          "style": "subtitle",
-          "text": "Cabinet - Riazen",
-          "icon": {
-            "name": "localisation",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "ed98667e-0d56-46fd-ba59-c348a37fc44e",
-          "style": "bullet",
-          "text": "Mercredi 05 août"
-        },
-        {
-          "id": "578952a6-c681-4a42-a473-f60d5714c39b",
-          "style": "bullet",
-          "text": "Jeudi 27 août "
-        },
-        {
-          "id": "e9788ed5-ab59-44fd-9149-f2264d749f07",
-          "style": "note",
-          "text": "Les réservations restent possibles avant et après cette période."
-        }
-      ]
-    },
-    {
       "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
       "lines": [
         {
           "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
           "style": "title",
-          "text": "Disponibilités août",
+          "text": "Les dispos du mois ",
           "icon": {
             "name": "feuille",
             "color": "blanc"
           }
         },
         {
-          "id": "4d6bd336-cfa2-4fc5-aff8-d95c5a435147",
+          "id": "bb20bdca-f013-433d-9c75-20407d20c754",
           "style": "subtitle",
-          "text": "A domicile ",
+          "text": "Août"
+        },
+        {
+          "id": "000f8356-2da7-4bda-ab1e-feab1b5e5854",
+          "style": "bullet",
+          "text": "Lundi 3 août - domicile \naprès-midi",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "7243c831-ba61-4e03-8405-b69c0e77cb93",
+          "style": "bullet",
+          "text": "Mercredi 5 août - cabinet \n matin et après-midi ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
           }
         },
         {
-          "id": "000f8356-2da7-4bda-ab1e-feab1b5e5854",
-          "style": "bullet",
-          "text": "Lundi 03 août "
-        },
-        {
           "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
           "style": "bullet",
-          "text": "Lundi 10 août"
+          "text": "Lundi 10 août - domicile \nmatin et après-midi ",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "f1cd22b8-1462-4fa0-b4a9-67e8ccdbe5a2",
+          "style": "bullet",
+          "text": "Jeudi 27 - cabinet\n09:30",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
         },
         {
           "id": "104375af-76b2-4cda-bdf2-3044af1cfcb1",
           "style": "bullet",
-          "text": "Lundi 31 août"
+          "text": "Lundi 31  - domicile\naprès-midi",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
         },
         {
           "id": "f400d220-9830-41b0-9302-eefb134dd69a",
@@ -227,20 +215,6 @@
           "text": "Vacances du 17 au 23 août",
           "icon": {
             "name": "vacances",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "aefba697-4d5b-4cd6-b138-f1314c72f872",
-          "style": "note",
-          "text": "Les réservations restent possibles avant et après cette période."
-        },
-        {
-          "id": "22e59424-3f7b-4a9d-b0dc-cc50b8668658",
-          "style": "text",
-          "text": "WhatsApp, Instagram, SMS ou via\nmon site internet",
-          "icon": {
-            "name": "mail",
             "color": "blanc"
           }
         }
@@ -252,7 +226,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-2",
-    "scale": 1
+    "stroke": "trait-1.5",
+    "scale": 0.9
   }
 }

@@ -1,18 +1,18 @@
 {
-  "id": "1a431967-4f76-441d-84a4-3e9dfe788ce2",
-  "createdAt": "2026-07-12T20:00:20.546Z",
-  "updatedAt": "2026-07-12T20:49:05.379Z",
+  "id": "4bf746d6-3c3d-4c01-93a1-e5b8db50d828",
+  "createdAt": "2026-07-13T20:14:26.533Z",
+  "updatedAt": "2026-07-13T20:32:24.479Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Nouvelle story",
+  "title": "Dispo semaine 20-26 juillet",
   "date": "2026-07-12",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "rgba(255,255,255,.95)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "rgba(255,255,255,.95)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#eef4f1",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "rgba(255,255,255,.82)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "center",
+  "blockPosition": "top",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -124,33 +124,67 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1,
+      "zoom": 1.65,
       "x": 0.5,
       "y": 0.5
     },
     "filters": {
       "brightness": 1,
       "blur": 0
-    }
+    },
+    "imageRef": "Fond_1080x1920_Gastlosen.png"
   },
+  "logos": [
+    {
+      "id": "7858b9c2-a747-42ac-aa65-dbd61f8855e1",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.25,
+      "opacity": 0.9
+    }
+  ],
   "slides": [
     {
-      "id": "807626f8-cfc9-4c1f-a7bf-d2b1315aa88b",
+      "id": "010eb268-40ad-4bad-9311-e6732258493e",
       "lines": [
         {
-          "id": "a67173f8-4e8c-4dfa-8a6c-0d784a8d2832",
+          "id": "c179b242-d1d1-4363-8d24-03b46aca62c6",
           "style": "title",
-          "text": "Nouveau slide"
+          "text": "Cette semaine",
+          "icon": {
+            "name": "agenda-1",
+            "color": "blanc"
+          }
         },
         {
-          "id": "a6daec6e-a245-4013-a2eb-78aecf7e8b51",
+          "id": "196285c4-7d44-4bba-8a05-00ac1589fa40",
+          "style": "subtitle",
+          "text": "Quelques créneaux encore disponibles  "
+        },
+        {
+          "id": "8c7ad975-ad14-471a-b35a-cc931c8b813c",
           "style": "text",
-          "text": ""
+          "text": "Lundi - domicile\naprès-midi ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "578952a6-c681-4a42-a473-f60d5714c39b",
+          "style": "text",
+          "text": "Mercredi - cabinet Riazen\n08:00 / 09:15 / 10:30 \n13:00 / 14:15 / 15:30 ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
         }
       ]
     }
   ],
-  "logos": [],
   "timing": {
     "duration": 4.5,
     "transition": 0.7
