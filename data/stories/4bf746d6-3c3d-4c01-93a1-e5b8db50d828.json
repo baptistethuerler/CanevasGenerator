@@ -1,7 +1,7 @@
 {
   "id": "4bf746d6-3c3d-4c01-93a1-e5b8db50d828",
   "createdAt": "2026-07-13T20:14:26.533Z",
-  "updatedAt": "2026-07-13T20:32:24.479Z",
+  "updatedAt": "2026-07-18T14:13:44.597Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -176,7 +176,7 @@
         {
           "id": "578952a6-c681-4a42-a473-f60d5714c39b",
           "style": "text",
-          "text": "Mercredi - cabinet Riazen\n08:00 / 09:15 / 10:30 \n13:00 / 14:15 / 15:30 ",
+          "text": "Mercredi - cabinet Riazen\n08:00 / 09:15 \n13:00 / 14:15 / 15:30 ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
