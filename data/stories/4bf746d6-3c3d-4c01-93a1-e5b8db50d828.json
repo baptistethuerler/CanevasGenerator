@@ -1,7 +1,7 @@
 {
   "id": "4bf746d6-3c3d-4c01-93a1-e5b8db50d828",
   "createdAt": "2026-07-13T20:14:26.533Z",
-  "updatedAt": "2026-07-18T14:13:44.597Z",
+  "updatedAt": "2026-07-18T18:23:17.471Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -124,7 +124,7 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1.65,
+      "zoom": 2,
       "x": 0.5,
       "y": 0.5
     },
@@ -153,7 +153,7 @@
         {
           "id": "c179b242-d1d1-4363-8d24-03b46aca62c6",
           "style": "title",
-          "text": "Cette semaine",
+          "text": "Disponibilités de juillet ",
           "icon": {
             "name": "agenda-1",
             "color": "blanc"
@@ -162,21 +162,39 @@
         {
           "id": "196285c4-7d44-4bba-8a05-00ac1589fa40",
           "style": "subtitle",
-          "text": "Quelques créneaux encore disponibles  "
+          "text": "Quelques créneaux sont encore disponibles  "
         },
         {
           "id": "8c7ad975-ad14-471a-b35a-cc931c8b813c",
-          "style": "text",
-          "text": "Lundi - domicile\naprès-midi ",
+          "style": "bullet",
+          "text": "Lundi 20 juillet - domicile\naprès-midi ",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "578952a6-c681-4a42-a473-f60d5714c39b",
+          "style": "bullet",
+          "text": "Mercredi 22 juillet - cabinet Riazen\n08:00 / 09:15 \n13:00 / 14:15 / 15:30 ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
           }
         },
         {
-          "id": "578952a6-c681-4a42-a473-f60d5714c39b",
-          "style": "text",
-          "text": "Mercredi - cabinet Riazen\n08:00 / 09:15 \n13:00 / 14:15 / 15:30 ",
+          "id": "87598dd2-2b82-4398-b646-c81344a30f58",
+          "style": "bullet",
+          "text": "Mercredi 29 juillet - cabinet Riazen\n07:00",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "a412a6a9-c141-425f-9b98-61d0b6cf5b2b",
+          "style": "bullet",
+          "text": "Jeudi 30 juillet - cabinet Riazen\n08:00 / 09:15 / 10:30 ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
