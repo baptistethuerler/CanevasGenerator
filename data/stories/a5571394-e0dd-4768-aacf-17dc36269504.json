@@ -1,0 +1,187 @@
+{
+  "id": "a5571394-e0dd-4768-aacf-17dc36269504",
+  "createdAt": "2026-07-20T20:36:29.134Z",
+  "updatedAt": "2026-07-20T20:46:46.242Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Recherche cas suivis",
+  "date": "2026-07-19",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-top",
+  "background": {
+    "kind": "color",
+    "color": "#6f948d",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.5,
+      "y": 0.5
+    },
+    "filters": {
+      "brightness": 1,
+      "blur": 0
+    }
+  },
+  "logos": [
+    {
+      "id": "5d0c1314-9f60-4c20-ba47-ed4c4dcc197d",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.25,
+      "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "c3c5d50e-6934-4fcf-a2e1-24c3c62368c5",
+      "lines": [
+        {
+          "id": "27771bb0-dff0-4f86-9d09-f82335c8d406",
+          "style": "title",
+          "text": "Je recherche 5 personnes\n",
+          "icon": {
+            "name": "fleur-1",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "9d563f24-c4b9-49ed-9c3e-5b719b6402ca",
+          "style": "text",
+          "text": "Dans le cadre de la fin de ma formation, je recherche 5 personnes souhaitant bénéficier d'un suivi de 6 séances de massage.\n\nLes participants conserveront le tarif actuel de 60 CHF par séance pendant tout le suivi, même si mes tarifs évoluent par la suite.",
+          "icon": {
+            "name": "etoile-2",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "9feef9b4-98ec-4d74-9d9a-83ebb2498667",
+          "style": "note",
+          "text": "Si vous êtes intéressé(e), écrivez-moi en message privé pour en discuter. ",
+          "icon": null
+        }
+      ]
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}
