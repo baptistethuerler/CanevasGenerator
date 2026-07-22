@@ -1,18 +1,18 @@
 {
-  "id": "4c10e0b2-9fbc-4ce1-8d79-551d07b8d158",
-  "createdAt": "2026-07-19T19:51:28.838Z",
-  "updatedAt": "2026-07-19T19:57:10.976Z",
+  "id": "c0162da5-babc-4060-8f55-832e83cf5b90",
+  "createdAt": "2026-07-22T17:55:49.198Z",
+  "updatedAt": "2026-07-22T18:54:51.312Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Recherche modèle",
-  "date": "2026-07-19",
+  "title": "Story 2",
+  "date": "2026-07-22",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#fdfbf7",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -112,10 +112,10 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "golden-top",
+  "blockPosition": "top",
   "background": {
-    "kind": "color",
-    "color": "#6f948d",
+    "kind": "image",
+    "color": "#81a9a3",
     "overlay": {
       "type": "none",
       "color": "#000000",
@@ -131,44 +131,36 @@
     "filters": {
       "brightness": 1,
       "blur": 0
-    }
+    },
+    "imageRef": "Fond_1080x1920_Sanetsch.png"
   },
   "slides": [
     {
-      "id": "c3c5d50e-6934-4fcf-a2e1-24c3c62368c5",
+      "id": "5b69d44f-393e-4167-82bd-0d954a2a3cb2",
       "lines": [
         {
-          "id": "27771bb0-dff0-4f86-9d09-f82335c8d406",
+          "id": "55e2f363-ea4c-4388-8b32-42b4be048921",
           "style": "title",
-          "text": "Recherche modèle\n",
+          "text": "Qu'est-ce qui vous donnerait envie de prendre rendez-vous ?",
           "icon": {
-            "name": "contact",
+            "name": "question",
             "color": "blanc"
           }
         },
         {
-          "id": "9d563f24-c4b9-49ed-9c3e-5b719b6402ca",
-          "style": "subtitle",
-          "text": "Je recherche une personne pour réaliser quelques photos en situation de massage thérapeutique afin d'illustrer mes futures publications.\n",
-          "icon": {
-            "name": "coeur",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "ce2dc63a-2a1f-4856-8039-7434ee53d611",
+          "id": "f62dc87f-1a17-4e1f-99c5-6c970b7c42cb",
           "style": "text",
-          "text": "Intéressé(e) ? Écrivez-moi en message privé."
+          "text": ""
         }
       ]
     }
   ],
   "logos": [
     {
-      "id": "5d0c1314-9f60-4c20-ba47-ed4c4dcc197d",
+      "id": "9ac16d9b-a6e9-4468-bd03-73cc4e9f5499",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "bottom-right"
+        "bottom-left"
       ],
       "free": null,
       "size": 0.25,
