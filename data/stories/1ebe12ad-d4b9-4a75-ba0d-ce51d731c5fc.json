@@ -1,7 +1,7 @@
 {
   "id": "1ebe12ad-d4b9-4a75-ba0d-ce51d731c5fc",
   "createdAt": "2026-07-13T13:34:03.146Z",
-  "updatedAt": "2026-07-13T20:35:35.668Z",
+  "updatedAt": "2026-07-25T21:03:22.023Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -211,6 +211,15 @@
         },
         {
           "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
+          "style": "bullet",
+          "text": "Jeudi 24  - cabinet\naprès-midi ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "f379e20e-2069-46c1-b325-0494bf738fb6",
           "style": "bullet",
           "text": "Mercredi 30 - cabinet\nmatin et après-midi ",
           "icon": {
