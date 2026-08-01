@@ -1,0 +1,178 @@
+{
+  "id": "101cfe63-733d-49a2-99f7-f90e305e8a30",
+  "createdAt": "2026-07-29T21:18:38.816Z",
+  "updatedAt": "2026-07-30T19:52:01.138Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Story post 3",
+  "date": "2026-07-29",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#33474a",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "top",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.35,
+      "y": 0.44
+    },
+    "filters": {
+      "brightness": 0.75,
+      "blur": 3
+    },
+    "imageRef": "aeca16d5-6c1f-4902-a352-700f7ddb8005.jpg"
+  },
+  "slides": [
+    {
+      "id": "5e7a2a39-dadd-489c-bd18-44d37dc44f2d",
+      "lines": [
+        {
+          "id": "6902990d-c6ab-4ed9-b207-9f985c467f20",
+          "style": "title",
+          "text": "Prendre de la hauteur, \nralentir, \nécouter son corps…",
+          "icon": {
+            "name": "etoile-2",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "47ee142b-9936-41a9-9a23-20156000c5a3",
+          "style": "text",
+          "text": "\n\n\n\nDes principes qui font \naussi partie de ma vision\n du massage."
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "f28800b5-94d7-4b48-b193-85f7f7a84bab",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-left"
+      ],
+      "free": null,
+      "size": 0.25,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-1.5",
+    "scale": 1
+  }
+}
