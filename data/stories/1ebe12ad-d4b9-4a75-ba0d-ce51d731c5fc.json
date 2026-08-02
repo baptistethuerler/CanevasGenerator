@@ -1,7 +1,7 @@
 {
   "id": "1ebe12ad-d4b9-4a75-ba0d-ce51d731c5fc",
   "createdAt": "2026-07-13T13:34:03.146Z",
-  "updatedAt": "2026-07-25T21:03:22.023Z",
+  "updatedAt": "2026-08-01T14:18:07.908Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -129,7 +129,7 @@
       "y": 0.5
     },
     "filters": {
-      "brightness": 1,
+      "brightness": 0.9,
       "blur": 0
     },
     "imageRef": "Fond_1080x1920_Gastlosen.png"
