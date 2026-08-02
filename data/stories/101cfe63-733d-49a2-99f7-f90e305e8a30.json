@@ -1,7 +1,7 @@
 {
   "id": "101cfe63-733d-49a2-99f7-f90e305e8a30",
   "createdAt": "2026-07-29T21:18:38.816Z",
-  "updatedAt": "2026-07-30T19:52:01.138Z",
+  "updatedAt": "2026-08-02T12:36:57.623Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -117,10 +117,10 @@
     "kind": "image",
     "color": "#81a9a3",
     "overlay": {
-      "type": "none",
+      "type": "uniform",
       "color": "#000000",
-      "intensity": 0.5,
-      "direction": "bottom",
+      "intensity": 0.15,
+      "direction": "top",
       "softness": 0.5
     },
     "crop": {
@@ -129,8 +129,8 @@
       "y": 0.44
     },
     "filters": {
-      "brightness": 0.75,
-      "blur": 3
+      "brightness": 1,
+      "blur": 0
     },
     "imageRef": "aeca16d5-6c1f-4902-a352-700f7ddb8005.jpg"
   },
@@ -141,7 +141,7 @@
         {
           "id": "6902990d-c6ab-4ed9-b207-9f985c467f20",
           "style": "title",
-          "text": "Prendre de la hauteur, \nralentir, \nécouter son corps…",
+          "text": "Prendre\nde la hauteur, \nralentir,  écouter\nson corps…",
           "icon": {
             "name": "etoile-2",
             "color": "blanc"
@@ -150,7 +150,7 @@
         {
           "id": "47ee142b-9936-41a9-9a23-20156000c5a3",
           "style": "text",
-          "text": "\n\n\n\nDes principes qui font \naussi partie de ma vision\n du massage."
+          "text": "\nDes principes qui font \naussi partie de ma vision\n du massage."
         }
       ]
     }
