@@ -1,7 +1,7 @@
 {
   "id": "101cfe63-733d-49a2-99f7-f90e305e8a30",
   "createdAt": "2026-07-29T21:18:38.816Z",
-  "updatedAt": "2026-08-02T12:36:57.623Z",
+  "updatedAt": "2026-08-02T20:56:49.341Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -126,10 +126,10 @@
     "crop": {
       "zoom": 1,
       "x": 0.35,
-      "y": 0.44
+      "y": 0.38
     },
     "filters": {
-      "brightness": 1,
+      "brightness": 0.8,
       "blur": 0
     },
     "imageRef": "aeca16d5-6c1f-4902-a352-700f7ddb8005.jpg"
@@ -142,15 +142,12 @@
           "id": "6902990d-c6ab-4ed9-b207-9f985c467f20",
           "style": "title",
           "text": "Prendre\nde la hauteur, \nralentir,  écouter\nson corps…",
-          "icon": {
-            "name": "etoile-2",
-            "color": "blanc"
-          }
+          "icon": null
         },
         {
           "id": "47ee142b-9936-41a9-9a23-20156000c5a3",
           "style": "text",
-          "text": "\nDes principes qui font \naussi partie de ma vision\n du massage."
+          "text": "Des principes qui font \naussi partie de ma vision\n du massage."
         }
       ]
     }
