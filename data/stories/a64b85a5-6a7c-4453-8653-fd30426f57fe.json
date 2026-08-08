@@ -1,18 +1,18 @@
 {
-  "id": "101cfe63-733d-49a2-99f7-f90e305e8a30",
-  "createdAt": "2026-07-29T21:18:38.816Z",
-  "updatedAt": "2026-08-02T20:56:49.341Z",
+  "id": "a64b85a5-6a7c-4453-8653-fd30426f57fe",
+  "createdAt": "2026-08-03T14:56:58.290Z",
+  "updatedAt": "2026-08-03T15:13:01.793Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Story post 3",
-  "date": "2026-07-29",
+  "title": "Nouvelle story",
+  "date": "2026-08-03",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#33474a",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -112,52 +112,51 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "top",
+  "blockPosition": "golden-top",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
     "overlay": {
-      "type": "uniform",
+      "type": "none",
       "color": "#000000",
-      "intensity": 0.15,
-      "direction": "top",
+      "intensity": 0.5,
+      "direction": "bottom",
       "softness": 0.5
     },
     "crop": {
       "zoom": 1,
-      "x": 0.35,
-      "y": 0.38
+      "x": 0.5,
+      "y": 0.5
     },
     "filters": {
-      "brightness": 0.8,
+      "brightness": 1,
       "blur": 0
     },
-    "imageRef": "aeca16d5-6c1f-4902-a352-700f7ddb8005.jpg"
+    "imageRef": "Fond_1080x1920_Vals.png"
   },
   "slides": [
     {
-      "id": "5e7a2a39-dadd-489c-bd18-44d37dc44f2d",
+      "id": "5c709589-dc36-405b-8a44-24247f1b8f90",
       "lines": [
         {
-          "id": "6902990d-c6ab-4ed9-b207-9f985c467f20",
+          "id": "4f397cdf-3ce7-4453-b0ae-c201f6105395",
           "style": "title",
-          "text": "Prendre\nde la hauteur, \nralentir,  écouter\nson corps…",
-          "icon": null
+          "text": "Petit rappel : \n"
         },
         {
-          "id": "47ee142b-9936-41a9-9a23-20156000c5a3",
+          "id": "34556c51-b0fc-40d1-b0ea-dfbbe02f38f2",
           "style": "text",
-          "text": "Des principes qui font \naussi partie de ma vision\n du massage."
+          "text": "Je cherche encore quelques personnes pour un suivi de 6 séances de massage dans le cadre de ma formation.\n\nTarif à discuter. Écrivez-moi en privé si vous êtes intéressé(e) ou pour plus d'infos. Merci ! \n"
         }
       ]
     }
   ],
   "logos": [
     {
-      "id": "f28800b5-94d7-4b48-b193-85f7f7a84bab",
+      "id": "2d05c699-6e37-46bb-b076-85fa3b8408f0",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "bottom-left"
+        "bottom-right"
       ],
       "free": null,
       "size": 0.25,
@@ -169,7 +168,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-1.5",
+    "stroke": "trait-2",
     "scale": 1
   }
 }
