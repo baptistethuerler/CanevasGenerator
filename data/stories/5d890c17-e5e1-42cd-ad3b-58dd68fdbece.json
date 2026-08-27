@@ -1,7 +1,7 @@
 {
-  "id": "86902d91-8da5-4735-8f81-b97dda30cad2",
-  "createdAt": "2026-08-17T17:47:51.164Z",
-  "updatedAt": "2026-08-17T17:48:52.619Z",
+  "id": "5d890c17-e5e1-42cd-ad3b-58dd68fdbece",
+  "createdAt": "2026-08-17T17:53:52.520Z",
+  "updatedAt": "2026-08-17T17:53:56.357Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -12,7 +12,7 @@
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#6f948d",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -112,9 +112,9 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "golden-bottom",
+  "blockPosition": "center",
   "background": {
-    "kind": "image",
+    "kind": "color",
     "color": "#81a9a3",
     "overlay": {
       "type": "none",
@@ -122,29 +122,19 @@
       "intensity": 0.5,
       "direction": "bottom",
       "softness": 0.5
-    },
-    "crop": {
-      "zoom": 1,
-      "x": 0.5,
-      "y": 0.5
-    },
-    "filters": {
-      "brightness": 1,
-      "blur": 0
-    },
-    "imageRef": "8d9e1cdd-9292-4835-a8b4-055c974aac81.jpg"
+    }
   },
   "slides": [
     {
-      "id": "8e91baad-b318-4d5d-bc42-04fb8b0c79b6",
+      "id": "64f8287b-3451-4164-90d0-4084aa107aa6",
       "lines": [
         {
-          "id": "f7ff9dad-dcbb-4554-bfb2-231396b210fd",
+          "id": "dd10946d-83e6-4e15-aa36-cbb5f3fb3e14",
           "style": "title",
-          "text": "Une idée reçue sur le massage :\n\"Plus ça fait mal, plus c'est efficace.\""
+          "text": ""
         },
         {
-          "id": "3bee80c7-dd0d-426d-bd08-4d4912cf5da8",
+          "id": "51a4e6f4-4b6a-4b24-8199-ce954f64cfe1",
           "style": "text",
           "text": ""
         }
