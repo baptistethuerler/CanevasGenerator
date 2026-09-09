@@ -1,11 +1,11 @@
 {
-  "id": "1ebe12ad-d4b9-4a75-ba0d-ce51d731c5fc",
-  "createdAt": "2026-07-13T13:34:03.146Z",
-  "updatedAt": "2026-08-27T13:08:02.551Z",
+  "id": "76756b5b-0eee-4849-8129-b2d456b62afc",
+  "createdAt": "2026-09-09T15:25:42.830Z",
+  "updatedAt": "2026-09-09T15:26:58.195Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo septembre",
+  "title": "Dispo octobre",
   "date": "2026-07-12",
   "styles": {
     "title": {
@@ -153,30 +153,34 @@
         {
           "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
           "style": "title",
-          "text": "Les dispos du mois ",
+          "text": "Les dispos du mois d'octobre",
           "icon": {
             "name": "feuille",
             "color": "blanc"
           }
         },
         {
-          "id": "e0784bdd-1ded-4a98-bf22-505224169dfb",
-          "style": "subtitle",
-          "text": "Octobre"
-        },
-        {
           "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
           "style": "text",
-          "text": "Lundi 05 - domicile \naprès-midi ",
+          "text": "Lundi 05 - domicile \n16h30 ",
           "icon": {
             "name": "maison",
             "color": "blanc"
           }
         },
         {
+          "id": "8c2617ac-03a4-4735-abab-19374319ea29",
+          "style": "text",
+          "text": "Mardi 06  - cabinet \n17h30 ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
           "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
           "style": "text",
-          "text": "Mercredi 14 - cabinet \nmatin  ",
+          "text": "Mercredi 14 - cabinet \n08h00 / 09h30 ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
@@ -185,7 +189,7 @@
         {
           "id": "fcd7f0f8-c486-45f9-81a0-e495bf64bcf8",
           "style": "text",
-          "text": "Jeudi 15 - cabinet \nmatin  ",
+          "text": "Jeudi 15 - cabinet \n08h00 / 09h30 / 11h00 / 12h30  ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
@@ -197,6 +201,15 @@
           "text": "Lundi 26 - domicile \naprès-midi ",
           "icon": {
             "name": "maison",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "397b709f-cb4b-485a-8c4e-48d02abb1650",
+          "style": "text",
+          "text": "Mardi 27 - cabinet \n17h30 ",
+          "icon": {
+            "name": "localisation",
             "color": "blanc"
           }
         },
@@ -217,7 +230,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-1.5",
-    "scale": 0.9
+    "stroke": "trait-2",
+    "scale": 1
   }
 }
