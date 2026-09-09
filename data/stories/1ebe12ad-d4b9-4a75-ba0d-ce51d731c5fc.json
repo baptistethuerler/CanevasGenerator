@@ -1,7 +1,7 @@
 {
   "id": "1ebe12ad-d4b9-4a75-ba0d-ce51d731c5fc",
   "createdAt": "2026-07-13T13:34:03.146Z",
-  "updatedAt": "2026-08-01T14:18:07.908Z",
+  "updatedAt": "2026-08-27T13:08:02.551Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -162,48 +162,12 @@
         {
           "id": "e0784bdd-1ded-4a98-bf22-505224169dfb",
           "style": "subtitle",
-          "text": "Septembre"
-        },
-        {
-          "id": "000f8356-2da7-4bda-ab1e-feab1b5e5854",
-          "style": "bullet",
-          "text": "Mercredi 02 - cabinet \nmatin et après-midi ",
-          "icon": {
-            "name": "localisation",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "7243c831-ba61-4e03-8405-b69c0e77cb93",
-          "style": "bullet",
-          "text": "Lundi 07 - domicile \naprès-midi",
-          "icon": {
-            "name": "maison",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "f1cd22b8-1462-4fa0-b4a9-67e8ccdbe5a2",
-          "style": "bullet",
-          "text": "Mercredi 09 - cabinet\nmatin et après-midi ",
-          "icon": {
-            "name": "localisation",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "b1e21916-991e-4496-ade0-c79c904a96b9",
-          "style": "bullet",
-          "text": "Jeudi 10 - cabinet\nmatin et après-midi ",
-          "icon": {
-            "name": "localisation",
-            "color": "blanc"
-          }
+          "text": "Octobre"
         },
         {
           "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
-          "style": "bullet",
-          "text": "Lundi 14 - domicile \nmatin et après-midi ",
+          "style": "text",
+          "text": "Lundi 05 - domicile \naprès-midi ",
           "icon": {
             "name": "maison",
             "color": "blanc"
@@ -211,17 +175,35 @@
         },
         {
           "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
-          "style": "bullet",
-          "text": "Jeudi 24  - cabinet\naprès-midi ",
+          "style": "text",
+          "text": "Mercredi 14 - cabinet \nmatin  ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
           }
         },
         {
-          "id": "f379e20e-2069-46c1-b325-0494bf738fb6",
-          "style": "bullet",
-          "text": "Mercredi 30 - cabinet\nmatin et après-midi ",
+          "id": "fcd7f0f8-c486-45f9-81a0-e495bf64bcf8",
+          "style": "text",
+          "text": "Jeudi 15 - cabinet \nmatin  ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "56fd79d0-be1a-4ddf-bb2a-75527ae60677",
+          "style": "text",
+          "text": "Lundi 26 - domicile \naprès-midi ",
+          "icon": {
+            "name": "maison",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "9bd60d0e-1e04-45ae-974f-e5ed0e5639c2",
+          "style": "text",
+          "text": "Jeudi 29 - cabinet \nmatin et après-midi ",
           "icon": {
             "name": "localisation",
             "color": "blanc"
