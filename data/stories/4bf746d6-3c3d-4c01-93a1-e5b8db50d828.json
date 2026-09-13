@@ -1,11 +1,11 @@
 {
   "id": "4bf746d6-3c3d-4c01-93a1-e5b8db50d828",
   "createdAt": "2026-07-13T20:14:26.533Z",
-  "updatedAt": "2026-07-18T18:23:17.471Z",
+  "updatedAt": "2026-09-09T19:02:04.682Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo semaine 20-26 juillet",
+  "title": "Dispo semaine ",
   "date": "2026-07-12",
   "styles": {
     "title": {
@@ -153,7 +153,7 @@
         {
           "id": "c179b242-d1d1-4363-8d24-03b46aca62c6",
           "style": "title",
-          "text": "Disponibilités de juillet ",
+          "text": "Disponibilités de ",
           "icon": {
             "name": "agenda-1",
             "color": "blanc"
