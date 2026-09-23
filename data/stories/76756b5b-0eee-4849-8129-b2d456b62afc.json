@@ -1,7 +1,7 @@
 {
   "id": "76756b5b-0eee-4849-8129-b2d456b62afc",
   "createdAt": "2026-09-09T15:25:42.830Z",
-  "updatedAt": "2026-09-09T15:26:58.195Z",
+  "updatedAt": "2026-09-13T11:42:34.080Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -178,6 +178,15 @@
           }
         },
         {
+          "id": "5dc03d2e-7ae5-4644-a8e4-19f3acda9865",
+          "style": "text",
+          "text": "Mercredi 07  - cabinet \n10h45 / 15h00 / 16h30 / 17h45 ",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
           "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
           "style": "text",
           "text": "Mercredi 14 - cabinet \n08h00 / 09h30 ",
@@ -185,9 +194,23 @@
             "name": "localisation",
             "color": "blanc"
           }
+        }
+      ]
+    },
+    {
+      "id": "bd161373-4aa4-46ac-a757-c1a59cc5c6f4",
+      "lines": [
+        {
+          "id": "d76bd8c1-2abf-49c1-adf1-1813094907a1",
+          "style": "title",
+          "text": "Les dispos du mois d'octobre",
+          "icon": {
+            "name": "feuille",
+            "color": "blanc"
+          }
         },
         {
-          "id": "fcd7f0f8-c486-45f9-81a0-e495bf64bcf8",
+          "id": "c81465c5-7f5e-480f-8a46-a22fe2411f35",
           "style": "text",
           "text": "Jeudi 15 - cabinet \n08h00 / 09h30 / 11h00 / 12h30  ",
           "icon": {
@@ -196,7 +219,7 @@
           }
         },
         {
-          "id": "56fd79d0-be1a-4ddf-bb2a-75527ae60677",
+          "id": "b5f3fa7f-d663-443a-af16-a537a85d60cf",
           "style": "text",
           "text": "Lundi 26 - domicile \naprès-midi ",
           "icon": {
@@ -205,7 +228,7 @@
           }
         },
         {
-          "id": "397b709f-cb4b-485a-8c4e-48d02abb1650",
+          "id": "4c4c9acf-ef9b-43a5-bef9-d4fd32c4819a",
           "style": "text",
           "text": "Mardi 27 - cabinet \n17h30 ",
           "icon": {
@@ -214,7 +237,7 @@
           }
         },
         {
-          "id": "9bd60d0e-1e04-45ae-974f-e5ed0e5639c2",
+          "id": "a9ac3394-5f31-4865-9399-3a8a5564be8c",
           "style": "text",
           "text": "Jeudi 29 - cabinet \nmatin et après-midi ",
           "icon": {
