@@ -1,11 +1,11 @@
 {
-  "id": "76756b5b-0eee-4849-8129-b2d456b62afc",
-  "createdAt": "2026-09-09T15:25:42.830Z",
-  "updatedAt": "2026-09-23T19:45:55.766Z",
+  "id": "f291fd0a-74c2-4189-b433-0095abddfd31",
+  "createdAt": "2026-09-23T19:12:32.775Z",
+  "updatedAt": "2026-09-23T19:47:06.365Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo octobre",
+  "title": "Dispo novembre",
   "date": "2026-07-12",
   "styles": {
     "title": {
@@ -153,41 +153,51 @@
         {
           "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
           "style": "title",
-          "text": "Les dispos du mois d'octobre",
+          "text": "Les dispos du mois de novembre",
           "icon": {
             "name": "feuille",
             "color": "blanc"
           }
         },
         {
-          "id": "5dc03d2e-7ae5-4644-a8e4-19f3acda9865",
+          "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
           "style": "text",
-          "text": "Mercredi 07.10",
+          "text": "Mercredi 04.11",
           "icon": null
         },
         {
-          "id": "d931d14d-93ad-4a44-9fbd-77b55758b098",
+          "id": "8c2617ac-03a4-4735-abab-19374319ea29",
           "style": "bullet",
-          "text": "08:00 / 09:15 / 10:45 / 13:30 / 14:45 / 16:00 / 17:15 "
-        },
-        {
-          "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
-          "style": "text",
-          "text": "Mercredi 14.10 ",
+          "text": "08:00 / 09:15 / 10:30 / 14:00 / 15:15 / 16:30 / 17:45 ",
           "icon": null
         },
         {
-          "id": "ab4fb271-c53d-42bd-920a-604806273ff2",
-          "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 "
-        },
-        {
-          "id": "66d419e7-3c24-40ee-814d-2d0b6c1378ef",
+          "id": "eb105cd3-abb7-4ed7-aad5-d733362e6809",
           "style": "text",
-          "text": "Jeudi 15.10 "
+          "text": "Lundi 09.11 "
         },
         {
-          "id": "1bb9a88f-6b29-4db8-a8ab-0bcbb85c3d70",
+          "id": "d50d1bf2-540c-4b77-a344-e8317e5e09d6",
+          "style": "bullet",
+          "text": "08:30 / 09:45 / 11:00 / 13:30 / 14:45 / 16:00 / 17:15 "
+        },
+        {
+          "id": "95dfa669-e8fc-48cf-bba0-82b28a8583ea",
+          "style": "text",
+          "text": "Mercredi 11.11 "
+        },
+        {
+          "id": "51bf406a-7c30-4378-94f9-567c58b2faa1",
+          "style": "bullet",
+          "text": "08:00 / 09:15 / 10:30 / 14:00 / 15:15 / 16:30 / 17:45 "
+        },
+        {
+          "id": "bf8c398f-9cb8-45a3-93b8-4b9aee91f66f",
+          "style": "text",
+          "text": "Mercredi 18.11"
+        },
+        {
+          "id": "7925200d-945b-4a8f-a848-cee936088068",
           "style": "bullet",
           "text": "08:00 / 09:15 / 10:30 / 11:45 / 13:00 "
         }
@@ -206,26 +216,38 @@
           }
         },
         {
-          "id": "b5f3fa7f-d663-443a-af16-a537a85d60cf",
+          "id": "c81465c5-7f5e-480f-8a46-a22fe2411f35",
           "style": "text",
-          "text": "Lundi 26.10",
+          "text": "Lundi 23.11",
           "icon": null
         },
         {
-          "id": "daaafe5a-9494-4372-85a4-082f2db0c412",
+          "id": "b5f3fa7f-d663-443a-af16-a537a85d60cf",
           "style": "bullet",
-          "text": "13:00 / 14:15 / 15:30 / 16:45 / 18:00 "
+          "text": "13:30 / 14:45 / 16:00 / 17:15 ",
+          "icon": null
+        },
+        {
+          "id": "4c4c9acf-ef9b-43a5-bef9-d4fd32c4819a",
+          "style": "text",
+          "text": "Mercredi 25.11",
+          "icon": null
         },
         {
           "id": "a9ac3394-5f31-4865-9399-3a8a5564be8c",
-          "style": "text",
-          "text": "Jeudi 29",
+          "style": "bullet",
+          "text": "08:00 / 09:15 / 10:30 / 11:45 / 13:00 ",
           "icon": null
         },
         {
-          "id": "e3d034d0-64d2-4a91-af17-fac10d70761e",
+          "id": "b1e3955f-b5f8-4158-94d4-04bf904b2fa9",
+          "style": "text",
+          "text": "Lundi 30.11 "
+        },
+        {
+          "id": "796b8804-ca04-4ccf-abce-484f1bff14de",
           "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 13:00 / 14:15 / 15:30 / 16:45 / 18:00  "
+          "text": "08:30 / 09:45 / 11:00 / 13:30 / 14:45 / "
         }
       ]
     }
