@@ -1,7 +1,7 @@
 {
   "id": "76756b5b-0eee-4849-8129-b2d456b62afc",
   "createdAt": "2026-09-09T15:25:42.830Z",
-  "updatedAt": "2026-09-23T19:45:55.766Z",
+  "updatedAt": "2026-09-26T19:16:07.142Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -168,7 +168,12 @@
         {
           "id": "d931d14d-93ad-4a44-9fbd-77b55758b098",
           "style": "bullet",
-          "text": "08:00 / 09:15 / 10:45 / 13:30 / 14:45 / 16:00 / 17:15 "
+          "text": "10:45 : 1 place disponible"
+        },
+        {
+          "id": "4709d32f-94c2-4290-bea3-a4e43fe9c923",
+          "style": "bullet",
+          "text": "14:45 - 17:30 :  créneaux disponibles "
         },
         {
           "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
@@ -179,7 +184,7 @@
         {
           "id": "ab4fb271-c53d-42bd-920a-604806273ff2",
           "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 "
+          "text": "08:00 – 10:30 ·: créneaux disponibles "
         },
         {
           "id": "66d419e7-3c24-40ee-814d-2d0b6c1378ef",
@@ -189,7 +194,7 @@
         {
           "id": "1bb9a88f-6b29-4db8-a8ab-0bcbb85c3d70",
           "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 11:45 / 13:00 "
+          "text": "08:00 – 13:00 ·: créneaux disponibles "
         }
       ]
     },
@@ -214,7 +219,7 @@
         {
           "id": "daaafe5a-9494-4372-85a4-082f2db0c412",
           "style": "bullet",
-          "text": "13:00 / 14:15 / 15:30 / 16:45 / 18:00 "
+          "text": "13:00 – 18:00 ·: créneaux disponibles "
         },
         {
           "id": "a9ac3394-5f31-4865-9399-3a8a5564be8c",
@@ -225,7 +230,12 @@
         {
           "id": "e3d034d0-64d2-4a91-af17-fac10d70761e",
           "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 13:00 / 14:15 / 15:30 / 16:45 / 18:00  "
+          "text": "08:30 – 11:00 ·: créneaux disponibles "
+        },
+        {
+          "id": "d92d895f-d01a-4c43-96b0-4b59b526585b",
+          "style": "bullet",
+          "text": "13:30 – 16:15 ·: créneaux disponibles \n"
         }
       ]
     }

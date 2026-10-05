@@ -1,18 +1,18 @@
 {
-  "id": "a64b85a5-6a7c-4453-8653-fd30426f57fe",
-  "createdAt": "2026-08-03T14:56:58.290Z",
-  "updatedAt": "2026-08-03T15:13:01.793Z",
+  "id": "69ef975b-f449-4a3b-adfb-afad2172377a",
+  "createdAt": "2026-09-28T19:53:36.009Z",
+  "updatedAt": "2026-09-28T19:59:01.692Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
   "title": "Nouvelle story",
-  "date": "2026-08-03",
+  "date": "2026-09-28",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#6f948d",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#6f948d",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "golden-top",
+  "blockPosition": "bottom",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -129,34 +129,35 @@
       "y": 0.5
     },
     "filters": {
-      "brightness": 1,
+      "brightness": 0.55,
       "blur": 0
     },
-    "imageRef": "Fond_1080x1920_Vals.png"
+    "imageRef": "3e44a1d8-1099-4342-adae-f99306c440ac.jpg"
   },
   "slides": [
     {
-      "id": "5c709589-dc36-405b-8a44-24247f1b8f90",
+      "id": "d298bcf9-979f-467d-a761-2ad332e73d4c",
       "lines": [
         {
-          "id": "4f397cdf-3ce7-4453-b0ae-c201f6105395",
-          "style": "title",
-          "text": "Petit rappel : \n"
+          "id": "73387888-5a0e-4c87-99d5-29110bb3daa2",
+          "style": "subtitle",
+          "text": "En février 2027, je débuterai une nouvelle formation en drainage lymphatique.",
+          "icon": null
         },
         {
-          "id": "34556c51-b0fc-40d1-b0ea-dfbbe02f38f2",
-          "style": "text",
-          "text": "Je cherche encore quelques personnes pour un suivi de 6 séances de massage dans le cadre de ma formation.\n\nTarif à discuter. Écrivez-moi en privé si vous êtes intéressé(e) ou pour plus d'infos. Merci ! \n"
+          "id": "1f92e0aa-7626-45be-ab37-4003718a10ea",
+          "style": "note",
+          "text": "Une nouvelle approche que j’ai hâte de découvrir et d’intégrer progressivement à ma pratique."
         }
       ]
     }
   ],
   "logos": [
     {
-      "id": "2d05c699-6e37-46bb-b076-85fa3b8408f0",
+      "id": "8dee017e-c6c5-494e-925f-1c9a7c9aefc7",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "bottom-right"
+        "top-left"
       ],
       "free": null,
       "size": 0.25,
@@ -168,7 +169,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-2",
+    "stroke": "trait-1.5",
     "scale": 1
   }
 }
