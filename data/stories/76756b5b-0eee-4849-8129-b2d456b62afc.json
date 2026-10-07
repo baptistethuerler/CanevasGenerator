@@ -1,7 +1,7 @@
 {
   "id": "76756b5b-0eee-4849-8129-b2d456b62afc",
   "createdAt": "2026-09-09T15:25:42.830Z",
-  "updatedAt": "2026-09-26T19:16:07.142Z",
+  "updatedAt": "2026-10-06T18:40:00.679Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -160,82 +160,25 @@
           }
         },
         {
-          "id": "5dc03d2e-7ae5-4644-a8e4-19f3acda9865",
-          "style": "text",
-          "text": "Mercredi 07.10",
-          "icon": null
-        },
-        {
-          "id": "d931d14d-93ad-4a44-9fbd-77b55758b098",
-          "style": "bullet",
-          "text": "10:45 : 1 place disponible"
-        },
-        {
-          "id": "4709d32f-94c2-4290-bea3-a4e43fe9c923",
-          "style": "bullet",
-          "text": "14:45 - 17:30 :  créneaux disponibles "
-        },
-        {
           "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
           "style": "text",
-          "text": "Mercredi 14.10 ",
+          "text": "Mercredi 14.10 : matin ",
           "icon": null
-        },
-        {
-          "id": "ab4fb271-c53d-42bd-920a-604806273ff2",
-          "style": "bullet",
-          "text": "08:00 – 10:30 ·: créneaux disponibles "
         },
         {
           "id": "66d419e7-3c24-40ee-814d-2d0b6c1378ef",
           "style": "text",
-          "text": "Jeudi 15.10 "
+          "text": "Jeudi 15.10 : matin & début d'après midi "
         },
         {
-          "id": "1bb9a88f-6b29-4db8-a8ab-0bcbb85c3d70",
-          "style": "bullet",
-          "text": "08:00 – 13:00 ·: créneaux disponibles "
-        }
-      ]
-    },
-    {
-      "id": "bd161373-4aa4-46ac-a757-c1a59cc5c6f4",
-      "lines": [
-        {
-          "id": "d76bd8c1-2abf-49c1-adf1-1813094907a1",
-          "style": "title",
-          "text": "Les dispos du mois d'octobre",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "b5f3fa7f-d663-443a-af16-a537a85d60cf",
+          "id": "63935ec4-6c67-4487-bdb8-62e7420fa92c",
           "style": "text",
-          "text": "Lundi 26.10",
-          "icon": null
+          "text": "Lundi 26.10 : après-midi "
         },
         {
-          "id": "daaafe5a-9494-4372-85a4-082f2db0c412",
-          "style": "bullet",
-          "text": "13:00 – 18:00 ·: créneaux disponibles "
-        },
-        {
-          "id": "a9ac3394-5f31-4865-9399-3a8a5564be8c",
+          "id": "da6c4e32-529e-437d-8d09-4824e1292694",
           "style": "text",
-          "text": "Jeudi 29",
-          "icon": null
-        },
-        {
-          "id": "e3d034d0-64d2-4a91-af17-fac10d70761e",
-          "style": "bullet",
-          "text": "08:30 – 11:00 ·: créneaux disponibles "
-        },
-        {
-          "id": "d92d895f-d01a-4c43-96b0-4b59b526585b",
-          "style": "bullet",
-          "text": "13:30 – 16:15 ·: créneaux disponibles \n"
+          "text": "Jeudi 30 : matin & après midi "
         }
       ]
     }

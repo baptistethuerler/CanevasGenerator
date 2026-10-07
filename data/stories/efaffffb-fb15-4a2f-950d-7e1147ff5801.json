@@ -1,12 +1,12 @@
 {
-  "id": "69ef975b-f449-4a3b-adfb-afad2172377a",
-  "createdAt": "2026-09-28T19:53:36.009Z",
-  "updatedAt": "2026-09-28T19:59:01.692Z",
+  "id": "efaffffb-fb15-4a2f-950d-7e1147ff5801",
+  "createdAt": "2026-10-06T20:07:45.186Z",
+  "updatedAt": "2026-10-06T20:40:10.578Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Nouvelle story",
-  "date": "2026-09-28",
+  "title": "Huile essentielles",
+  "date": "2026-10-06",
   "styles": {
     "title": {
       "label": "Titre",
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#fdfbf7",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -112,10 +112,10 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "bottom",
+  "blockPosition": "top",
   "background": {
     "kind": "image",
-    "color": "#81a9a3",
+    "color": "#fdfbf7",
     "overlay": {
       "type": "none",
       "color": "#000000",
@@ -125,39 +125,42 @@
     },
     "crop": {
       "zoom": 1,
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.25,
+      "y": 0.45
     },
     "filters": {
-      "brightness": 0.55,
-      "blur": 0
+      "brightness": 0.85,
+      "blur": 9
     },
     "imageRef": "3e44a1d8-1099-4342-adae-f99306c440ac.jpg"
   },
   "slides": [
     {
-      "id": "d298bcf9-979f-467d-a761-2ad332e73d4c",
+      "id": "26dccbb3-f627-46d7-bf83-991baaf3c29c",
       "lines": [
         {
-          "id": "73387888-5a0e-4c87-99d5-29110bb3daa2",
-          "style": "subtitle",
-          "text": "En février 2027, je débuterai une nouvelle formation en drainage lymphatique.",
-          "icon": null
+          "id": "049e0add-4c0c-4485-a127-e51f5e71b64c",
+          "style": "title",
+          "text": "Petite question pour vous",
+          "icon": {
+            "name": "feuille",
+            "color": "blanc"
+          }
         },
         {
-          "id": "1f92e0aa-7626-45be-ab37-4003718a10ea",
-          "style": "note",
-          "text": "Une nouvelle approche que j’ai hâte de découvrir et d’intégrer progressivement à ma pratique."
+          "id": "9d09a6ee-1fe3-4231-b8b6-515ed6076622",
+          "style": "subtitle",
+          "text": "Je m’intéresse de plus en plus aux huiles essentielles et j’aimerais savoir si c’est un sujet qui vous intéresse aussi 🤍\n\nVous utilisez déjà les huiles essentielles dans votre quotidien ?"
         }
       ]
     }
   ],
   "logos": [
     {
-      "id": "8dee017e-c6c5-494e-925f-1c9a7c9aefc7",
+      "id": "1ee77153-4f74-49e9-a124-171aa77f2442",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "top-left"
+        "bottom-right"
       ],
       "free": null,
       "size": 0.25,
@@ -169,7 +172,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-1.5",
+    "stroke": "trait-2",
     "scale": 1
   }
 }

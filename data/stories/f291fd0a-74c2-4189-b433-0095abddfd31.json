@@ -1,7 +1,7 @@
 {
   "id": "f291fd0a-74c2-4189-b433-0095abddfd31",
   "createdAt": "2026-09-23T19:12:32.775Z",
-  "updatedAt": "2026-09-23T19:47:06.365Z",
+  "updatedAt": "2026-10-06T18:58:24.453Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -162,92 +162,38 @@
         {
           "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
           "style": "text",
-          "text": "Mercredi 04.11",
-          "icon": null
-        },
-        {
-          "id": "8c2617ac-03a4-4735-abab-19374319ea29",
-          "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 14:00 / 15:15 / 16:30 / 17:45 ",
+          "text": "Mercredi 04.11 : matin & après-midi",
           "icon": null
         },
         {
           "id": "eb105cd3-abb7-4ed7-aad5-d733362e6809",
           "style": "text",
-          "text": "Lundi 09.11 "
-        },
-        {
-          "id": "d50d1bf2-540c-4b77-a344-e8317e5e09d6",
-          "style": "bullet",
-          "text": "08:30 / 09:45 / 11:00 / 13:30 / 14:45 / 16:00 / 17:15 "
+          "text": "Lundi 09.11 : matin & après-midi "
         },
         {
           "id": "95dfa669-e8fc-48cf-bba0-82b28a8583ea",
           "style": "text",
-          "text": "Mercredi 11.11 "
-        },
-        {
-          "id": "51bf406a-7c30-4378-94f9-567c58b2faa1",
-          "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 14:00 / 15:15 / 16:30 / 17:45 "
+          "text": "Mercredi 11.11 : matin & après-midi "
         },
         {
           "id": "bf8c398f-9cb8-45a3-93b8-4b9aee91f66f",
           "style": "text",
-          "text": "Mercredi 18.11"
+          "text": "Mercredi 18.11 : matin & début d'après-midi "
         },
         {
-          "id": "7925200d-945b-4a8f-a848-cee936088068",
-          "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 11:45 / 13:00 "
-        }
-      ]
-    },
-    {
-      "id": "bd161373-4aa4-46ac-a757-c1a59cc5c6f4",
-      "lines": [
-        {
-          "id": "d76bd8c1-2abf-49c1-adf1-1813094907a1",
-          "style": "title",
-          "text": "Les dispos du mois d'octobre",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "c81465c5-7f5e-480f-8a46-a22fe2411f35",
+          "id": "b449956b-8cb8-48db-b83a-ef56e170a152",
           "style": "text",
-          "text": "Lundi 23.11",
-          "icon": null
+          "text": "Lundi 23.11 : après-midi "
         },
         {
-          "id": "b5f3fa7f-d663-443a-af16-a537a85d60cf",
-          "style": "bullet",
-          "text": "13:30 / 14:45 / 16:00 / 17:15 ",
-          "icon": null
-        },
-        {
-          "id": "4c4c9acf-ef9b-43a5-bef9-d4fd32c4819a",
+          "id": "6ae5f9e5-0bf9-4bd1-88d1-42c572d63999",
           "style": "text",
-          "text": "Mercredi 25.11",
-          "icon": null
+          "text": "Mercredi 25.11 : matin & début d'après-midi"
         },
         {
-          "id": "a9ac3394-5f31-4865-9399-3a8a5564be8c",
-          "style": "bullet",
-          "text": "08:00 / 09:15 / 10:30 / 11:45 / 13:00 ",
-          "icon": null
-        },
-        {
-          "id": "b1e3955f-b5f8-4158-94d4-04bf904b2fa9",
+          "id": "43d185b1-9a60-4248-93cf-ed575cd72e7f",
           "style": "text",
-          "text": "Lundi 30.11 "
-        },
-        {
-          "id": "796b8804-ca04-4ccf-abce-484f1bff14de",
-          "style": "bullet",
-          "text": "08:30 / 09:45 / 11:00 / 13:30 / 14:45 / "
+          "text": "Lundi 30.11 : matin & après-midi "
         }
       ]
     }

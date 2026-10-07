@@ -1,17 +1,17 @@
 {
-  "id": "b8c9dd43-1a23-4533-ab25-1ea70a64cee5",
-  "createdAt": "2026-09-28T19:37:41.782Z",
-  "updatedAt": "2026-09-28T19:53:32.361Z",
+  "id": "0499bc02-6ed9-4a3d-a623-21c1b27e3496",
+  "createdAt": "2026-10-06T16:22:44.559Z",
+  "updatedAt": "2026-10-06T16:29:05.750Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Nouvelle story",
-  "date": "2026-09-28",
+  "title": "Mise à jour",
+  "date": "2026-07-12",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
-      "size": 96,
+      "size": 91,
       "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.12,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "rgba(255,255,255,.95)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#eef4f1",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "rgba(255,255,255,.82)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -124,47 +124,50 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1,
-      "x": 0.37,
-      "y": 0.41
+      "zoom": 1.95,
+      "x": 0.5,
+      "y": 0.5
     },
     "filters": {
-      "brightness": 0.7,
+      "brightness": 0.9,
       "blur": 0
     },
-    "imageRef": "c5c6bac9-cac1-4b69-b2b3-fbafd3003907.jpg"
+    "imageRef": "Fond_1080x1920_Gastlosen.png"
   },
-  "slides": [
-    {
-      "id": "973f2c46-7d17-41f8-bd27-ec3fa849cd38",
-      "lines": [
-        {
-          "id": "84fa1f95-74d0-49a1-8ce7-4c9849e55a8e",
-          "style": "subtitle",
-          "text": " Une nouvelle étape se prépare…",
-          "icon": {
-            "name": "fleur-1",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "438948c8-77ef-45cf-8dc3-27ddee4cccfe",
-          "style": "text",
-          "text": "Ma formation en massage classique arrive bientôt à son terme, mais l’aventure\n continue"
-        }
-      ]
-    }
-  ],
   "logos": [
     {
-      "id": "e215c26d-8a2c-42f1-a4e8-793f7908c21b",
+      "id": "7858b9c2-a747-42ac-aa65-dbd61f8855e1",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "bottom-left"
+        "bottom-right"
       ],
       "free": null,
       "size": 0.25,
       "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
+      "lines": [
+        {
+          "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
+          "style": "title",
+          "text": "✨Les prochaines disponibilités sont là\n",
+          "icon": null
+        },
+        {
+          "id": "ec505a6f-8cd2-44ed-8662-311ba1d847d8",
+          "style": "text",
+          "text": "Les horaires d’octobre ont été actualisés et le planning de novembre est maintenant ouvert",
+          "icon": null
+        },
+        {
+          "id": "9a1deab9-4842-42a0-9974-f7f2911016e2",
+          "style": "subtitle",
+          "text": "Et bientôt, une petite nouveauté pour vous faciliter la vie : la prise de rendez-vous en ligne\n\nJe vous en reparle très vite 🌿"
+        }
+      ]
     }
   ],
   "timing": {
@@ -172,7 +175,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-1.5",
+    "stroke": "trait-2",
     "scale": 1
   }
 }
