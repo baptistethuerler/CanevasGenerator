@@ -1,18 +1,18 @@
 {
-  "id": "efaffffb-fb15-4a2f-950d-7e1147ff5801",
-  "createdAt": "2026-10-06T20:07:45.186Z",
-  "updatedAt": "2026-10-06T20:40:10.578Z",
+  "id": "87106a0a-7218-410a-a5d8-9df7c1404efa",
+  "createdAt": "2026-10-07T18:00:53.155Z",
+  "updatedAt": "2026-10-07T18:17:42.243Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Huile essentielles",
-  "date": "2026-10-06",
+  "title": "Bon Noël",
+  "date": "2026-10-07",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#ffffff",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "rgba(255,255,255,.95)",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "rgba(255,255,255,.82)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -112,10 +112,10 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "top",
+  "blockPosition": "golden-top",
   "background": {
     "kind": "image",
-    "color": "#fdfbf7",
+    "color": "#81a9a3",
     "overlay": {
       "type": "none",
       "color": "#000000",
@@ -125,39 +125,55 @@
     },
     "crop": {
       "zoom": 1,
-      "x": 0.25,
+      "x": 0.52,
       "y": 0.45
     },
     "filters": {
-      "brightness": 0.85,
-      "blur": 9
+      "brightness": 0.95,
+      "blur": 2
     },
-    "imageRef": "3e44a1d8-1099-4342-adae-f99306c440ac.jpg"
+    "imageRef": "Fond_1080x1920_Vals.png"
   },
   "slides": [
     {
-      "id": "26dccbb3-f627-46d7-bf83-991baaf3c29c",
+      "id": "739e31cf-f207-494f-a38a-1e33f6121dfd",
       "lines": [
         {
-          "id": "049e0add-4c0c-4485-a127-e51f5e71b64c",
+          "id": "df9120ee-38a9-4885-9344-37958e529861",
           "style": "title",
-          "text": "Petite question pour vous",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
+          "text": "🎄 Les fêtes approchent…"
         },
         {
-          "id": "9d09a6ee-1fe3-4231-b8b6-515ed6076622",
+          "id": "a91cce07-ecf9-4324-b87d-6f6b1093a193",
           "style": "subtitle",
-          "text": "Je m’intéresse de plus en plus aux huiles essentielles et j’aimerais savoir si c’est un sujet qui vous intéresse aussi 🤍\n\nVous utilisez déjà les huiles essentielles dans votre quotidien ?"
+          "text": "Et si vous offriez un joli moment de détente à quelqu’un que vous aimez ? "
+        },
+        {
+          "id": "09c8c7c1-6f37-4822-9a0a-29fbefb20837",
+          "style": "text",
+          "text": "🎁 Bons cadeaux massage"
+        },
+        {
+          "id": "9fefa71a-af5e-46d1-9ab4-dfb5265b519c",
+          "style": "text",
+          "text": " Valeur 100 CHF → 90 CHF\nValeur 110 CHF → 99 CHF"
+        },
+        {
+          "id": "6bbbea0c-eebf-4ab4-ac29-922a00a7625e",
+          "style": "subtitle",
+          "text": "Une jolie idée pour prendre soin de quelqu’un pendant les fêtes "
+        },
+        {
+          "id": "c30cade7-f18c-465a-801b-bd7562295efa",
+          "style": "note",
+          "text": "\n\n\n\n\n\n\n\n\n\nOffre valable pour les bons achetés jusqu’au 20 décembre."
         }
       ]
     }
   ],
   "logos": [
     {
-      "id": "1ee77153-4f74-49e9-a124-171aa77f2442",
+      "id": "083dc6e8-57c0-4252-85e8-5cefd5f185b3",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
         "bottom-right"
