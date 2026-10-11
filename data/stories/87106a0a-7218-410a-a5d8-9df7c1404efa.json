@@ -1,7 +1,7 @@
 {
   "id": "87106a0a-7218-410a-a5d8-9df7c1404efa",
   "createdAt": "2026-10-07T18:00:53.155Z",
-  "updatedAt": "2026-10-07T18:17:42.243Z",
+  "updatedAt": "2026-10-11T18:54:37.952Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -53,7 +53,7 @@
         "top": 24,
         "right": 0,
         "bottom": 0,
-        "left": 0
+        "left": 150
       }
     },
     "bullet": {
@@ -141,7 +141,7 @@
         {
           "id": "df9120ee-38a9-4885-9344-37958e529861",
           "style": "title",
-          "text": "🎄 Les fêtes approchent…"
+          "text": "🎄 Les fêtes approchent"
         },
         {
           "id": "a91cce07-ecf9-4324-b87d-6f6b1093a193",
