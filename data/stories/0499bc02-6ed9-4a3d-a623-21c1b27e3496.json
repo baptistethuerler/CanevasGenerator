@@ -1,11 +1,11 @@
 {
   "id": "0499bc02-6ed9-4a3d-a623-21c1b27e3496",
   "createdAt": "2026-10-06T16:22:44.559Z",
-  "updatedAt": "2026-10-06T16:29:05.750Z",
+  "updatedAt": "2026-10-10T22:13:15.459Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Mise à jour",
+  "title": "Mise à jour décembre",
   "date": "2026-07-12",
   "styles": {
     "title": {
@@ -101,7 +101,7 @@
         "top": 40,
         "right": 0,
         "bottom": 0,
-        "left": 0
+        "left": 50
       }
     }
   },
@@ -159,13 +159,18 @@
         {
           "id": "ec505a6f-8cd2-44ed-8662-311ba1d847d8",
           "style": "text",
-          "text": "Les horaires d’octobre ont été actualisés et le planning de novembre est maintenant ouvert",
+          "text": "Les horaires d’octobre et de novembre ont été actualisés et le planning de décembre est maintenant ouvert. ",
           "icon": null
         },
         {
-          "id": "9a1deab9-4842-42a0-9974-f7f2911016e2",
-          "style": "subtitle",
-          "text": "Et bientôt, une petite nouveauté pour vous faciliter la vie : la prise de rendez-vous en ligne\n\nJe vous en reparle très vite 🌿"
+          "id": "78acf3b3-7725-4e22-a5d1-7dd4ca5582b0",
+          "style": "text",
+          "text": "........................................................................................"
+        },
+        {
+          "id": "1f21590c-5622-49a8-a13f-81dbda5525b1",
+          "style": "note",
+          "text": "Pensez à jeter un œil aux disponibilités et à réserver votre prochain moment de détente.\n\nJe me réjouis de vous retrouver pour prendre soin de vous et vous offrir une parenthèse de douceur. ✨"
         }
       ]
     }

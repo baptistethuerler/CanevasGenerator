@@ -1,0 +1,174 @@
+{
+  "id": "fb1be12c-777f-4c9a-88cb-234b8a9a2295",
+  "createdAt": "2026-10-10T22:05:17.409Z",
+  "updatedAt": "2026-10-10T22:08:51.900Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Huiles",
+  "date": "2026-10-10",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 50
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 50
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-top",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.98,
+      "y": 0.5
+    },
+    "filters": {
+      "brightness": 1,
+      "blur": 0
+    },
+    "imageRef": "3e44a1d8-1099-4342-adae-f99306c440ac.jpg"
+  },
+  "slides": [
+    {
+      "id": "c255f954-89d9-41d5-bda7-20a448d416fa",
+      "lines": [
+        {
+          "id": "90c39182-f04c-4a2a-b1c2-381ca9f79901",
+          "style": "title",
+          "text": "De belles rencontres et de nouvelles découvertes"
+        },
+        {
+          "id": "05b3f9c8-f30c-4ddd-ba79-38741a3a945e",
+          "style": "text",
+          "text": "Aujourd’hui, j’ai eu le plaisir de rencontrer une personne avec qui j’ai pu échanger autour des huiles essentielles et de cet univers qui m’intéresse de plus en plus. 🤍\n\nUne belle discussion, de nouvelles choses à découvrir et peut-être le début d’une jolie aventure.\n\nJe me réjouis de voir où tout cela me mènera. ✨\n"
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "2587c0c6-c574-4c69-9884-2ac6460c8af3",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.23,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}

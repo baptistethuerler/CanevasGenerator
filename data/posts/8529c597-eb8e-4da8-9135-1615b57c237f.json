@@ -1,0 +1,170 @@
+{
+  "id": "8529c597-eb8e-4da8-9135-1615b57c237f",
+  "createdAt": "2026-10-10T20:44:04.128Z",
+  "updatedAt": "2026-10-10T20:50:20.484Z",
+  "status": "draft",
+  "type": "post",
+  "format": "1:1",
+  "title": "stress",
+  "date": "2026-10-10",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 75,
+    "right": 75,
+    "bottom": 75,
+    "left": 75
+  },
+  "blockPosition": "center",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.25,
+      "y": 0.49
+    },
+    "filters": {
+      "brightness": 0.85,
+      "blur": 1
+    },
+    "imageRef": "1e1d5f9e-c0f3-4064-a3e3-def0469a6062.jpg"
+  },
+  "slides": [
+    {
+      "id": "c8c45513-899f-48dd-9a69-8c51380be904",
+      "lines": [
+        {
+          "id": "670da54f-b888-4375-94bf-f513edb5a0da",
+          "style": "title",
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "ac42a896-2019-40b4-8e8f-0ff947d68191",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.24,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  },
+  "postMode": "single"
+}

@@ -1,7 +1,7 @@
 {
   "id": "f291fd0a-74c2-4189-b433-0095abddfd31",
   "createdAt": "2026-09-23T19:12:32.775Z",
-  "updatedAt": "2026-10-06T18:58:24.453Z",
+  "updatedAt": "2026-10-10T21:43:52.197Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -173,7 +173,7 @@
         {
           "id": "95dfa669-e8fc-48cf-bba0-82b28a8583ea",
           "style": "text",
-          "text": "Mercredi 11.11 : matin & après-midi "
+          "text": "Mercredi 11.11 : matin & 14:00 / 15:30 "
         },
         {
           "id": "bf8c398f-9cb8-45a3-93b8-4b9aee91f66f",
@@ -188,7 +188,7 @@
         {
           "id": "6ae5f9e5-0bf9-4bd1-88d1-42c572d63999",
           "style": "text",
-          "text": "Mercredi 25.11 : matin & début d'après-midi"
+          "text": "Mercredi 25.11 : 08:00 / 10:45 / 12:15 "
         },
         {
           "id": "43d185b1-9a60-4248-93cf-ed575cd72e7f",

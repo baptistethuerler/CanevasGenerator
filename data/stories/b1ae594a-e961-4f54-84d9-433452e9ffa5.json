@@ -1,0 +1,187 @@
+{
+  "id": "b1ae594a-e961-4f54-84d9-433452e9ffa5",
+  "createdAt": "2026-10-10T21:28:11.709Z",
+  "updatedAt": "2026-10-10T21:37:04.185Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Temoignages",
+  "date": "2026-10-10",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 100
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 280
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-top",
+  "background": {
+    "kind": "color",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    }
+  },
+  "slides": [
+    {
+      "id": "47d5fdf9-315e-43e3-a275-fa3696a1636b",
+      "lines": [
+        {
+          "id": "563c6734-0756-4c92-be5f-4592106355cc",
+          "style": "title",
+          "text": "Vos témoignages\n"
+        },
+        {
+          "id": "2931c6a4-4080-4a31-8f36-d512927aa19b",
+          "style": "note",
+          "text": "« Une belle rencontre et surtout un doux moment. Manuela a su à merveille s'adapter au lieu, être à l'écoute et me proposer un massage personnalisé. Un chouette moment de détente. Merci! »"
+        },
+        {
+          "id": "ca8add3c-f499-468a-a1ab-bb9cb60a9ea2",
+          "style": "text",
+          "text": "  ★★★★★"
+        },
+        {
+          "id": "c0ba53bf-b21f-4b8a-bf4e-e8519c9b74d0",
+          "style": "note",
+          "text": "-----------------------------------------------------------------"
+        },
+        {
+          "id": "524c88d3-c95f-411f-9c68-94c67bde56b4",
+          "style": "note",
+          "text": "Super expérience, personnel à l’écoute et attentive ! Un vrai moment de détente et de bien-être! Je recommande fortement.\nUn grand merci encore !"
+        },
+        {
+          "id": "89662949-d3be-4b42-87b2-36692f6fd6ab",
+          "style": "text",
+          "text": "  ★★★★★"
+        },
+        {
+          "id": "8b726462-e8fb-477d-bc07-f68add20c81e",
+          "style": "note",
+          "text": "-----------------------------------------------------------------"
+        },
+        {
+          "id": "dfe703b4-6eab-4962-be7c-d0306fc3a243",
+          "style": "subtitle",
+          "text": "Merci pour votre confiance  - Altitude Massage \n",
+          "icon": {
+            "name": "coeur",
+            "color": "blanc"
+          }
+        }
+      ]
+    }
+  ],
+  "logos": [],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-1.5",
+    "scale": 1
+  }
+}
