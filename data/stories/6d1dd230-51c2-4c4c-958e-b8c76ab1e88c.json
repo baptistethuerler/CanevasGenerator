@@ -1,18 +1,18 @@
 {
-  "id": "e821f2a5-edc8-4f4f-9158-2e210a2f2088",
-  "createdAt": "2026-10-11T19:27:24.660Z",
-  "updatedAt": "2026-10-11T19:31:05.022Z",
+  "id": "6d1dd230-51c2-4c4c-958e-b8c76ab1e88c",
+  "createdAt": "2026-10-12T15:51:11.761Z",
+  "updatedAt": "2026-10-12T15:54:21.356Z",
   "status": "draft",
-  "type": "post",
-  "format": "1:1",
-  "title": "muscle",
-  "date": "2026-10-11",
+  "type": "story",
+  "format": "9:16",
+  "title": "Huiles début de la découverte",
+  "date": "2026-10-10",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -21,7 +21,7 @@
         "top": 0,
         "right": 0,
         "bottom": 0,
-        "left": 250
+        "left": 50
       }
     },
     "subtitle": {
@@ -53,7 +53,7 @@
         "top": 24,
         "right": 0,
         "bottom": 0,
-        "left": 0
+        "left": 50
       }
     },
     "bullet": {
@@ -107,15 +107,15 @@
   },
   "contentMargin": {
     "linked": false,
-    "top": 75,
-    "right": 75,
-    "bottom": 75,
-    "left": 75
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
   },
-  "blockPosition": "top",
+  "blockPosition": "golden-bottom",
   "background": {
     "kind": "image",
-    "color": "#6f948d",
+    "color": "#81a9a3",
     "overlay": {
       "type": "none",
       "color": "#000000",
@@ -125,37 +125,42 @@
     },
     "crop": {
       "zoom": 1,
-      "x": 0.5,
-      "y": 0
+      "x": 0.47,
+      "y": 0.49
     },
     "filters": {
-      "brightness": 0.9,
-      "blur": 0
+      "brightness": 0.6,
+      "blur": 9
     },
-    "imageRef": "baff224a-6e8c-4ca9-b5e3-95bd59a462ab.png"
+    "imageRef": "4475b156-f2e7-4e57-b0e4-01a02d8debef.png"
   },
-  "slides": [
-    {
-      "id": "706c6149-cfed-447d-9898-dca8c8e32cbb",
-      "lines": [
-        {
-          "id": "2b2da298-29bf-46d2-83eb-60733b07a1fb",
-          "style": "title",
-          "text": ""
-        }
-      ]
-    }
-  ],
   "logos": [
     {
-      "id": "a0cc9590-0149-40b2-a253-26e7ff950965",
-      "logoRef": "b97d866d-e691-49fd-b9ed-5624af43da63.png",
+      "id": "2587c0c6-c574-4c69-9884-2ac6460c8af3",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
         "bottom-right"
       ],
       "free": null,
-      "size": 0.19,
+      "size": 0.23,
       "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "c255f954-89d9-41d5-bda7-20a448d416fa",
+      "lines": [
+        {
+          "id": "90c39182-f04c-4a2a-b1c2-381ca9f79901",
+          "style": "title",
+          "text": "Le début de la découverte"
+        },
+        {
+          "id": "05b3f9c8-f30c-4ddd-ba79-38741a3a945e",
+          "style": "text",
+          "text": "C'est parti pour une semaine de découverte autour des huiles essentielles 🌿 J'ai hâte d'en apprendre davantage et de vous partager ce que je découvre au fil des jours. "
+        }
+      ]
     }
   ],
   "timing": {
@@ -163,8 +168,7 @@
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-1.5",
+    "stroke": "trait-2",
     "scale": 1
-  },
-  "postMode": "single"
+  }
 }

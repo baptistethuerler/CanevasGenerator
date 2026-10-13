@@ -1,11 +1,11 @@
 {
   "id": "fb1be12c-777f-4c9a-88cb-234b8a9a2295",
   "createdAt": "2026-10-10T22:05:17.409Z",
-  "updatedAt": "2026-10-10T22:08:51.900Z",
+  "updatedAt": "2026-10-12T15:51:32.994Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Huiles",
+  "title": "Huile - photo neutre.",
   "date": "2026-10-10",
   "styles": {
     "title": {
@@ -141,12 +141,7 @@
         {
           "id": "90c39182-f04c-4a2a-b1c2-381ca9f79901",
           "style": "title",
-          "text": "De belles rencontres et de nouvelles découvertes"
-        },
-        {
-          "id": "05b3f9c8-f30c-4ddd-ba79-38741a3a945e",
-          "style": "text",
-          "text": "Aujourd’hui, j’ai eu le plaisir de rencontrer une personne avec qui j’ai pu échanger autour des huiles essentielles et de cet univers qui m’intéresse de plus en plus. 🤍\n\nUne belle discussion, de nouvelles choses à découvrir et peut-être le début d’une jolie aventure.\n\nJe me réjouis de voir où tout cela me mènera. ✨\n"
+          "text": "Le début de la découverte"
         }
       ]
     }
