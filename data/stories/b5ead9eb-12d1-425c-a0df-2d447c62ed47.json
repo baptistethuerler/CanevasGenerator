@@ -1,0 +1,194 @@
+{
+  "id": "b5ead9eb-12d1-425c-a0df-2d447c62ed47",
+  "createdAt": "2026-10-13T14:23:02.642Z",
+  "updatedAt": "2026-10-13T14:24:31.254Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Ou me trouver",
+  "date": "2026-07-12",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 93,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 130
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "top",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1.5,
+      "x": 0.48,
+      "y": 0.45
+    },
+    "filters": {
+      "brightness": 1,
+      "blur": 0
+    },
+    "imageRef": "Fond_1080x1920_Gastlosen.png"
+  },
+  "logos": [
+    {
+      "id": "a9283a25-9e38-4748-a808-c8f0602864e9",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.23,
+      "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "242f05e6-2d3e-4b6f-ac3f-5b0f07825c2f",
+      "lines": [
+        {
+          "id": "f016f7bb-ebd4-49ef-8cac-e6063409ebb0",
+          "style": "title",
+          "text": "Où me trouver ?",
+          "icon": {
+            "name": "localisation",
+            "color": "blanc"
+          }
+        },
+        {
+          "id": "70ac71f4-2634-434e-90d7-96312c769a49",
+          "style": "subtitle",
+          "text": "Je vous reçois dans mon cabinet, dans un espace dédié à votre bien-être"
+        },
+        {
+          "id": "f4d1a958-abd0-48f6-bed3-952d30873b94",
+          "style": "text",
+          "text": "......................................................................................."
+        },
+        {
+          "id": "c1d08f50-4e6f-4fb2-b98f-10fc1d68203c",
+          "style": "text",
+          "text": "Imp.  des Terreaux 14, 1632 Riaz \n1er étage\n077 528 66 67\nParking facilement accessible à proximité.\n",
+          "icon": null
+        },
+        {
+          "id": "e6098ce4-39cf-4f62-8b1b-2b4cc6cf8f0b",
+          "style": "note",
+          "text": "Au plaisir de vous accueillir pour un moment rien qu’à vous. ✨"
+        }
+      ]
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}
