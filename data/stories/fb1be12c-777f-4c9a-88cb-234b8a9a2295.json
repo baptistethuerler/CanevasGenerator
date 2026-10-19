@@ -1,7 +1,7 @@
 {
   "id": "fb1be12c-777f-4c9a-88cb-234b8a9a2295",
   "createdAt": "2026-10-10T22:05:17.409Z",
-  "updatedAt": "2026-10-12T15:51:32.994Z",
+  "updatedAt": "2026-10-18T14:04:19.439Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -21,7 +21,7 @@
         "top": 0,
         "right": 0,
         "bottom": 0,
-        "left": 50
+        "left": 0
       }
     },
     "subtitle": {
@@ -53,7 +53,7 @@
         "top": 24,
         "right": 0,
         "bottom": 0,
-        "left": 50
+        "left": 0
       }
     },
     "bullet": {
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "golden-top",
+  "blockPosition": "golden-bottom",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -140,8 +140,13 @@
       "lines": [
         {
           "id": "90c39182-f04c-4a2a-b1c2-381ca9f79901",
-          "style": "title",
-          "text": "Le début de la découverte"
+          "style": "subtitle",
+          "text": "🌿 Savais-tu que les plantes produisent naturellement des molécules aromatiques ?"
+        },
+        {
+          "id": "5e1dbb74-8513-4982-be0b-bc52ef46cbd8",
+          "style": "text",
+          "text": "Ces substances jouent différents rôles dans leur environnement et peuvent être extraites pour obtenir des huiles essentielles.\n\nAujourd'hui je te fais découvrir deux huiles de mon univers : Stronger et le sapin de Sibérie. "
         }
       ]
     }

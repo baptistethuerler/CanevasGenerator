@@ -1,18 +1,18 @@
 {
-  "id": "6d1dd230-51c2-4c4c-958e-b8c76ab1e88c",
-  "createdAt": "2026-10-12T15:51:11.761Z",
-  "updatedAt": "2026-10-12T15:54:21.356Z",
+  "id": "8233d4a9-9ce7-43ca-8197-7b6f1763f3ca",
+  "createdAt": "2026-10-18T14:07:08.550Z",
+  "updatedAt": "2026-10-18T14:09:04.494Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Huiles début de la découverte",
-  "date": "2026-10-10",
+  "title": "Nouvelle story",
+  "date": "2026-10-18",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#fdfbf7",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -21,7 +21,7 @@
         "top": 0,
         "right": 0,
         "bottom": 0,
-        "left": 50
+        "left": 0
       }
     },
     "subtitle": {
@@ -53,7 +53,7 @@
         "top": 24,
         "right": 0,
         "bottom": 0,
-        "left": 50
+        "left": 0
       }
     },
     "bullet": {
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "golden-bottom",
+  "blockPosition": "center",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -125,44 +125,33 @@
     },
     "crop": {
       "zoom": 1,
-      "x": 0.47,
-      "y": 0.49
+      "x": 0.5,
+      "y": 0.5
     },
     "filters": {
-      "brightness": 0.6,
-      "blur": 9
+      "brightness": 1,
+      "blur": 0
     },
-    "imageRef": "4475b156-f2e7-4e57-b0e4-01a02d8debef.png"
+    "imageRef": "3e44a1d8-1099-4342-adae-f99306c440ac.jpg"
   },
-  "logos": [
-    {
-      "id": "2587c0c6-c574-4c69-9884-2ac6460c8af3",
-      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
-      "anchors": [
-        "bottom-right"
-      ],
-      "free": null,
-      "size": 0.23,
-      "opacity": 0.9
-    }
-  ],
   "slides": [
     {
-      "id": "c255f954-89d9-41d5-bda7-20a448d416fa",
+      "id": "699539e8-b5bd-49f2-ada0-636e48ea9906",
       "lines": [
         {
-          "id": "90c39182-f04c-4a2a-b1c2-381ca9f79901",
+          "id": "f44a7f2f-31b9-4227-9309-98895545515c",
           "style": "title",
-          "text": "Le début de la découverte"
+          "text": "Nouveau slide"
         },
         {
-          "id": "05b3f9c8-f30c-4ddd-ba79-38741a3a945e",
+          "id": "b207ee7c-54da-4b63-8b74-5a00be84eca0",
           "style": "text",
-          "text": "C'est parti pour une semaine de découverte autour des huiles essentielles 🌿 J'ai hâte d'en apprendre davantage et de vous partager ce que je découvre au fil des jours. "
+          "text": ""
         }
       ]
     }
   ],
+  "logos": [],
   "timing": {
     "duration": 4.5,
     "transition": 0.7

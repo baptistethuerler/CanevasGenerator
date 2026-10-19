@@ -1,7 +1,7 @@
 {
   "id": "4bf746d6-3c3d-4c01-93a1-e5b8db50d828",
   "createdAt": "2026-07-13T20:14:26.533Z",
-  "updatedAt": "2026-09-13T10:53:34.322Z",
+  "updatedAt": "2026-10-16T17:53:01.836Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
@@ -162,22 +162,13 @@
         {
           "id": "196285c4-7d44-4bba-8a05-00ac1589fa40",
           "style": "subtitle",
-          "text": "Nouveau créneau \ndans mon planning d'octobre \n\nJe serai disponible le mercredi 7 octobre pour vos rendez-vous",
+          "text": "Petit rappel : il ne me reste plus que quelques places disponibles pour le mois d’octobre. ",
           "icon": null
         },
         {
-          "id": "878bd642-c9f2-4754-b20a-d30ea5022083",
-          "style": "text",
-          "text": ""
-        },
-        {
-          "id": "5afd9f7b-a94e-47c1-b39b-12555fb14abb",
-          "style": "text",
-          "text": "Pour réserver votre créneau, écrivez-moi",
-          "icon": {
-            "name": "message",
-            "color": "blanc"
-          }
+          "id": "101080d8-e0df-4c55-881a-2ee181545c9c",
+          "style": "note",
+          "text": "La semaine prochaine, je serai en vacances. Alors si vous souhaitez prendre rendez-vous avant mon départ, pensez à réserver votre place rapidement. \n\nAu plaisir de vous retrouver très bientôt ! 🌿"
         }
       ]
     }

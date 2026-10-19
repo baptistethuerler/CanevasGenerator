@@ -1,11 +1,12 @@
 {
-  "id": "5a471f15-9a97-4d61-ab5e-62c2d21608d4",
-  "createdAt": "2026-10-11T18:59:37.025Z",
-  "updatedAt": "2026-10-11T19:07:11.969Z",
+  "id": "1ea9ca87-8faf-4d8e-8570-c6b6612b3f5b",
+  "createdAt": "2026-10-16T17:57:29.545Z",
+  "updatedAt": "2026-10-16T17:58:39.465Z",
   "status": "draft",
   "type": "post",
   "format": "4:5",
-  "title": "Trapèze",
+  "postMode": "single",
+  "title": "Fonction muscle",
   "date": "2026-10-11",
   "styles": {
     "title": {
@@ -125,27 +126,15 @@
     },
     "crop": {
       "zoom": 1,
-      "x": 0.65,
-      "y": 0.55
+      "x": 0,
+      "y": 0.46
     },
     "filters": {
-      "brightness": 0.8,
+      "brightness": 0.65,
       "blur": 0
     },
-    "imageRef": "beb93004-63b9-4aa1-8757-f94a95a5f577.png"
+    "imageRef": "c445d0e0-f8cf-4e0a-b555-328f2509d21b.png"
   },
-  "slides": [
-    {
-      "id": "d1a4790d-9d16-4043-984b-e6aec48fbb5a",
-      "lines": [
-        {
-          "id": "11230c75-c709-4e33-8989-a3d2360b6d40",
-          "style": "title",
-          "text": "Le muscle trapèze "
-        }
-      ]
-    }
-  ],
   "logos": [
     {
       "id": "75711376-3544-4544-8f16-434cf92d4c0e",
@@ -158,13 +147,24 @@
       "opacity": 0.9
     }
   ],
+  "slides": [
+    {
+      "id": "d1a4790d-9d16-4043-984b-e6aec48fbb5a",
+      "lines": [
+        {
+          "id": "11230c75-c709-4e33-8989-a3d2360b6d40",
+          "style": "subtitle",
+          "text": "Comment fonctionne un muscle ?  "
+        }
+      ]
+    }
+  ],
   "timing": {
     "duration": 4.5,
     "transition": 0.7
   },
   "icons": {
-    "stroke": "trait-1.5",
+    "stroke": "trait-2",
     "scale": 1
-  },
-  "postMode": "single"
+  }
 }
