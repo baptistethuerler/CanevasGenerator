@@ -1,11 +1,11 @@
 {
   "id": "fb1be12c-777f-4c9a-88cb-234b8a9a2295",
   "createdAt": "2026-10-10T22:05:17.409Z",
-  "updatedAt": "2026-10-18T14:04:19.439Z",
+  "updatedAt": "2026-10-19T12:45:40.959Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Huile - photo neutre.",
+  "title": "Huile ",
   "date": "2026-10-10",
   "styles": {
     "title": {
@@ -101,7 +101,7 @@
         "top": 40,
         "right": 0,
         "bottom": 0,
-        "left": 0
+        "left": 70
       }
     }
   },
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "golden-bottom",
+  "blockPosition": "golden-top",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -139,14 +139,26 @@
       "id": "c255f954-89d9-41d5-bda7-20a448d416fa",
       "lines": [
         {
+          "id": "8c62fd47-a634-4222-bc50-c3eec33efe82",
+          "style": "title",
+          "text": "\nLe savais-tu ? 🌿"
+        },
+        {
           "id": "90c39182-f04c-4a2a-b1c2-381ca9f79901",
           "style": "subtitle",
-          "text": "🌿 Savais-tu que les plantes produisent naturellement des molécules aromatiques ?"
+          "text": "Les plantes produisent naturellement des molécules aromatiques qui jouent différents rôles dans leur environnement.\nCes précieuses molécules peuvent être extraites pour obtenir des huiles essentielles ✨"
         },
         {
           "id": "5e1dbb74-8513-4982-be0b-bc52ef46cbd8",
           "style": "text",
-          "text": "Ces substances jouent différents rôles dans leur environnement et peuvent être extraites pour obtenir des huiles essentielles.\n\nAujourd'hui je te fais découvrir deux huiles de mon univers : Stronger et le sapin de Sibérie. "
+          "text": "\nAujourd’hui, je te partage deux découvertes de ma semaine aroma\n🌲 Le sapin de Sibérie\n🍋 La synergie Stronger de doTERRA",
+          "icon": null
+        },
+        {
+          "id": "6feffad7-c321-488a-97c3-50406128bb33",
+          "style": "text",
+          "text": "\n\n\n\n\n\nPrêt(e) à découvrir leurs univers olfactifs ? ",
+          "icon": null
         }
       ]
     }

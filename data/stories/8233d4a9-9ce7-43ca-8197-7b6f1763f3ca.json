@@ -1,11 +1,11 @@
 {
   "id": "8233d4a9-9ce7-43ca-8197-7b6f1763f3ca",
   "createdAt": "2026-10-18T14:07:08.550Z",
-  "updatedAt": "2026-10-18T14:09:04.494Z",
+  "updatedAt": "2026-10-19T12:55:48.755Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Nouvelle story",
+  "title": "DECOUVERTE",
   "date": "2026-10-18",
   "styles": {
     "title": {
@@ -125,12 +125,12 @@
     },
     "crop": {
       "zoom": 1,
-      "x": 0.5,
+      "x": 0.92,
       "y": 0.5
     },
     "filters": {
-      "brightness": 1,
-      "blur": 0
+      "brightness": 0.75,
+      "blur": 4
     },
     "imageRef": "3e44a1d8-1099-4342-adae-f99306c440ac.jpg"
   },
@@ -141,17 +141,33 @@
         {
           "id": "f44a7f2f-31b9-4227-9309-98895545515c",
           "style": "title",
-          "text": "Nouveau slide"
+          "text": "🤍 Et voilà pour mes découvertes du jour "
         },
         {
           "id": "b207ee7c-54da-4b63-8b74-5a00be84eca0",
           "style": "text",
-          "text": ""
+          "text": "🌿 Le monde des huiles essentielles est riche en senteurs et en découvertes.\nEntre les notes fraîches et boisées du sapin de Sibérie et la synergie Stronger, j’explore de nouvelles facettes de l’univers aromatique.\n\n✨ J’aime apprendre, découvrir et partager avec vous ce qui nourrit ma passion pour le bien-être.\nPrendre soin de soi commence parfois par une simple pause."
+        },
+        {
+          "id": "99f146be-768b-4719-8928-516913045669",
+          "style": "subtitle",
+          "text": "Et vous, aimez-vous les senteurs naturelles pendant un moment de détente ? 🌲"
         }
       ]
     }
   ],
-  "logos": [],
+  "logos": [
+    {
+      "id": "23b2bc4a-0786-42a6-96f8-f19d1896bf63",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.18,
+      "opacity": 0.9
+    }
+  ],
   "timing": {
     "duration": 4.5,
     "transition": 0.7
