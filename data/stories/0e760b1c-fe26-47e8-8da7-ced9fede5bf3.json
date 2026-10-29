@@ -1,0 +1,234 @@
+{
+  "id": "0e760b1c-fe26-47e8-8da7-ced9fede5bf3",
+  "createdAt": "2026-10-24T21:52:26.213Z",
+  "updatedAt": "2026-10-27T20:11:40.250Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": " Onguard - 03.11",
+  "date": "2026-10-24",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 100
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "bottom",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.57,
+      "y": 0.39
+    },
+    "filters": {
+      "brightness": 0.55,
+      "blur": 2
+    },
+    "imageRef": "3d657980-11ff-4877-a4b0-448731fcb78b.png"
+  },
+  "slides": [
+    {
+      "id": "fb420bd5-8fcc-4a9a-a694-a7326acc1f64",
+      "lines": [
+        {
+          "id": "29acf621-e3e6-4532-8346-df5a72897ce4",
+          "style": "title",
+          "text": "🍂 À l'approche de l'hiver..."
+        },
+        {
+          "id": "0fb81911-ff9a-47c3-902b-4eccb7f46cbe",
+          "style": "subtitle",
+          "text": "Aujourd’hui, je vous fais découvrir OnGuard, un mélange d’huiles essentielles aux notes chaudes, épicées et légèrement zestées."
+        },
+        {
+          "id": "8d810934-fd7f-46f4-adca-a6b6805e87d9",
+          "style": "text",
+          "text": "  🍊 Orange sauvage\n  🌿 Girofle\n  🤎 Cannelle\n  🌱 Eucalyptus\n  🍃 Romarin"
+        },
+        {
+          "id": "fb7a2dd9-f634-404d-9f9d-eb44ff5c5cf3",
+          "style": "text",
+          "text": "Un mélange au parfum de saison, qui invite à découvrir une autre facette des huiles essentielles."
+        },
+        {
+          "id": "4a8c8e23-34e5-4a97-8793-6b73cd0c56a3",
+          "style": "note",
+          "text": "Vous connaissiez déjà ce mélange ? "
+        }
+      ]
+    },
+    {
+      "id": "ea2042bf-df88-42ff-98e5-41b2aa449283",
+      "lines": [
+        {
+          "id": "3ba62ad6-02b5-4a74-9e96-991ab3709f90",
+          "style": "title",
+          "text": "OnGuard, surnommé « le garde du corps »"
+        },
+        {
+          "id": "203af215-1da7-4dd3-8769-699468bc335f",
+          "style": "subtitle",
+          "text": "Ce mélange est souvent associé à la saison froide dans l’univers de l’aromathérapie."
+        },
+        {
+          "id": "59481beb-189a-4568-8979-0960cc547da8",
+          "style": "text",
+          "text": "Ce qui me plaît dans sa composition ? \nUn mariage d’agrumes et d’épices, avec un parfum chaleureux et reconnaissable. 🍊🌿\n\nJe découvre peu à peu les différentes huiles et leurs particularités… et je trouve passionnant d’en apprendre davantage !"
+        },
+        {
+          "id": "169748a9-32fa-45ef-996c-a4a2c1214cb9",
+          "style": "note",
+          "text": "Les huiles essentielles sont concentrées et nécessitent des précautions d’utilisation."
+        }
+      ]
+    },
+    {
+      "id": "07b74f65-6d5e-482f-81ba-6a0c526fc303",
+      "lines": [
+        {
+          "id": "9212124e-0315-4b35-b8f0-72fe5907940e",
+          "style": "title",
+          "text": "🌿 Comment découvrir OnGuard ?"
+        },
+        {
+          "id": "fe442f66-1f82-4c5c-95b7-d46f972a6918",
+          "style": "text",
+          "text": "Son parfum épicé peut notamment s’inviter dans une ambiance chaleureuse à la maison.\n\nSelon les indications du produit, certains usages aromatiques sont possibles. Il est important de respecter les précautions et les conseils d’utilisation de l’étiquette.\n\nJe suis moi-même en train d’approfondir mes connaissances sur les huiles essentielles, et j’ai hâte de pouvoir explorer davantage cet univers. 🤍"
+        },
+        {
+          "id": "74686107-d414-44f4-b1ae-88993b062fce",
+          "style": "note",
+          "text": "Curieux-se d’en savoir plus ? Écris-moi en message privé !\n"
+        }
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "fa055953-1481-4565-8a12-541d76cc1948",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "top-right"
+      ],
+      "free": null,
+      "size": 0.22,
+      "opacity": 0.9
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}

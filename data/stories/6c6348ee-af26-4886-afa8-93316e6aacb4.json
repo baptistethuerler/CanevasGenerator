@@ -1,18 +1,18 @@
 {
-  "id": "b8f258fd-43c1-4b1e-8226-b2fd8db49d69",
-  "createdAt": "2026-10-10T20:28:03.744Z",
-  "updatedAt": "2026-10-10T20:52:10.581Z",
+  "id": "6c6348ee-af26-4886-afa8-93316e6aacb4",
+  "createdAt": "2026-10-25T20:10:07.773Z",
+  "updatedAt": "2026-10-25T20:13:43.229Z",
   "status": "draft",
-  "type": "post",
-  "format": "1:1",
-  "title": "Effleurage",
-  "date": "2026-10-10",
+  "type": "story",
+  "format": "9:16",
+  "title": "Joyeux noel",
+  "date": "2026-10-25",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
       "size": 96,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#ffffff",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "rgba(255,255,255,.95)",
+      "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -107,12 +107,12 @@
   },
   "contentMargin": {
     "linked": false,
-    "top": 75,
-    "right": 75,
-    "bottom": 75,
-    "left": 75
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
   },
-  "blockPosition": "center",
+  "blockPosition": "golden-bottom",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -124,34 +124,39 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1.85,
-      "x": 0.75,
-      "y": 0.85
+      "zoom": 1,
+      "x": 0.81,
+      "y": 0.5
     },
     "filters": {
-      "brightness": 0.85,
-      "blur": 1
+      "brightness": 0.7,
+      "blur": 6
     },
-    "imageRef": "3e9ce425-67cc-4cf4-ba3f-434a0a3f4c5f.jpg"
+    "imageRef": "02adbac4-8bc6-4c72-8a10-f61018b4682f.png"
   },
   "slides": [
     {
-      "id": "3ec9b28b-c583-49c5-afea-41dded6e5c83",
+      "id": "f3000557-6676-480e-8cc2-643520b1b9c0",
       "lines": [
         {
-          "id": "4f3222bd-932c-4141-ae7a-694f736510ca",
+          "id": "184377ee-1418-4270-ae8e-14e26ed511c5",
           "style": "title",
-          "text": ""
+          "text": "Joyeux Noël ✨"
+        },
+        {
+          "id": "fdf3a209-37a9-4498-a549-4f1a9c59fbe9",
+          "style": "text",
+          "text": "Je vous souhaite de merveilleuses fêtes de fin d’année, remplies de douceur, de bonheur et de précieux moments avec vos proches. 🤍\n\nMerci pour votre confiance tout au long de cette année. 🌿"
         }
       ]
     }
   ],
   "logos": [
     {
-      "id": "ff4e013b-acf0-428b-ab07-389da518caa9",
+      "id": "ff0844fe-76a2-437f-add0-7f3d7e826d87",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "bottom-right"
+        "top-left"
       ],
       "free": null,
       "size": 0.23,
@@ -165,6 +170,5 @@
   "icons": {
     "stroke": "trait-2",
     "scale": 1
-  },
-  "postMode": "single"
+  }
 }

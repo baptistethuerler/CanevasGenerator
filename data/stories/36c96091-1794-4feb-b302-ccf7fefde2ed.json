@@ -1,0 +1,229 @@
+{
+  "id": "36c96091-1794-4feb-b302-ccf7fefde2ed",
+  "createdAt": "2026-10-25T11:53:03.205Z",
+  "updatedAt": "2026-10-25T22:14:28.626Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Air - 10.11",
+  "date": "2026-10-24",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#ffffff",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 80
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-bottom",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.26,
+      "y": 0.36
+    },
+    "filters": {
+      "brightness": 0.5,
+      "blur": 0
+    },
+    "imageRef": "22d2b41b-1838-4ddf-937d-d99cedaf2ad0.png"
+  },
+  "logos": [
+    {
+      "id": "fa055953-1481-4565-8a12-541d76cc1948",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "top-right"
+      ],
+      "free": null,
+      "size": 0.22,
+      "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "fb420bd5-8fcc-4a9a-a694-a7326acc1f64",
+      "lines": [
+        {
+          "id": "769dc4c8-c3cc-4a90-a903-7c49c11db454",
+          "style": "title",
+          "text": "❄️ Aujourd’hui, \nplace à Air "
+        },
+        {
+          "id": "29acf621-e3e6-4532-8346-df5a72897ce4",
+          "style": "subtitle",
+          "text": "Après OnGuard, je continue mes découvertes autour des mélanges doTERRA pour la saison froide. 🌿\n\nSon parfum frais et mentholé évoque une sensation de fraîcheur et d’air pur."
+        },
+        {
+          "id": "830d047b-1692-44ac-ba33-a4cdfdc3ca41",
+          "style": "text",
+          "text": "Un mélange aux notes aromatiques, à découvrir pour son univers olfactif ! 🌬️"
+        }
+      ]
+    },
+    {
+      "id": "ea2042bf-df88-42ff-98e5-41b2aa449283",
+      "lines": [
+        {
+          "id": "3ba62ad6-02b5-4a74-9e96-991ab3709f90",
+          "style": "title",
+          "text": "🌬️ Air, une bouffée de fraîcheur !"
+        },
+        {
+          "id": "a9b483d9-55e5-4d9e-86fa-b7a5c339cbb3",
+          "style": "subtitle",
+          "text": "Son profil aromatique frais et mentholé peut plaire à celles et ceux qui aiment les senteurs végétales."
+        },
+        {
+          "id": "093a17e9-014e-4f6e-8ca2-7842ecb21333",
+          "style": "text",
+          "text": "🌿 À découvrir notamment pour son parfum en diffusion, en respectant les indications du fabricant."
+        },
+        {
+          "id": "c75504c0-41d0-4c7f-b885-dab6617b18a7",
+          "style": "note",
+          "text": "\n\n\nChaque huile essentielle a ses particularités et ses précautions d’emploi : mieux vaut bien les connaître avant de les utiliser. 🤍"
+        }
+      ]
+    },
+    {
+      "id": "07b74f65-6d5e-482f-81ba-6a0c526fc303",
+      "lines": [
+        {
+          "id": "9212124e-0315-4b35-b8f0-72fe5907940e",
+          "style": "title",
+          "text": "Et toi, tu connaissais le mélange Air ?"
+        },
+        {
+          "id": "37302ac8-7078-4a70-9599-cdd086908625",
+          "style": "subtitle",
+          "text": "Je prends plaisir à découvrir les différents mélanges et à en apprendre davantage sur l’aromathérapie. 🌿"
+        },
+        {
+          "id": "52f186ad-9740-4cf8-a686-1113d21d6474",
+          "style": "text",
+          "text": "Est-ce que tu aimerais que je partage d’autres découvertes autour des huiles essentielles en hiver ?\n\n"
+        },
+        {
+          "id": "7aa1ce15-560a-4afa-9cc1-e7334d062d30",
+          "style": "note",
+          "text": "💬 Ça m’intéresse de connaître ton avis !"
+        }
+      ]
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}

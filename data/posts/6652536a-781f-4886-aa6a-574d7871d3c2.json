@@ -1,12 +1,12 @@
 {
   "id": "6652536a-781f-4886-aa6a-574d7871d3c2",
   "createdAt": "2026-10-16T18:01:36.302Z",
-  "updatedAt": "2026-10-16T18:03:30.514Z",
+  "updatedAt": "2026-10-25T22:15:42.563Z",
   "status": "draft",
   "type": "post",
   "format": "4:5",
   "postMode": "single",
-  "title": "Grand dorsal",
+  "title": "Grand dorsal 08.11",
   "date": "2026-10-11",
   "styles": {
     "title": {
@@ -133,7 +133,7 @@
       "brightness": 0.8,
       "blur": 0
     },
-    "imageRef": "5c9ecb89-7bfe-4194-8a15-0a575feced15.png"
+    "imageRef": "838c0a5b-bdc9-4cd6-81e8-2ef9b454e04c.png"
   },
   "logos": [
     {

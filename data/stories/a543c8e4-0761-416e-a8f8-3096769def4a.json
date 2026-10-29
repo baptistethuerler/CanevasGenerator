@@ -1,18 +1,18 @@
 {
-  "id": "f291fd0a-74c2-4189-b433-0095abddfd31",
-  "createdAt": "2026-09-23T19:12:32.775Z",
-  "updatedAt": "2026-10-10T21:43:52.197Z",
+  "id": "a543c8e4-0761-416e-a8f8-3096769def4a",
+  "createdAt": "2026-10-25T20:32:54.066Z",
+  "updatedAt": "2026-10-25T22:13:27.317Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo novembre",
-  "date": "2026-07-12",
+  "title": "story vendredi muscle - 30.10",
+  "date": "2026-10-25",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
-      "size": 91,
-      "color": "#fdfbf7",
+      "size": 96,
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#fdfbf7",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#fdfbf7",
+      "color": "rgba(255,255,255,.95)",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "#fdfbf7",
+      "color": "rgba(255,255,255,.95)",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#fdfbf7",
+      "color": "#eef4f1",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "#fdfbf7",
+      "color": "rgba(255,255,255,.82)",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "top",
+  "blockPosition": "center",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -124,78 +124,43 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1.95,
-      "x": 0.5,
+      "zoom": 1,
+      "x": 1,
       "y": 0.5
     },
     "filters": {
-      "brightness": 0.9,
-      "blur": 0
+      "brightness": 0.55,
+      "blur": 17
     },
-    "imageRef": "Fond_1080x1920_Gastlosen.png"
+    "imageRef": "c445d0e0-f8cf-4e0a-b555-328f2509d21b.png"
   },
-  "logos": [
-    {
-      "id": "7858b9c2-a747-42ac-aa65-dbd61f8855e1",
-      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
-      "anchors": [
-        "bottom-right"
-      ],
-      "free": null,
-      "size": 0.25,
-      "opacity": 0.9
-    }
-  ],
   "slides": [
     {
-      "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
+      "id": "22270fb7-5b81-4715-89a9-8893f7638420",
       "lines": [
         {
-          "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
+          "id": "8130e88c-7371-485f-a73a-b79836a5a41e",
           "style": "title",
-          "text": "Les dispos du mois de novembre",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
+          "text": "🌿 On parle souvent des muscles…"
         },
         {
-          "id": "b98beb24-6b5d-415d-8206-9ffd1355dc5c",
-          "style": "text",
-          "text": "Mercredi 04.11 : matin & après-midi",
-          "icon": null
-        },
-        {
-          "id": "eb105cd3-abb7-4ed7-aad5-d733362e6809",
-          "style": "text",
-          "text": "Lundi 09.11 : matin & après-midi "
-        },
-        {
-          "id": "95dfa669-e8fc-48cf-bba0-82b28a8583ea",
-          "style": "text",
-          "text": "Mercredi 11.11 : matin & 14:00 / 15:30 "
-        },
-        {
-          "id": "bf8c398f-9cb8-45a3-93b8-4b9aee91f66f",
-          "style": "text",
-          "text": "Mercredi 18.11 : matin & début d'après-midi "
-        },
-        {
-          "id": "b449956b-8cb8-48db-b83a-ef56e170a152",
-          "style": "text",
-          "text": "Lundi 23.11 : après-midi "
-        },
-        {
-          "id": "6ae5f9e5-0bf9-4bd1-88d1-42c572d63999",
-          "style": "text",
-          "text": "Mercredi 25.11 : 08:00 / 10:45 / 12:15 "
-        },
-        {
-          "id": "43d185b1-9a60-4248-93cf-ed575cd72e7f",
-          "style": "text",
-          "text": "Lundi 30.11 : matin & après-midi "
+          "id": "2b9bfdb1-b42d-4a1e-b639-894bdf1cccbf",
+          "style": "subtitle",
+          "text": "\nMais savez-vous vraiment comment ils fonctionnent ?\n\nComment arrivent-ils à se contracter, à nous faire bouger et à nous permettre de réaliser tous nos gestes du quotidien ? 🤔\n\nJe vous explique tout ça dimanche ! "
         }
       ]
+    }
+  ],
+  "logos": [
+    {
+      "id": "9bb63e46-6100-4842-a47a-9599845127ff",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "top-right"
+      ],
+      "free": null,
+      "size": 0.24,
+      "opacity": 0.9
     }
   ],
   "timing": {

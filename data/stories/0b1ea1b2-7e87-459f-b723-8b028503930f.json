@@ -1,18 +1,18 @@
 {
-  "id": "0499bc02-6ed9-4a3d-a623-21c1b27e3496",
-  "createdAt": "2026-10-06T16:22:44.559Z",
-  "updatedAt": "2026-10-10T22:13:15.459Z",
+  "id": "0b1ea1b2-7e87-459f-b723-8b028503930f",
+  "createdAt": "2026-10-25T19:50:52.604Z",
+  "updatedAt": "2026-10-25T19:57:15.488Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Mise à jour décembre",
-  "date": "2026-07-12",
+  "title": "Bon Noël 2",
+  "date": "2026-10-07",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
-      "size": 91,
-      "color": "#fdfbf7",
+      "size": 96,
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.12,
       "mark": null,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "#fdfbf7",
+      "color": "#6f948d",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#fdfbf7",
+      "color": "#eef4f1",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -101,7 +101,7 @@
         "top": 40,
         "right": 0,
         "bottom": 0,
-        "left": 50
+        "left": 0
       }
     }
   },
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "top",
+  "blockPosition": "golden-top",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -124,19 +124,19 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1.95,
-      "x": 0.5,
-      "y": 0.5
+      "zoom": 1,
+      "x": 0.52,
+      "y": 0.45
     },
     "filters": {
-      "brightness": 0.9,
-      "blur": 0
+      "brightness": 0.95,
+      "blur": 2
     },
-    "imageRef": "Fond_1080x1920_Gastlosen.png"
+    "imageRef": "Fond_1080x1920_Vals.png"
   },
   "logos": [
     {
-      "id": "7858b9c2-a747-42ac-aa65-dbd61f8855e1",
+      "id": "083dc6e8-57c0-4252-85e8-5cefd5f185b3",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
         "bottom-right"
@@ -148,29 +148,27 @@
   ],
   "slides": [
     {
-      "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
+      "id": "739e31cf-f207-494f-a38a-1e33f6121dfd",
       "lines": [
         {
-          "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
+          "id": "df9120ee-38a9-4885-9344-37958e529861",
           "style": "title",
-          "text": "✨Les prochaines disponibilités sont là\n",
-          "icon": null
+          "text": "Et si le plus beau cadeau était une pause ? "
         },
         {
-          "id": "ec505a6f-8cd2-44ed-8662-311ba1d847d8",
+          "id": "a91cce07-ecf9-4324-b87d-6f6b1093a193",
+          "style": "subtitle",
+          "text": "Un moment pour ralentir, relâcher les tensions et prendre soin de soi…\n\nOffrez une parenthèse de douceur à quelqu’un que vous aimez. 🌿"
+        },
+        {
+          "id": "20f14acc-862d-4826-9262-f06f7bbd25aa",
           "style": "text",
-          "text": "Les horaires d’octobre et de novembre ont été actualisés et le planning de décembre est maintenant ouvert. ",
-          "icon": null
+          "text": "......................................................................................."
         },
         {
-          "id": "78acf3b3-7725-4e22-a5d1-7dd4ca5582b0",
-          "style": "text",
-          "text": "........................................................................................"
-        },
-        {
-          "id": "1f21590c-5622-49a8-a13f-81dbda5525b1",
-          "style": "note",
-          "text": "Pensez à jeter un œil aux disponibilités et à réserver votre prochain moment de détente.\n\nJe me réjouis de vous retrouver pour prendre soin de vous et vous offrir une parenthèse de douceur. ✨"
+          "id": "09c8c7c1-6f37-4822-9a0a-29fbefb20837",
+          "style": "subtitle",
+          "text": "\n🎁 Bons cadeaux disponibles "
         }
       ]
     }

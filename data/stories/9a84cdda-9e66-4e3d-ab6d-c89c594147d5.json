@@ -1,0 +1,224 @@
+{
+  "id": "9a84cdda-9e66-4e3d-ab6d-c89c594147d5",
+  "createdAt": "2026-10-24T22:05:13.884Z",
+  "updatedAt": "2026-10-25T22:14:40.579Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Stronger - 12.11",
+  "date": "2026-10-24",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 24,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "top",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 1,
+      "y": 0.39
+    },
+    "filters": {
+      "brightness": 0.45,
+      "blur": 0
+    },
+    "imageRef": "0bf37649-4f28-409c-beda-075d43377a23.png"
+  },
+  "logos": [
+    {
+      "id": "fa055953-1481-4565-8a12-541d76cc1948",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.22,
+      "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "fb420bd5-8fcc-4a9a-a694-a7326acc1f64",
+      "lines": [
+        {
+          "id": "29acf621-e3e6-4532-8346-df5a72897ce4",
+          "style": "title",
+          "text": " Et du côté des enfants"
+        },
+        {
+          "id": "0fb81911-ff9a-47c3-902b-4eccb7f46cbe",
+          "style": "subtitle",
+          "text": "Aujourd’hui, je vous présente Stronger, un mélange en roll-on à la senteur douce et légèrement citronnée. 🌿"
+        },
+        {
+          "id": "b53994d9-c7b4-4e2d-b7c3-2515d43de93a",
+          "style": "text",
+          "text": "On y retrouve notamment :\n✨ Cèdre\n🍋 Litsée\n🤎 Encens\n🌹 Rose\nLe tout dans une base d’huile de coco fractionnée.\nUn format pratique à découvrir dans l’univers des huiles essentielles !"
+        }
+      ]
+    },
+    {
+      "id": "ea2042bf-df88-42ff-98e5-41b2aa449283",
+      "lines": [
+        {
+          "id": "3ba62ad6-02b5-4a74-9e96-991ab3709f90",
+          "style": "title",
+          "text": "🌱 Stronger : un petit geste tout doux"
+        },
+        {
+          "id": "df8ff833-44d3-43b2-8c07-59f3b9fb9dd7",
+          "style": "subtitle",
+          "text": "Ce mélange est proposé sous forme de roll-on, dans une base d’huile de coco fractionnée."
+        },
+        {
+          "id": "765c62ff-aecd-428d-b729-4be6632ed0c2",
+          "style": "text",
+          "text": "J’aime découvrir les différentes compositions et comprendre comment les huiles essentielles peuvent trouver leur place dans une routine de bien-être adaptée à chacun. 🤍\n\nEt quand il s’agit des enfants, la prudence et le respect des précautions d’utilisation restent essentiels."
+        }
+      ]
+    },
+    {
+      "id": "07b74f65-6d5e-482f-81ba-6a0c526fc303",
+      "lines": [
+        {
+          "id": "9212124e-0315-4b35-b8f0-72fe5907940e",
+          "style": "title",
+          "text": "🌿 Chaque mélange a ses particularités"
+        },
+        {
+          "id": "7c426e50-8d7d-4b70-a34f-59dda44a5333",
+          "style": "subtitle",
+          "text": "Je continue à me former et à découvrir les huiles essentielles, leurs compositions et les précautions à connaître pour les utiliser correctement."
+        },
+        {
+          "id": "76d690b7-eade-421b-81b7-42165d34faf9",
+          "style": "subtitle",
+          "text": "C’est un univers que j’ai envie d’explorer davantage et de vous partager \npetit à petit. 🤍\n"
+        },
+        {
+          "id": "c916a6b8-3573-4da5-9048-4e5626d37c1e",
+          "style": "text",
+          "text": "Vous connaissiez Stronger ?\nUne question sur ce mélange ? Venez m’écrire en privé !"
+        }
+      ]
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}

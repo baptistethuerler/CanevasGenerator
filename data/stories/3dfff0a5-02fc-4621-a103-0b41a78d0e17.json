@@ -1,11 +1,11 @@
 {
   "id": "3dfff0a5-02fc-4621-a103-0b41a78d0e17",
   "createdAt": "2026-10-10T21:38:01.111Z",
-  "updatedAt": "2026-10-10T21:55:17.024Z",
+  "updatedAt": "2026-10-25T22:16:51.485Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo décembre",
+  "title": "Annonce vacances ",
   "date": "2026-07-12",
   "styles": {
     "title": {
@@ -101,7 +101,7 @@
         "top": 40,
         "right": 0,
         "bottom": 0,
-        "left": 30
+        "left": 0
       }
     }
   },
@@ -151,44 +151,14 @@
       "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
       "lines": [
         {
-          "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
-          "style": "title",
-          "text": "Les dispos du mois de décembre",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
-        },
-        {
-          "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
-          "style": "text",
-          "text": "Mercredi 02.12 : matin & après-midi ",
-          "icon": null
-        },
-        {
-          "id": "66d419e7-3c24-40ee-814d-2d0b6c1378ef",
-          "style": "text",
-          "text": "Lundi 07.12 : matin & après midi "
-        },
-        {
-          "id": "63935ec4-6c67-4487-bdb8-62e7420fa92c",
-          "style": "text",
-          "text": "Jeudi 17.12 : après-midi "
-        },
-        {
-          "id": "4d63d6cb-d5fa-417b-99d2-bc08da9c55fe",
-          "style": "text",
-          "text": "........................................................................................."
-        },
-        {
           "id": "4085fa03-8de3-4b0a-9c15-03139476a3f4",
-          "style": "subtitle",
-          "text": "Petite pause hivernale 🤍"
+          "style": "title",
+          "text": "✨ Une petite pause pour les fêtes…"
         },
         {
-          "id": "eda4da4f-6351-4a28-b375-0f5f21af2dac",
-          "style": "note",
-          "text": "Je serai en vacances pendant 2 semaines en décembre. Je vous souhaite un très joyeux Noël et de belles fêtes de fin d’année ! 🎄\n\nOn se retrouve l’année prochaine - \nAltitude Masasge "
+          "id": "1fc00c9c-3afe-430b-a4c3-48822de9448e",
+          "style": "text",
+          "text": "Je serai en vacances pendant deux semaines en décembre. 🎄🤍\n\nL’agenda en ligne reste accessible pendant mon absence pour vos réservations. Vous pouvez donc choisir tranquillement votre prochain moment de détente, même pendant les fêtes. 🌿\n\n"
         }
       ]
     }

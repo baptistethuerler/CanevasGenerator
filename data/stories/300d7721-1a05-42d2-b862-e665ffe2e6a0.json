@@ -1,0 +1,224 @@
+{
+  "id": "300d7721-1a05-42d2-b862-e665ffe2e6a0",
+  "createdAt": "2026-10-25T08:17:11.974Z",
+  "updatedAt": "2026-10-25T22:13:12.382Z",
+  "status": "draft",
+  "type": "story",
+  "format": "9:16",
+  "title": "Serenity 29.10",
+  "date": "2026-10-24",
+  "styles": {
+    "title": {
+      "label": "Titre",
+      "font": "Erode Medium Italic",
+      "size": 96,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.12,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "subtitle": {
+      "label": "Sous-titre",
+      "font": "Erode Medium Italic",
+      "size": 60,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.2,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 52,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "text": {
+      "label": "Texte",
+      "font": "Erode Medium",
+      "size": 48,
+      "color": "#fdfbf7",
+      "align": "left",
+      "lineHeight": 1.32,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "bullet": {
+      "label": "Puce",
+      "font": "Erode Medium",
+      "size": 46,
+      "color": "rgba(255,255,255,.95)",
+      "align": "left",
+      "lineHeight": 1.3,
+      "mark": "•",
+      "margins": {
+        "linked": false,
+        "top": 14,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "arrow": {
+      "label": "Créneau",
+      "font": "Erode Medium",
+      "size": 52,
+      "color": "#eef4f1",
+      "align": "left",
+      "lineHeight": 1.24,
+      "mark": "→",
+      "margins": {
+        "linked": false,
+        "top": 10,
+        "right": 0,
+        "bottom": 0,
+        "left": 44
+      }
+    },
+    "note": {
+      "label": "Note",
+      "font": "Erode Medium",
+      "size": 40,
+      "color": "rgba(255,255,255,.82)",
+      "align": "left",
+      "lineHeight": 1.36,
+      "mark": null,
+      "margins": {
+        "linked": false,
+        "top": 40,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "contentMargin": {
+    "linked": false,
+    "top": 248.5,
+    "right": 109.5,
+    "bottom": 248.5,
+    "left": 109.5
+  },
+  "blockPosition": "golden-top",
+  "background": {
+    "kind": "image",
+    "color": "#81a9a3",
+    "overlay": {
+      "type": "none",
+      "color": "#000000",
+      "intensity": 0.5,
+      "direction": "bottom",
+      "softness": 0.5
+    },
+    "crop": {
+      "zoom": 1,
+      "x": 0.41,
+      "y": 0.21
+    },
+    "filters": {
+      "brightness": 0.45,
+      "blur": 4
+    },
+    "imageRef": "93bd219f-d6da-4a17-9fea-b98f06639834.png"
+  },
+  "logos": [
+    {
+      "id": "fa055953-1481-4565-8a12-541d76cc1948",
+      "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
+      "anchors": [
+        "bottom-right"
+      ],
+      "free": null,
+      "size": 0.22,
+      "opacity": 0.9
+    }
+  ],
+  "slides": [
+    {
+      "id": "fb420bd5-8fcc-4a9a-a694-a7326acc1f64",
+      "lines": [
+        {
+          "id": "29acf621-e3e6-4532-8346-df5a72897ce4",
+          "style": "title",
+          "text": "💜 Aujourd’hui, place à Serenity !"
+        },
+        {
+          "id": "0fb81911-ff9a-47c3-902b-4eccb7f46cbe",
+          "style": "subtitle",
+          "text": "Ma petite bulle de quiétude… 🌿"
+        },
+        {
+          "id": "1c0dce84-3101-44ad-b1aa-47a8572258f5",
+          "style": "subtitle",
+          "text": "Serenity associe plusieurs notes florales, boisées et herbacées."
+        },
+        {
+          "id": "6f246779-2b03-49e8-9c45-5df3ce3540eb",
+          "style": "text",
+          "text": "🌲 Bois de cèdre\n💜 Lavande\n🪵 Bois de santal hawaïen\n🌿 Marjolaine\n🌼 Camomille romaine\n✨ Ylang-ylang\n\nUn mélange aux senteurs douces, à découvrir dans une ambiance calme et cocooning. 🤍"
+        }
+      ]
+    },
+    {
+      "id": "ea2042bf-df88-42ff-98e5-41b2aa449283",
+      "lines": [
+        {
+          "id": "3ba62ad6-02b5-4a74-9e96-991ab3709f90",
+          "style": "title",
+          "text": "✨ Et si on s’accordait une pause ?"
+        },
+        {
+          "id": "e90b0275-b44c-48d3-9d67-f60215bba718",
+          "style": "subtitle",
+          "text": "Serenity est un mélange aux notes douces et enveloppantes, qui peut accompagner un petit rituel de détente."
+        },
+        {
+          "id": "8fa5cc5a-3f92-4b81-a50e-f1ebd002f83d",
+          "style": "text",
+          "text": "🕯️ Une lumière tamisée\n📖 Quelques pages d’un livre\n🤍 Un instant rien que pour soi\n\nPas besoin d’en faire beaucoup pour créer une atmosphère réconfortante à la maison.\n\nParfois, ralentir est déjà une façon de prendre soin de soi."
+        }
+      ]
+    },
+    {
+      "id": "07b74f65-6d5e-482f-81ba-6a0c526fc303",
+      "lines": [
+        {
+          "id": "9212124e-0315-4b35-b8f0-72fe5907940e",
+          "style": "title",
+          "text": "✨ Et toi, tu connaissais Serenity ?"
+        },
+        {
+          "id": "1b44885b-8eac-4cd3-8e84-5a820610201d",
+          "style": "subtitle",
+          "text": "Tu es plutôt du genre à prendre un moment pour toi le soir ? \n\n🌙 Ou à courir jusqu’au dernier moment ? 😅"
+        },
+        {
+          "id": "1fec2bb3-8d6f-4738-91b5-780734640eb7",
+          "style": "text",
+          "text": "\nSi tu es curieux-se d’en savoir plus sur ce mélange ou sur mes découvertes autour de l’aromathérapie, écris-moi en privé.\nJe te répondrai avec plaisir ! 🤍"
+        }
+      ]
+    }
+  ],
+  "timing": {
+    "duration": 4.5,
+    "transition": 0.7
+  },
+  "icons": {
+    "stroke": "trait-2",
+    "scale": 1
+  }
+}

@@ -1,17 +1,17 @@
 {
-  "id": "76756b5b-0eee-4849-8129-b2d456b62afc",
-  "createdAt": "2026-09-09T15:25:42.830Z",
-  "updatedAt": "2026-10-10T21:39:55.671Z",
+  "id": "790439d3-1a7b-424a-88d3-624ce8d277b1",
+  "createdAt": "2026-10-24T22:18:56.957Z",
+  "updatedAt": "2026-10-25T22:13:54.961Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Dispo octobre",
-  "date": "2026-07-12",
+  "title": "Kit enfant 03.11",
+  "date": "2026-10-24",
   "styles": {
     "title": {
       "label": "Titre",
       "font": "Erode Medium Italic",
-      "size": 91,
+      "size": 96,
       "color": "#fdfbf7",
       "align": "left",
       "lineHeight": 1.12,
@@ -28,7 +28,7 @@
       "label": "Sous-titre",
       "font": "Erode Medium Italic",
       "size": 60,
-      "color": "#fdfbf7",
+      "color": "#ffffff",
       "align": "left",
       "lineHeight": 1.2,
       "mark": null,
@@ -44,7 +44,7 @@
       "label": "Texte",
       "font": "Erode Medium",
       "size": 48,
-      "color": "#fdfbf7",
+      "color": "rgba(255,255,255,.95)",
       "align": "left",
       "lineHeight": 1.32,
       "mark": null,
@@ -60,7 +60,7 @@
       "label": "Puce",
       "font": "Erode Medium",
       "size": 46,
-      "color": "#fdfbf7",
+      "color": "rgba(255,255,255,.95)",
       "align": "left",
       "lineHeight": 1.3,
       "mark": "•",
@@ -76,7 +76,7 @@
       "label": "Créneau",
       "font": "Erode Medium",
       "size": 52,
-      "color": "#fdfbf7",
+      "color": "#eef4f1",
       "align": "left",
       "lineHeight": 1.24,
       "mark": "→",
@@ -92,7 +92,7 @@
       "label": "Note",
       "font": "Erode Medium",
       "size": 40,
-      "color": "#fdfbf7",
+      "color": "rgba(255,255,255,.82)",
       "align": "left",
       "lineHeight": 1.36,
       "mark": null,
@@ -101,7 +101,7 @@
         "top": 40,
         "right": 0,
         "bottom": 0,
-        "left": 0
+        "left": 100
       }
     }
   },
@@ -112,7 +112,7 @@
     "bottom": 248.5,
     "left": 109.5
   },
-  "blockPosition": "top",
+  "blockPosition": "center",
   "background": {
     "kind": "image",
     "color": "#81a9a3",
@@ -124,61 +124,76 @@
       "softness": 0.5
     },
     "crop": {
-      "zoom": 1.95,
-      "x": 0.5,
-      "y": 0.5
+      "zoom": 1,
+      "x": 0.3,
+      "y": 0.43
     },
     "filters": {
-      "brightness": 0.9,
-      "blur": 0
+      "brightness": 0.4,
+      "blur": 2
     },
-    "imageRef": "Fond_1080x1920_Gastlosen.png"
+    "imageRef": "f613394e-65fa-41c7-9d42-088bb9b02d4e.png"
   },
   "logos": [
     {
-      "id": "7858b9c2-a747-42ac-aa65-dbd61f8855e1",
+      "id": "fa055953-1481-4565-8a12-541d76cc1948",
       "logoRef": "796c0292-f07d-476e-a5a0-64a27f25709a.png",
       "anchors": [
-        "bottom-right"
+        "top-right"
       ],
       "free": null,
-      "size": 0.25,
+      "size": 0.22,
       "opacity": 0.9
     }
   ],
   "slides": [
     {
-      "id": "8fbffde3-f84e-4ca5-8fd0-0ecae83879a5",
+      "id": "fb420bd5-8fcc-4a9a-a694-a7326acc1f64",
       "lines": [
         {
-          "id": "cbdb1d0e-fe25-4933-9569-915b68aebcf9",
+          "id": "29acf621-e3e6-4532-8346-df5a72897ce4",
           "style": "title",
-          "text": "Les dispos du mois d'octobre",
-          "icon": {
-            "name": "feuille",
-            "color": "blanc"
-          }
+          "text": "🌈 À la découverte de la Kids Collection doTERRA !"
         },
         {
-          "id": "0e6d1067-73da-4ff4-be0d-0b4344b42a65",
-          "style": "text",
-          "text": "Mercredi 14.10 : matin ",
-          "icon": null
+          "id": "49daa0b0-e1d9-4573-83ef-1222e1db1117",
+          "style": "subtitle",
+          "text": "Un kit qui m’a intriguée, avec plusieurs mélanges à découvrir et de petits roll-ons colorés. 🌿\n\nUne collection pensée autour de différents univers du quotidien des enfants, avec des noms faciles à retenir et des couleurs qui les distinguent. ✨"
+        }
+      ]
+    },
+    {
+      "id": "ea2042bf-df88-42ff-98e5-41b2aa449283",
+      "lines": [
+        {
+          "id": "3ba62ad6-02b5-4a74-9e96-991ab3709f90",
+          "style": "title",
+          "text": "✨ 7 mélanges à découvrir !"
         },
         {
-          "id": "66d419e7-3c24-40ee-814d-2d0b6c1378ef",
+          "id": "203af215-1da7-4dd3-8769-699468bc335f",
           "style": "text",
-          "text": "Jeudi 15.10 : matin & début d'après midi "
+          "text": "  🌙 Calmer — autour des moments de détente\n🧠 Thinker — l’univers de la concentration\n💛 Brave — le courage et la confiance\n🌿 Steady — l’équilibre émotionnel\n💪 Rescuer — après les journées bien remplies\n🌸 Stronger — autour du bien-être au quotidien\n🌱 Tamer — l’univers du confort digestif"
         },
         {
-          "id": "63935ec4-6c67-4487-bdb8-62e7420fa92c",
-          "style": "text",
-          "text": "Lundi 26.10 : 15:00 "
+          "id": "a505976c-f4fc-44c2-8cee-19e9b5944546",
+          "style": "subtitle",
+          "text": "Chaque mélange a son nom, sa couleur et son identité. 🌈\nLequel aimerais-tu découvrir en premier ?"
+        }
+      ]
+    },
+    {
+      "id": "07b74f65-6d5e-482f-81ba-6a0c526fc303",
+      "lines": [
+        {
+          "id": "9212124e-0315-4b35-b8f0-72fe5907940e",
+          "style": "title",
+          "text": "🌿 Et toi, tu connaissais cette collection ?"
         },
         {
-          "id": "da6c4e32-529e-437d-8d09-4824e1292694",
-          "style": "text",
-          "text": "Jeudi 29.10 : matin & après midi "
+          "id": "0ec0c3d0-9a63-4e8e-b47d-293b245c3d4b",
+          "style": "subtitle",
+          "text": "Je continue à découvrir les différents produits doTERRA et à approfondir mes connaissances sur l’aromathérapie. 🤍\n\nTu aimerais en savoir plus sur la Kids Collection ou découvrir d’autres mélanges ?  Écris-moi en message privé. "
         }
       ]
     }

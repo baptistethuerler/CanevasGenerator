@@ -1,11 +1,11 @@
 {
   "id": "87106a0a-7218-410a-a5d8-9df7c1404efa",
   "createdAt": "2026-10-07T18:00:53.155Z",
-  "updatedAt": "2026-10-11T18:54:37.952Z",
+  "updatedAt": "2026-10-25T22:15:18.356Z",
   "status": "draft",
   "type": "story",
   "format": "9:16",
-  "title": "Bon Noël",
+  "title": "Bon Noël - 13.11",
   "date": "2026-10-07",
   "styles": {
     "title": {
@@ -21,7 +21,7 @@
         "top": 0,
         "right": 0,
         "bottom": 0,
-        "left": 0
+        "left": 150
       }
     },
     "subtitle": {
@@ -53,7 +53,7 @@
         "top": 24,
         "right": 0,
         "bottom": 0,
-        "left": 150
+        "left": 0
       }
     },
     "bullet": {
@@ -141,7 +141,7 @@
         {
           "id": "df9120ee-38a9-4885-9344-37958e529861",
           "style": "title",
-          "text": "🎄 Les fêtes approchent"
+          "text": "🎄Les fêtes approchent"
         },
         {
           "id": "a91cce07-ecf9-4324-b87d-6f6b1093a193",
@@ -149,24 +149,19 @@
           "text": "Et si vous offriez un joli moment de détente à quelqu’un que vous aimez ? "
         },
         {
-          "id": "09c8c7c1-6f37-4822-9a0a-29fbefb20837",
+          "id": "20f14acc-862d-4826-9262-f06f7bbd25aa",
           "style": "text",
+          "text": "......................................................................................."
+        },
+        {
+          "id": "09c8c7c1-6f37-4822-9a0a-29fbefb20837",
+          "style": "subtitle",
           "text": "🎁 Bons cadeaux massage"
         },
         {
-          "id": "9fefa71a-af5e-46d1-9ab4-dfb5265b519c",
-          "style": "text",
-          "text": " Valeur 100 CHF → 90 CHF\nValeur 110 CHF → 99 CHF"
-        },
-        {
           "id": "6bbbea0c-eebf-4ab4-ac29-922a00a7625e",
-          "style": "subtitle",
+          "style": "text",
           "text": "Une jolie idée pour prendre soin de quelqu’un pendant les fêtes "
-        },
-        {
-          "id": "c30cade7-f18c-465a-801b-bd7562295efa",
-          "style": "note",
-          "text": "\n\n\n\n\n\n\n\n\n\nOffre valable pour les bons achetés jusqu’au 20 décembre."
         }
       ]
     }
